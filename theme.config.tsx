@@ -4,14 +4,14 @@ import { DocsThemeConfig } from 'nextra-theme-docs'
 const config: DocsThemeConfig = {
   logo: <span>My Project</span>,
   project: {
-    link: 'https://github.com/shuding/nextra-docs-template',
+    link: 'https://github.com/nextui-org/tailwind-variants',
   },
   chat: {
-    link: 'https://discord.com',
+    link: 'https://discord.gg/9b6yyZKmH4',
   },
-  docsRepositoryBase: 'https://github.com/shuding/nextra-docs-template',
+  docsRepositoryBase: 'https://github.com/nextui-org/tailwind-variants',
   footer: {
-    text: 'Nextra Docs Template',
+    text: 'Tailwind variants Docs',
   },
 }
 
