@@ -14,9 +14,11 @@ const config: DocsThemeConfig = {
   },
   logo: (
     <div className="flex items-center">
-      <Logo />
-      <b className="ml-2 font-medium">tailwind-variants</b>
-      <span className={tvs.badge()}>v{tvVersion}</span>
+      <Logo height={30} />
+      <b className="ml-1.5 font-semibold">tailwind-variants</b>
+      <span className={tvs.badge({ class: "hidden sm:flex" })}>
+        v{tvVersion}
+      </span>
     </div>
   ),
   head: function useHead() {
@@ -30,7 +32,7 @@ const config: DocsThemeConfig = {
 
     return (
       <>
-        <title>{config.title} | tailwind-va-iants </title>
+        <title>{config.title} | tailwind-variants </title>
         {/* Favicons, meta */}
         <link
           href="/favicon/apple-touch-icon.png"
@@ -87,23 +89,32 @@ const config: DocsThemeConfig = {
             target="_blank"
             title="nextui.org homepage"
           >
-            <span className="mr-2">Powered by</span>
+            <span className="mr-1">Powered by</span>
             <NextUILogo height={30} />
           </a>
         </div>
         <p className="mt-6 text-xs">
           Created by&nbsp;
           <a
-            className="text-blue-600"
+            className="text-blue-500 font-semibold"
             href="https://jrgarciadev.com"
             rel="noreferrer"
             target="_blank"
           >
-            Junior Garcia
+            Junior Garcia&nbsp;
+          </a>
+          - Based on&nbsp;
+          <a
+            className="text-blue-500 font-semibold"
+            href="https://github.com/joe-bell/cva"
+            rel="noreferrer"
+            target="_blank"
+          >
+            CVA
           </a>
         </p>
         <p className="mt-6 text-xs">
-          ©{new Date().getFullYear()} The tailwind-variants project.
+          MIT {new Date().getFullYear()} The tailwind-variants project.
         </p>
       </div>
     ),

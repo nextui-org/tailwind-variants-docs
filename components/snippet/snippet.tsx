@@ -15,7 +15,7 @@ const Snippet: React.FC<SnippetProps> = () => {
   };
 
   return (
-    <div className="flex items-center justify-between bg-neutral/20 w-[420px] h-10 font-mono text-sm px-6 py-2 rounded-full text-black">
+    <div className="flex items-center justify-between bg-neutral/20 md:w-[420px] w-[320px] h-10 font-mono md:text-sm text-xs px-6 py-2 rounded-full text-black">
       <div className="dark:text-white">$ npm install tailwind-variants</div>
       <Tooltip content="Copy to clipboard" delay={600} onClick={handleCopyCode}>
         {copied ? (

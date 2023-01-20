@@ -1,3 +1,57 @@
-
+import { Tab, Tabs } from 'nextra-theme-docs'
 
 # Getting started
+
+Tailwind-variants combines the power of TailwindCSS with a first-class variant API.
+
+## Installation
+
+
+<Tabs items={['npm', 'yarn', 'pnpm']}>
+  <Tab>
+    ```bash copy
+    npm install tailwind-variants
+    ```
+  </Tab>
+  <Tab>
+    ```bash copy
+    yarn add tailwind-variants
+    ```
+  </Tab>
+  <Tab>
+    ```bash copy
+    pnpm add tailwind-variants
+    ```
+  </Tab>
+</Tabs>
+
+## Usage
+
+```js copy
+import { tv } from 'tailwind-variants';
+
+const button = tv('button', {
+  base: 'bg-blue-500 text-white',
+  variants: {
+    size: {
+      sm: 'px-2 py-1 text-sm',
+      md: 'px-3 py-2 text-base',
+      lg: 'px-4 py-3 text-lg',
+    },
+    variant: {
+      primary: 'bg-blue-500 text-white',
+      secondary: 'bg-gray-500 text-white',
+    },
+  },
+  defaultVariants: {
+    size: 'md',
+    variant: 'primary',
+  }
+});
+
+<button className={button({ size: 'lg', variant: 'secondary' })}>Click me</button>
+```
+
+## Contributing
+
+PR's on **tailwind-variants** are always welcome, please see our [contribution guidelines](https://github.com/nextui-org/tailwind-variants/blob/main/CONTRIBUTING.md) to learn how you can contribute to this project.

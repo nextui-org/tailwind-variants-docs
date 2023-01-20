@@ -1,5 +1,5 @@
 import React from "react";
-import { tvs, LinkIcon, Snippet } from "@components";
+import { tvs, LinkIcon, Snippet, Logo } from "@components";
 
 interface HeroProps {}
 
@@ -7,8 +7,8 @@ const Hero: React.FC<HeroProps> = () => {
   return (
     <section className={tvs.box({ class: "my-20 gap-6" })}>
       <div className={tvs.box()}>
-        <img className="h-32 my-4" src="logo.png" />
-        <h1 className="font-extrabold text-4xl md:text-5xl text-black dark:text-white">
+        <Logo height={120} />
+        <h1 className="font-extrabold mt-4 text-4xl md:text-5xl text-black dark:text-white">
           tailwind-variants
         </h1>
         <p className="mt-2 text-center font-medium text-xl sm:text-lg">
@@ -17,7 +17,7 @@ const Hero: React.FC<HeroProps> = () => {
       </div>
 
       <div className={tvs.box({ row: true, class: "gap-2" })}>
-        <a className={tvs.button()} href="/docs">
+        <a className={tvs.button()} href="/docs/getting-started">
           Documentation
         </a>
         <a
@@ -36,7 +36,6 @@ const Hero: React.FC<HeroProps> = () => {
           </span>
         </a>
       </div>
-
       <Snippet />
     </section>
   );

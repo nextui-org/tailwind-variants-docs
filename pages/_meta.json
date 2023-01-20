@@ -7,23 +7,5 @@
   "docs": {
     "title": "Docs",
     "type": "page"
-  },
-  "core-concepts": {
-    "title": "Core Concepts"
-  },
-  "use-cases": {
-    "title": "Use cases"
-  },
-  "examples": {
-    "title": "Examples"
-  },
-  "api-reference": {
-    "title": "API Reference"
-  },
-  "acknowledgements": {
-    "title": "Acknowledgements"
-  },
-  "faq": {
-    "title": "FAQ"
   }
 }

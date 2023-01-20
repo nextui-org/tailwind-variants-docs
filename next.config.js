@@ -8,7 +8,7 @@ module.exports = withNextra({
     return [
       {
         source: "/docs",
-        destination: "/docs/introduction",
+        destination: "/docs/getting-started",
         permanent: true,
       },
     ];

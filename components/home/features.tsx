@@ -12,25 +12,25 @@ export const features = [
     name: "Fast",
     description:
       "Tailwind-variants is zero-runtime and tree-shakeable. It only takes care of the classNames generation.",
-    icon: <FlashIcon fill="#0072f5" />,
+    icon: <FlashIcon fill="#FFFFFF" />,
   },
   {
     name: "Fully typed",
     description:
       "Auto-completion and type-safety are provided by TypeScript. No need to worry about typos.",
-    icon: <CodeDocumentIcon fill="#0072f5" />,
+    icon: <CodeDocumentIcon fill="#FFFFFF" />,
   },
   {
     name: "Safe",
     description:
       "Forget about TailwindCSS style conflicts. Tailwind-variants efficiently merges conflicting styles.",
-    icon: <MagicIcon fill="#0072f5" />,
+    icon: <MagicIcon fill="#FFFFFF" />,
   },
   {
     name: "Framework agnostic",
     description:
       "Tailwind-variants is a utility library that works with any framework. It's not tied to React.",
-    icon: <ServerIcon fill="#0072f5" />,
+    icon: <ServerIcon fill="#FFFFFF" />,
   },
 ];
 
@@ -41,7 +41,7 @@ const Features: React.FC<FeaturesProps> = () => {
         {features.map((feature, index) => (
           <div key={index} className={card({ class: "gap-2 p-4" })}>
             <div className="flex items-center">
-              <div className="flex items-center justify-center w-12 h-12 rounded-full bg-primary/20 dark:bg-primary/10">
+              <div className="flex items-center justify-center w-12 h-12 rounded-full bg-white/20 dark:bg-white/10">
                 {feature.icon}
               </div>
               <h3 className="font-bold mx-3 text-lg text-black dark:text-white">

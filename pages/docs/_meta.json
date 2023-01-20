@@ -1,4 +1,26 @@
 {
-  "introduction": "Introduction",
-  "getting-started": "Getting Started"
+  "index": {
+    "title": "Introduction"
+  },
+  "getting-started": "Getting Started",
+  "variants": "Variants",
+  "slots": "Slots",
+  "use-cases": {
+    "title": "Use cases"
+  },
+  "examples": {
+    "title": "Examples"
+  },
+  "typescript": {
+    "title": "Typescript"
+  },
+  "api-reference": {
+    "title": "API Reference"
+  },
+  "acknowledgements": {
+    "title": "Acknowledgements"
+  },
+  "faq": {
+    "title": "FAQ"
+  }
 }
