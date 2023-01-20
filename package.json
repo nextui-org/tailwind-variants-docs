@@ -18,11 +18,15 @@
   },
   "homepage": "https://github.com/nextui-org/tailwind-variants-docs#readme",
   "dependencies": {
+    "@react-aria/tooltip": "^3.3.4",
+    "@react-aria/utils": "^3.14.2",
+    "@react-stately/tooltip": "^3.2.4",
     "next": "^13.1.2",
     "nextra": "2.2.5",
     "nextra-theme-docs": "2.2.5",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "tailwind-variants": "^0.0.12"
   },
   "devDependencies": {
     "@types/node": "18.11.10",

@@ -1,13 +1,22 @@
 import React from "react";
 import { DocsThemeConfig, useConfig } from "nextra-theme-docs";
+import { Logo, NextUILogo, tvs } from "@components";
 
-import { Logo, NextUILogo } from "./components";
+// get the package version from package.json
+const pkg = require("./package.json");
+const tvVersion =
+  pkg?.dependencies?.["tailwind-variants"]?.replace("^", "") ?? "0.0.12";
 
 const config: DocsThemeConfig = {
+  darkMode: true,
+  nextThemes: {
+    defaultTheme: "dark",
+  },
   logo: (
     <div className="flex items-center">
       <Logo />
       <b className="ml-2 font-medium">tailwind-variants</b>
+      <span className={tvs.badge()}>v{tvVersion}</span>
     </div>
   ),
   head: function useHead() {
@@ -16,10 +25,12 @@ const config: DocsThemeConfig = {
       config.frontMatter.description ||
       "The power of Tailwind combined with a first-class variant API.";
     const image = config.frontMatter.image;
+
     // || "https://assets.vercel.com/image/upload/v1572282926/swr/twitter-card.jpg";
 
     return (
       <>
+        <title>{config.title} | tailwind-va-iants </title>
         {/* Favicons, meta */}
         <link
           href="/favicon/apple-touch-icon.png"
@@ -64,6 +75,7 @@ const config: DocsThemeConfig = {
     link: "https://discord.gg/9b6yyZKmH4",
   },
   docsRepositoryBase: "https://github.com/nextui-org/tailwind-variants",
+  gitTimestamp: "",
   footer: {
     text: (
       <div className="flex w-full flex-col items-center sm:items-start">

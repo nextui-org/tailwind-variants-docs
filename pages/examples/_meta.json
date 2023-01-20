@@ -1,0 +1,6 @@
+{
+  "vanilla": "Vanilla JS",
+  "react": "React",
+  "vue": "VueJS",
+  "svelte": "Svelte"
+}

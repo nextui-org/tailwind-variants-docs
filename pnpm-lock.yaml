@@ -1,6 +1,9 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@react-aria/tooltip': ^3.3.4
+  '@react-aria/utils': ^3.14.2
+  '@react-stately/tooltip': ^3.2.4
   '@types/node': 18.11.10
   '@typescript-eslint/eslint-plugin': ^5.42.0
   '@typescript-eslint/parser': ^5.42.0
@@ -30,15 +33,20 @@ specifiers:
   prettier-eslint: ^12.0.0
   react: ^18.2.0
   react-dom: ^18.2.0
+  tailwind-variants: ^0.0.12
   tailwindcss: ^3.2.4
   typescript: ^4.9.3
 
 dependencies:
+  '@react-aria/tooltip': 3.3.4_react@18.2.0
+  '@react-aria/utils': 3.14.2_react@18.2.0
+  '@react-stately/tooltip': 3.2.4_react@18.2.0
   next: 13.1.2_biqbaboplfbrettd7655fr4n2y
   nextra: 2.2.5_7jnwqgtpcnwg4nzft4b6xlzlfi
   nextra-theme-docs: 2.2.5_7jnwqgtpcnwg4nzft4b6xlzlfi
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
+  tailwind-variants: 0.0.12_typescript@4.9.4
 
 devDependencies:
   '@types/node': 18.11.10
@@ -512,6 +520,126 @@ packages:
 
   /@popperjs/core/2.11.6:
     resolution: {integrity: sha512-50/17A98tWUfQ176raKiOGXuYpLyyVMkxxG6oylzL3BPOlA6ADGdK7EYunSa4I064xerltq9TGXs8HmOk5E+vw==}
+    dev: false
+
+  /@react-aria/focus/3.10.1_react@18.2.0:
+    resolution: {integrity: sha512-HjgFUC1CznuYC7CxtBIFML6bOBxW3M3cSNtvmXU9QWlrPSwwOLkXCnfY6+UkjCc5huP4v7co4PoRDX8Vbe/cVQ==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
+    dependencies:
+      '@react-aria/interactions': 3.13.1_react@18.2.0
+      '@react-aria/utils': 3.14.2_react@18.2.0
+      '@react-types/shared': 3.16.0_react@18.2.0
+      '@swc/helpers': 0.4.14
+      clsx: 1.2.1
+      react: 18.2.0
+    dev: false
+
+  /@react-aria/interactions/3.13.1_react@18.2.0:
+    resolution: {integrity: sha512-WCvfZOi1hhussVTHxVq76OR48ry13Zvp9U5hmuQufyxIUlf4hOvDk4/cbK4o4JiCs8X7C7SRzcwFM34M4NHzmg==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
+    dependencies:
+      '@react-aria/utils': 3.14.2_react@18.2.0
+      '@react-types/shared': 3.16.0_react@18.2.0
+      '@swc/helpers': 0.4.14
+      react: 18.2.0
+    dev: false
+
+  /@react-aria/ssr/3.4.1_react@18.2.0:
+    resolution: {integrity: sha512-NmhoilMDyIfQiOSdQgxpVH2tC2u85Y0mVijtBNbI9kcDYLEiW/r6vKYVKtkyU+C4qobXhGMPfZ70PTc0lysSVA==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
+    dependencies:
+      '@swc/helpers': 0.4.14
+      react: 18.2.0
+    dev: false
+
+  /@react-aria/tooltip/3.3.4_react@18.2.0:
+    resolution: {integrity: sha512-KPDkDu7fquuUOOnNh9S7KfhPMwB1w9K+yLIFrYaj4iYSOLk/HH5TDkyiUQ7j5+B963D1fWlQjYFEGQ9o2KwO/Q==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
+    dependencies:
+      '@react-aria/focus': 3.10.1_react@18.2.0
+      '@react-aria/interactions': 3.13.1_react@18.2.0
+      '@react-aria/utils': 3.14.2_react@18.2.0
+      '@react-stately/tooltip': 3.2.4_react@18.2.0
+      '@react-types/shared': 3.16.0_react@18.2.0
+      '@react-types/tooltip': 3.2.5_react@18.2.0
+      '@swc/helpers': 0.4.14
+      react: 18.2.0
+    dev: false
+
+  /@react-aria/utils/3.14.2_react@18.2.0:
+    resolution: {integrity: sha512-3nr5gsAf/J/W+6Tu4NF3Q7m+1mXjfpXESh7TPa6UR6v3tVDTsJVMrITg2BkHN1jM8xELcl2ZxyUffOWqOXzWuA==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
+    dependencies:
+      '@react-aria/ssr': 3.4.1_react@18.2.0
+      '@react-stately/utils': 3.5.2_react@18.2.0
+      '@react-types/shared': 3.16.0_react@18.2.0
+      '@swc/helpers': 0.4.14
+      clsx: 1.2.1
+      react: 18.2.0
+    dev: false
+
+  /@react-stately/overlays/3.4.4_react@18.2.0:
+    resolution: {integrity: sha512-IIlx+VXtXS4snDXrocUOls8QZ5XBQ4SNonaz1ox8/5W7Nsvq4VtdKsIaXsUP4agOudswaimlpj3pTDO/KuF5tQ==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
+    dependencies:
+      '@react-stately/utils': 3.5.2_react@18.2.0
+      '@react-types/overlays': 3.6.5_react@18.2.0
+      '@swc/helpers': 0.4.14
+      react: 18.2.0
+    dev: false
+
+  /@react-stately/tooltip/3.2.4_react@18.2.0:
+    resolution: {integrity: sha512-t7ksDRs9jKcOS25BVLM5cNCyzSCnzrin8OZ3AEmgeNxfiS58HhHbNxYk725hyGrbdpugQ03cRcJG70EZ6VgwDQ==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
+    dependencies:
+      '@react-stately/overlays': 3.4.4_react@18.2.0
+      '@react-stately/utils': 3.5.2_react@18.2.0
+      '@react-types/tooltip': 3.2.5_react@18.2.0
+      '@swc/helpers': 0.4.14
+      react: 18.2.0
+    dev: false
+
+  /@react-stately/utils/3.5.2_react@18.2.0:
+    resolution: {integrity: sha512-639gSKqamPHIEPaApb9ahVJS0HgAqNdVF3tQRoh+Ky6759Mbk6i3HqG4zk4IGQ1tVlYSYZvCckwehF7b2zndMg==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
+    dependencies:
+      '@swc/helpers': 0.4.14
+      react: 18.2.0
+    dev: false
+
+  /@react-types/overlays/3.6.5_react@18.2.0:
+    resolution: {integrity: sha512-IeWcF+YTucCYYHagNh8fZLH6R4YUONO1VHY57WJyIHwMy0qgEaKSQCwq72VO1fQJ0ySZgOgm31FniOyKkg6+eQ==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
+    dependencies:
+      '@react-types/shared': 3.16.0_react@18.2.0
+      react: 18.2.0
+    dev: false
+
+  /@react-types/shared/3.16.0_react@18.2.0:
+    resolution: {integrity: sha512-IQgU4oAEvMwylEvaTsr2XB1G/mAoMe1JFYLD6G78v++oAR9l8o9MQxZ0YSeANDkqTamb2gKezGoT1RxvSKjVxw==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
+    dependencies:
+      react: 18.2.0
+    dev: false
+
+  /@react-types/tooltip/3.2.5_react@18.2.0:
+    resolution: {integrity: sha512-D4lN32JwQuA3JbCgcI26mgCkLHIj1WE8MTzf1McaasPkx7gVaqW+wfPyFwt99/Oo52TLvA/1oin78qePP67PSw==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
+    dependencies:
+      '@react-types/overlays': 3.6.5_react@18.2.0
+      '@react-types/shared': 3.16.0_react@18.2.0
+      react: 18.2.0
     dev: false
 
   /@swc/helpers/0.4.14:
@@ -1267,6 +1395,17 @@ packages:
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
+
+  /class-variance-authority/0.4.0_typescript@4.9.4:
+    resolution: {integrity: sha512-74enNN8O9ZNieycac/y8FxqgyzZhZbxmCitAtAeUrLPlxjSd5zA7LfpprmxEcOmQBnaGs5hYhiSGnJ0mqrtBLQ==}
+    peerDependencies:
+      typescript: '>= 4.5.5 < 5'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+    dependencies:
+      typescript: 4.9.4
+    dev: false
 
   /client-only/0.0.1:
     resolution: {integrity: sha512-IV3Ou0jSMzZrd3pZ48nLkT9DA7Ag1pnPzaiQhpW7c3RbcqqzvzzVu+L8gfqMp/8IM2MQtSiqaCxrrcfu8I8rMA==}
@@ -4651,6 +4790,20 @@ packages:
       strip-ansi: 6.0.1
     dev: true
 
+  /tailwind-merge/1.8.1:
+    resolution: {integrity: sha512-+fflfPxvHFr81hTJpQ3MIwtqgvefHZFUHFiIHpVIRXvG/nX9+gu2P7JNlFu2bfDMJ+uHhi/pUgzaYacMoXv+Ww==}
+    dev: false
+
+  /tailwind-variants/0.0.12_typescript@4.9.4:
+    resolution: {integrity: sha512-xCYl1APGHmyjZEsbrLhgyL5BRmb2ZNz/s/x3TpuclOzdLqoOpaWwt4n3nqHqkrVPEPmlKEYfQjYRgOwXeqMyow==}
+    engines: {node: '>=16.x', pnpm: '>=7.x'}
+    dependencies:
+      class-variance-authority: 0.4.0_typescript@4.9.4
+      tailwind-merge: 1.8.1
+    transitivePeerDependencies:
+      - typescript
+    dev: false
+
   /tailwindcss/3.2.4_postcss@8.4.21:
     resolution: {integrity: sha512-AhwtHCKMtR71JgeYDaswmZXhPcW9iuI9Sp2LvZPo9upDZ7231ZJ7eA9RaURbhpXGVlrjX4cFNlB4ieTetEb7hQ==}
     engines: {node: '>=12.13.0'}
@@ -4801,7 +4954,6 @@ packages:
     resolution: {integrity: sha512-Uz+dTXYzxXXbsFpM86Wh3dKCxrQqUcVMxwU54orwlJjOpO3ao8L7j5lH+dWfTwgCwIuM9GQ2kvVotzYJMXTBZg==}
     engines: {node: '>=4.2.0'}
     hasBin: true
-    dev: true
 
   /unbox-primitive/1.0.2:
     resolution: {integrity: sha512-61pPlCD9h51VoreyJ0BReideM3MDKMKnh6+V9L08331ipq6Q8OFXZYiqP6n/tbHx4s5I9uRhcye6BrbkizkBDw==}
