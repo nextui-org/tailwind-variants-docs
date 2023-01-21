@@ -33,7 +33,7 @@ specifiers:
   prettier-eslint: ^12.0.0
   react: ^18.2.0
   react-dom: ^18.2.0
-  tailwind-variants: ^0.0.12
+  tailwind-variants: ^0.0.13
   tailwindcss: ^3.2.4
   typescript: ^4.9.3
 
@@ -46,7 +46,7 @@ dependencies:
   nextra-theme-docs: 2.2.9_xehvwk7kia3kss3yh76fk44sqm
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
-  tailwind-variants: 0.0.12_typescript@4.9.4
+  tailwind-variants: 0.0.13_typescript@4.9.4
 
 devDependencies:
   '@types/node': 18.11.10
@@ -4794,8 +4794,8 @@ packages:
     resolution: {integrity: sha512-+fflfPxvHFr81hTJpQ3MIwtqgvefHZFUHFiIHpVIRXvG/nX9+gu2P7JNlFu2bfDMJ+uHhi/pUgzaYacMoXv+Ww==}
     dev: false
 
-  /tailwind-variants/0.0.12_typescript@4.9.4:
-    resolution: {integrity: sha512-xCYl1APGHmyjZEsbrLhgyL5BRmb2ZNz/s/x3TpuclOzdLqoOpaWwt4n3nqHqkrVPEPmlKEYfQjYRgOwXeqMyow==}
+  /tailwind-variants/0.0.13_typescript@4.9.4:
+    resolution: {integrity: sha512-DgChdJeyyqtDUr5flCSD3hasYOTvauwlfBoAEaupParap9FhMZ9seEcVweQUE56H1pyz8yitJqNVB9VlmOWDKA==}
     engines: {node: '>=16.x', pnpm: '>=7.x'}
     dependencies:
       class-variance-authority: 0.4.0_typescript@4.9.4
