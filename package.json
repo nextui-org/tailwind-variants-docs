@@ -26,9 +26,10 @@
     "nextra-theme-docs": "2.2.9",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "tailwind-variants": "^0.0.13"
+    "tailwind-variants": "^0.0.15"
   },
   "devDependencies": {
+    "@next/eslint-plugin-next": "^13.1.4",
     "@types/node": "18.11.10",
     "@typescript-eslint/eslint-plugin": "^5.42.0",
     "@typescript-eslint/parser": "^5.42.0",

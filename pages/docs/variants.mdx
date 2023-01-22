@@ -51,7 +51,7 @@ button({ color: "secondary" });
 ```
 
 <Callout type="info">
-  <div class="text-sm">
+  <div className="text-sm">
     You can also use the values as an array. e.g.&nbsp;
     <code>base: ['font-semibold', 'text-white', ...]</code>
   </div>
@@ -90,7 +90,7 @@ export const MVButton = ({ children, color, size }) => {
   );
 };
 
-<div class="flex items-center flex-start gap-3">
+<div className="flex items-center flex-start gap-3">
   <MVButton color="primary" size="sm">
     Primary
   </MVButton>
@@ -257,7 +257,7 @@ button({ color: "success", disabled: true });
 ```
 
 <Callout type="warning" emoji="⚠️">
-  <div class="text-sm">
+  <div className="text-sm">
     Notes that the <code>compoundVariants</code> key is an array.
   </div>
 </Callout>
@@ -322,5 +322,86 @@ button();
  * py-1 px-3 text-sm
  */
 ```
-
+{/* 
 ### Responsive variants
+
+Tailwind-variants allows you to add responsive variants by using the predefined breakpoints in Tailwind CSS. Read more about responsive design in the [Tailwind CSS documentation](https://tailwindcss.com/docs/responsive-design).
+
+<br/>
+
+<TVComponent
+  as="button"
+  color={{
+    initial: "primary",
+    md: "secondary",
+    lg: "success",
+  }}
+  size={{
+    initial: "small",
+    md: "medium",
+    lg: "large"
+  }}
+  tv={{
+    base: "font-semibold text-white py-1 px-3 rounded-full active:opacity-80",
+    variants: {
+      color: {
+        primary: "bg-blue-500 hover:bg-blue-700",
+        secondary: "bg-purple-500 hover:bg-purple-700",
+        success: "bg-green-500 hover:bg-green-700",
+      },
+      size: {
+        small: "py-1 px-3 text-sm",
+        medium: "py-1.5 px-4 text-md",
+        large: "py-2 px-6 text-lg",
+      },
+    }
+  }}
+  clssName="mw-full"
+>
+  Resposive
+</TVComponent>
+
+<Callout type="info">
+  <div className="text-sm">
+    Resize the browser to see the responsive variants in action.
+  </div>
+</Callout>
+
+```js {20-29}
+import { tv } from "tailwind-variants";
+
+const button = tv({
+  base: "font-semibold text-white py-1 px-3 rounded-full active:opacity-80",
+  variants: {
+    color: {
+      primary: "bg-blue-500 hover:bg-blue-700",
+      secondary: "bg-purple-500 hover:bg-purple-700",
+      success: "bg-green-500 hover:bg-green-700",
+    },
+    size: {
+      small: "py-1 px-3 text-sm",
+      medium: "py-1.5 px-4 text-md",
+      large: "py-2 px-6 text-lg",
+    },
+  }
+});
+
+button({
+  color: {
+    initial: "primary",
+    md: "secondary",
+    lg: "success",
+  },
+  size: {
+    initial: "small",
+    md: "medium",
+    lg: "large",
+  },
+});
+```
+
+<Callout type="info">
+  <div className="text-sm">
+    The `initial` breakpoint overrides the `defaultVariant`.
+  </div>
+</Callout> */}

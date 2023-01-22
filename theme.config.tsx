@@ -32,7 +32,6 @@ const config: DocsThemeConfig = {
 
     return (
       <>
-        <title>{config.title} | tailwind-variants </title>
         {/* Favicons, meta */}
         <link
           href="/favicon/apple-touch-icon.png"
@@ -69,6 +68,17 @@ const config: DocsThemeConfig = {
         <meta content="tailwind-variants" name="apple-mobile-web-app-title" />
       </>
     );
+  },
+  useNextSeoProps: function SEO() {
+    const { frontMatter } = useConfig();
+
+    const defaultTitle = frontMatter.overrideTitle || "tailwind-variants";
+
+    return {
+      description: frontMatter.description,
+      defaultTitle,
+      titleTemplate: `%s – ${defaultTitle}`,
+    };
   },
   project: {
     link: "https://github.com/nextui-org/tailwind-variants",
