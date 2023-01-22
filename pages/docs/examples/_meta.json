@@ -7,7 +7,7 @@
     "display": "hidden",
     "type": "page",
     "theme": {
-      "navbar"  : false,
+      "navbar": false,
       "sidebar": false,
       "footer": false,
       "breadcrumb": false,

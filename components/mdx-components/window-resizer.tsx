@@ -51,8 +51,8 @@ const WindowResizer: React.FC<WindowResizerProps> = (props) => {
   body {
     zoom: ${iframeZoom};
   }
-  footer, .nextra-sidebar-container {
-     display: none !important;
+  footer {
+    display: none !important;
   }
   `;
 
@@ -70,7 +70,7 @@ const WindowResizer: React.FC<WindowResizerProps> = (props) => {
 
     style.innerHTML = iframeStyles;
     iframeDocument.head.appendChild(style);
-  }, [iframeRef]);
+  }, []);
 
   return (
     <div className={main()} style={{ height }}>
