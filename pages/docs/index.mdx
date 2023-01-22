@@ -1,70 +1,142 @@
+import { WindowResizer, SlotsExample } from '@components'
+import Image from 'next/image'
+
 # Introduction
 
+<Image
+  alt=""
+  className="rounded-lg mt-1"
+  height="365"
+  src="/banner.jpeg"
+  width="730"
+/>
 
-TailwindCSS is an excellent utility-first CSS framework that provides a wide range of pre-defined CSS classes for quickly building responsive, well-designed websites. The framework's utility-first approach allows for rapid development and a more consistent design across a project, but it can also lead to messy class names and a cluttered HTML structure. This is especially true when working on large projects with multiple developers where class naming conventions may not be consistent. However, with proper organization and planning, the benefits of using TailwindCSS can outweigh any potential downsides.
+**Tailwind variants** a first-class variant API library for [TailwindCSS](https://tailwindcss.com/).
 
+## Key features
 
-**Tailwind variants** aims to help developers create more consistent and readable tailwind class names while also providing a way to apply variants and compoundVariants to multiple elements at the same time.
-{/* 
-### What?
+#### Zero Runtime
 
+**Tailwind variants** is a zero runtime library, it doesn't add any extra code to your bundle, it's just a set of functions that will generate the classes you need.
 
-Imagine you need to create a button with a blue background and white text. It's easy right? Probably you would do something like this:
+#### Variants
+Since [Stitches](https://stitches.dev) introduced variants, we became big fans of them, they are a great way to create a consistent design system, so we created **Tailwind variants** to bring them to TailwindCSS.
 
+#### Responsive variants
 
-```html
-<button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-  Button
-</button>
-```
+**Tailwind variants** allows you to apply variants to different screen sizes.
 
-<button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-  Button
-</button>
+<br/>
 
-Now the button also needs to have a different variation with a flat background
-
-```html
-<button class="bg-blue-200 text-blue-500 hover:bg-blue-100 dark:bg-blue-800 dark:hover:bg-blue-900 font-bold py-2 px-4 rounded">
-  Button
-</button>
-```
-
-<button class="bg-blue-100 text-blue-500 hover:bg-blue-50 dark:bg-blue-800 dark:hover:bg-blue-900 font-bold py-2 px-4 rounded">
-  Button
-</button>
-
-What if we need the same button but with a different size and a different color?, would you do something like this?
-
-```html
-<button class="bg-{{ color }}-200  text-{{ color }}-500 ...">...</button>
-```
-
-In that way Tailwind will not generate those classes, Read more about it [here](https://tailwindcss.com/docs/content-configuration#dynamic-class-names).
+<WindowResizer
+  iframeSrc="/docs/examples/intro-responsive-variants"
+  iframeTitle="Responsive variants"
+  height="120px"
+/>
 
 
-
-let's try to write it using React:
-
-```jsx
-
-function Button({ size, color }) {
-// colors = ['blue', 'purple', 'yellow', 'red']
-// size = ['xs', 'sm', 'md', 'lg', 'xl']
- const colorVariants = {
-
-
-
-
-   
+```js {16-19}
+import { tv } from "tailwind-variants";
+const button = tv({
+  base: "font-semibold text-white py-1 px-3 rounded-full active:opacity-80",
+  variants: {
+    color: {
+      primary: "bg-blue-500 hover:bg-blue-700",
+      secondary: "bg-purple-500 hover:bg-purple-700",
+      success: "bg-green-500 hover:bg-green-700",
+      error: "bg-red-500 hover:bg-red-700",
+    },
   }
-
-
+});
  
-}
+button({
+  color: {
+    initial: "primary",
+    xs: "secondary",
+    sm: "success",
+    md: "error"
+  }
+});
+
+/**
+ * Result: 
+ * 
+ * font-semibold text-white py-1 px-3 rounded-full active:opacity-80 bg-blue-500 hover:bg-blue-700 
+ * xs:bg-purple-500 xs:hover:bg-purple-700 sm:bg-green-500 sm:hover:bg-green-700 md:bg-red-500 
+ * md:hover:bg-red-700
+ */
 ```
 
+### Split components into multiple slots
+
+You can style multiple elements at once using the `slots` property.
+
+<br/>
+
+<WindowResizer
+  iframeSrc="/docs/examples/intro-slots"
+  iframeTitle="Responsive variants"
+  iframeInitialWidth={400}
+  height="390px"
+  minWidth={400}
+/>
+
+```js {3-9}
+const card = tv({
+  slots: {
+    base: "md:flex bg-slate-100 rounded-xl p-8 md:p-0 dark:bg-gray-900",
+    avatar: "w-24 h-24 md:w-52 md:h-auto md:rounded-none rounded-full mx-auto drop-shadow-lg",
+    wrapper: "pt-6 md:p-8 text-center md:text-left space-y-4",
+    description: "text-md font-medium",
+    infoWrapper: "font-medium",
+    name: "text-sm text-sky-500 dark:text-sky-400",
+    role: "text-sm text-slate-700 dark:text-slate-500",
+  },
+});
+
+const {base, avatar, wrapper, description, infoWrapper, name, role} = card();
+
+return (
+  <figure className={base()}>
+    <img className={avatar()} src="/intro-avatar.png" alt="" width="384" height="512"/>
+    <div className={wrapper()}>
+      <blockquote>
+        <p className={description()}>
+          “Tailwind CSS is the only framework that I've seen scale
+          on large teams. It’s easy to customize, adapts to any design,
+          and the build size is tiny.”
+        </p>
+      </blockquote>
+      <figcaption className={infoWrapper()}>
+        <div className={name()}>
+          Sarah Dayan
+        </div>
+        <div className={role()}>
+          Staff Engineer, Algolia
+        </div>
+      </figcaption>
+    </div>
+  </figure>
+)
+
+```
+
+### Developer experience 
+
+**Tailwind variants** is built with developer experience in mind, it provides a great autocomplete experience thanks to the fully-typed API, so when using TypeScript, `slots`, `values`, and `breakpoints` will be auto-completed for you.
 
 
+### Automatic conflict resolution
 
-It easily becomes a mess of classes right?, and it's hard to keep track of what's going on. With Tailwind Variants, you can do this: */}
+**Tailwind variants** implements [**tailwind-merge**](https://github.com/dcastil/tailwind-merge) under the hood, so it will efficiently merge your classes, so you don't have to worry about TailwindCSS class conflicts.
+
+
+### Credits
+
+**Tailwind variants** is heavily inspired by [Stitches](https://stitches.dev) and [CVA](https://github.com/joe-bell/cva).
+
+Special thanks to [Joe Bell](https://twitter.com/joe_bell) for creating [CVA](https://github.com/joe-bell/cva).
+
+Special thanks to [Tianen Pang](https://github.dev/tianenpang) for giving us the idea of using `slots` to split components into multiple slots.
+
+Special thanks to [Junior Garcia](https://github.dev/jrgarciadev) for building the library and the documentation.

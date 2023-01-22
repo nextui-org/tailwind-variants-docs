@@ -7,3 +7,4 @@ export * from "./snippet";
 export * from "./tooltip";
 export * from "./tv-component";
 export * from "./mdx-components";
+export * from "./introduction";

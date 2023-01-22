@@ -1,11 +1,13 @@
 import { Tab, Tabs } from 'nextra-theme-docs'
-
+import { TVComponent } from '@components'
+ 
 # Getting started
 
 Tailwind-variants combines the power of TailwindCSS with a first-class variant API.
 
 ## Installation
 
+To use **tailwind-variants** in your project, you can install it as a dependency:
 
 <Tabs items={['npm', 'yarn', 'pnpm']}>
   <Tab>
@@ -27,15 +29,41 @@ Tailwind-variants combines the power of TailwindCSS with a first-class variant A
 
 ## Usage
 
+<br/>
+
+<TVComponent
+  as="button"
+  tv={{
+    base: 'font-medium bg-blue-500 text-white rounded-full active:opacity-80',
+    variants: {
+      size: {
+        sm: 'px-2 py-1 text-sm',
+        md: 'px-3 py-1 text-base',
+        lg: 'px-4 py-3 text-lg',
+      },
+      variant: {
+        primary: 'bg-blue-500 text-white',
+        secondary: 'bg-gray-500 text-white',
+      },
+    },
+    defaultVariants: {
+      size: 'md',
+      variant: 'primary',
+    }
+  }}
+>
+  Default
+</TVComponent>
+
 ```js copy
 import { tv } from 'tailwind-variants';
 
 const button = tv('button', {
-  base: 'bg-blue-500 text-white',
+  base: 'font-medium bg-blue-500 text-white rounded-full active:opacity-80',
   variants: {
     size: {
       sm: 'px-2 py-1 text-sm',
-      md: 'px-3 py-2 text-base',
+      md: 'px-3 py-1 text-base',
       lg: 'px-4 py-3 text-lg',
     },
     variant: {

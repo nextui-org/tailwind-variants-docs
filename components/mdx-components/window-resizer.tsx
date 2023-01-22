@@ -14,12 +14,21 @@ const resizer = tv({
     iframe:
       "w-full h-full border-none overflow-x-visible overflow-y-scroll z-10",
   },
+  variants: {
+    hasInitialWidth: {
+      true: {
+        base: "justify-start",
+      },
+    },
+  },
 });
 
 interface WindowResizerProps {
   height?: string | number;
+  minWidth?: number;
   iframeZoom?: number;
   iframeSrc?: string;
+  iframeInitialWidth?: number;
   iframeTitle?: string;
 }
 
@@ -30,14 +39,24 @@ const WindowResizer: React.FC<WindowResizerProps> = (props) => {
   let resizerRef = React.useRef<HTMLDivElement>(null);
   let iframeRef = React.useRef<HTMLIFrameElement>(null);
 
-  const { iframeSrc, iframeTitle, height = "420px", iframeZoom = 1 } = props;
+  const {
+    iframeSrc,
+    iframeTitle,
+    height = "420px",
+    iframeZoom = 1,
+    iframeInitialWidth,
+    minWidth = MIN_WIDTH,
+  } = props;
+  const hasInitialWidth = iframeInitialWidth !== undefined;
+
   const { main, base, barInner, barWrapper, bar, iframe, iframeWrapper } =
-    resizer();
+    resizer({ hasInitialWidth });
 
   const resizerX = useMotionValue(0);
-  const browserWidth = useTransform(
-    resizerX,
-    (x) => `calc(100% + ${x}px - 14px)`
+  const browserWidth = useTransform(resizerX, (x) =>
+    hasInitialWidth
+      ? `calc(${iframeInitialWidth}px + ${x}px + 14px)`
+      : `calc(100% + ${x}px - 14px)`
   );
 
   React.useEffect(() => {
@@ -52,6 +71,9 @@ const WindowResizer: React.FC<WindowResizerProps> = (props) => {
     zoom: ${iframeZoom};
   }
   footer {
+    display: none !important;
+  }
+  .nextra-sidebar-container {
     display: none !important;
   }
   `;
@@ -94,7 +116,9 @@ const WindowResizer: React.FC<WindowResizerProps> = (props) => {
           className: "top-0 bottom-0 right-0",
         })}
         style={{
-          width: `calc(100% - ${MIN_WIDTH}px - 20px)`,
+          width: `calc(100% - ${
+            hasInitialWidth ? iframeInitialWidth : minWidth
+          }px - 20px)`,
         }}
       >
         <motion.div
