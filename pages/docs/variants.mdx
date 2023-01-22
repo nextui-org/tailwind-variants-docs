@@ -1,6 +1,6 @@
 import { Callout } from 'nextra-theme-docs'
 import { tv } from 'tailwind-variants'
-import { TVComponent } from '@components'
+import { TVComponent, WindowResizer } from '@components'
  
 # Variants
 
@@ -45,6 +45,8 @@ const button = tv({
 
 button({ color: "secondary" });
 /**
+ * Result: 
+ * 
  * font-semibold text-white text-sm py-1 px-4 rounded-full active:opacity-80 bg-purple-500
  * hover:bg-purple-700
  */
@@ -123,18 +125,24 @@ const button = tv({
 
 button({ color: "primary", size: "sm" });
 /**
+ * Result: 
+ * 
  * font-semibold text-white rounded-full active:opacity-80 bg-blue-500 hover:bg-blue-700
  * py-1 px-3 text-xs
  */
 
 button({ color: "secondary", size: "md" });
 /**
+ * Result: 
+ * 
  * font-semibold text-white rounded-full active:opacity-80 bg-purple-500 hover:bg-purple-700
  * py-1.5 px-4 text-sm
  */
 
 button({ color: "success", size: "lg" });
 /**
+ * Result: 
+ * 
  * font-semibold text-white rounded-full active:opacity-80 bg-green-500 hover:bg-green-700
  * py-2 px-6 text-md
  */
@@ -186,6 +194,8 @@ const button = tv({
 
 button({ color: "secondary", disabled: true });
 /**
+ * Result: 
+ * 
  * font-semibold text-white text-sm py-1 px-4 rounded-full active:opacity-80
  * hover:bg-purple-700 bg-gray-500 opacity-50 cursor-not-allowed pointer-events-none
  */
@@ -251,6 +261,8 @@ const button = tv({
 
 button({ color: "success", disabled: true });
 /**
+ * Result: 
+ * 
  * font-semibold text-sm py-1 px-4 rounded-full active:opacity-80 hover:bg-green-700
  * opacity-50 pointer-events-none bg-green-100 text-green-600
  */
@@ -318,54 +330,30 @@ const button = tv({
 
 button();
 /**
+ * Result: 
+ * 
  * font-semibold text-white rounded-full active:opacity-80 bg-blue-500 hover:bg-blue-700
  * py-1 px-3 text-sm
  */
 ```
-{/* 
+
+
 ### Responsive variants
+
+ 
 
 Tailwind-variants allows you to add responsive variants by using the predefined breakpoints in Tailwind CSS. Read more about responsive design in the [Tailwind CSS documentation](https://tailwindcss.com/docs/responsive-design).
 
+
+In the example below, we apply `primary` and `small` initially, then the `success` color  and `medium` size variants at the `sm` breakpoint and last the `secondary` color and `large` size variants at the `md` breakpoint.
+
 <br/>
 
-<TVComponent
-  as="button"
-  color={{
-    initial: "primary",
-    md: "secondary",
-    lg: "success",
-  }}
-  size={{
-    initial: "small",
-    md: "medium",
-    lg: "large"
-  }}
-  tv={{
-    base: "font-semibold text-white py-1 px-3 rounded-full active:opacity-80",
-    variants: {
-      color: {
-        primary: "bg-blue-500 hover:bg-blue-700",
-        secondary: "bg-purple-500 hover:bg-purple-700",
-        success: "bg-green-500 hover:bg-green-700",
-      },
-      size: {
-        small: "py-1 px-3 text-sm",
-        medium: "py-1.5 px-4 text-md",
-        large: "py-2 px-6 text-lg",
-      },
-    }
-  }}
-  clssName="mw-full"
->
-  Resposive
-</TVComponent>
-
-<Callout type="info">
-  <div className="text-sm">
-    Resize the browser to see the responsive variants in action.
-  </div>
-</Callout>
+<WindowResizer
+  iframeSrc="/docs/examples/responsive-variants"
+  iframeTitle="Responsive variants"
+  height="120px"
+/>
 
 ```js {20-29}
 import { tv } from "tailwind-variants";
@@ -379,9 +367,9 @@ const button = tv({
       success: "bg-green-500 hover:bg-green-700",
     },
     size: {
-      small: "py-1 px-3 text-sm",
-      medium: "py-1.5 px-4 text-md",
-      large: "py-2 px-6 text-lg",
+      small: "py-0 px-2 text-xs",
+      medium: "py-1 px-2 text-sm",
+      large: "py-1.5 px-3 text-md",
     },
   }
 });
@@ -389,19 +377,27 @@ const button = tv({
 button({
   color: {
     initial: "primary",
+    sm: "success",
     md: "secondary",
-    lg: "success",
   },
   size: {
     initial: "small",
-    md: "medium",
-    lg: "large",
+    sm: "medium",
+    md: "large",
   },
 });
+
+/**
+ * Result: 
+ * 
+ * font-semibold text-white rounded-full active:opacity-80 bg-blue-500 hover:bg-blue-700 sm:bg-green-500 
+ * sm:hover:bg-green-700 md:bg-purple-500 md:hover:bg-purple-700 py-0 px-2 text-xs sm:py-1 sm:px-2 sm:text-sm 
+ * md:py-1.5 md:px-3 md:text-md
+ */
 ```
 
 <Callout type="info">
   <div className="text-sm">
     The `initial` breakpoint overrides the `defaultVariant`.
   </div>
-</Callout> */}
+</Callout> 

@@ -7,3 +7,13 @@
     font-family: Inter, ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Noto Sans,Ubuntu,Cantarell,Helvetica Neue,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji !important;
   }
 }
+
+.dragging-ew {
+  user-select: none !important;
+  cursor: ew-resize !important;
+}
+
+.dragging-ew * {
+  user-select: none !important;
+  cursor: ew-resize !important;
+}

@@ -1,6 +1,6 @@
 import React from "react";
 import { DocsThemeConfig, useConfig } from "nextra-theme-docs";
-import { Logo, NextUILogo, tvs } from "@components";
+import { tvs, Logo, NextUILogo, WindowResizer } from "@components";
 
 // get the package version from package.json
 const pkg = require("./package.json");
