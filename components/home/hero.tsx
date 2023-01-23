@@ -17,7 +17,7 @@ const Hero: React.FC<HeroProps> = () => {
       </div>
 
       <div className={tvs.box({ row: true, class: "gap-2" })}>
-        <a className={tvs.button()} href="/docs/getting-started">
+        <a className={tvs.button()} href="/docs">
           Documentation
         </a>
         <a

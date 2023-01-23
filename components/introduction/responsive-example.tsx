@@ -1,19 +1,19 @@
 import React from "react";
 import Image from "next/image";
-import { tv } from "tailwind-variants";
+// import { tv } from "tailwind-variants";
 
 interface ResponsiveExampleProps {}
 
 const ResponsiveExample: React.FC<ResponsiveExampleProps> = () => {
-  const button = tv({
-    base: "absolute font-medium rounded-full shadow-md bottom-0 right-0 m-4 px-4 py-2 active:opacity-80",
-    variants: {
-      color: {
-        primary: "text-white bg-blue-500 hover:bg-blue-600",
-        white: "text-gray-800 bg-white hover:bg-gray-100",
-      },
-    },
-  });
+  // const button = tv({
+  //   base: "absolute font-medium rounded-full shadow-md bottom-0 right-0 m-4 px-4 py-2 active:opacity-80",
+  //   variants: {
+  //     color: {
+  //       primary: "text-white bg-blue-500 hover:bg-blue-600",
+  //       white: "text-gray-800 bg-white hover:bg-gray-100",
+  //     },
+  //   },
+  // });
 
   return (
     <div className="relative max-w-xl mx-auto bg-white dark:bg-gray-900 rounded-xl shadow-lg overflow-hidden sm:flex sm:h-[240px]">

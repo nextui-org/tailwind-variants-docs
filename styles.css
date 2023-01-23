@@ -17,3 +17,8 @@
   user-select: none !important;
   cursor: ew-resize !important;
 }
+
+
+.dark pre {
+  background-color: #1a1817 !important;
+}

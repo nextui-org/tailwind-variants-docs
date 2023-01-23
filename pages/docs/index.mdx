@@ -4,11 +4,12 @@ import Image from 'next/image'
 # Introduction
 
 <Image
-  alt=""
+  alt="tailwind variants banner"
+  quality={90}
   className="rounded-lg mt-1"
-  height="365"
+  height="730"
   src="/banner.jpeg"
-  width="730"
+  width="1460"
 />
 
 **Tailwind variants** a first-class variant API library for [TailwindCSS](https://tailwindcss.com/).
@@ -67,7 +68,7 @@ button({
  */
 ```
 
-### Split components into multiple slots
+#### Split components into multiple slots
 
 You can style multiple elements at once using the `slots` property.
 
@@ -77,11 +78,11 @@ You can style multiple elements at once using the `slots` property.
   iframeSrc="/docs/examples/intro-slots"
   iframeTitle="Responsive variants"
   iframeInitialWidth={400}
-  height="390px"
+  height="410px"
   minWidth={400}
 />
 
-```js {3-9}
+```js {3-9} /base()/ /avatar()/ /wrapper()/ /description()/ /infoWrapper()/ /name()/ /role()/
 const card = tv({
   slots: {
     base: "md:flex bg-slate-100 rounded-xl p-8 md:p-0 dark:bg-gray-900",
@@ -121,12 +122,12 @@ return (
 
 ```
 
-### Developer experience 
+#### Developer experience 
 
 **Tailwind variants** is built with developer experience in mind, it provides a great autocomplete experience thanks to the fully-typed API, so when using TypeScript, `slots`, `values`, and `breakpoints` will be auto-completed for you.
 
 
-### Automatic conflict resolution
+#### Automatic conflict resolution
 
 **Tailwind variants** implements [**tailwind-merge**](https://github.com/dcastil/tailwind-merge) under the hood, so it will efficiently merge your classes, so you don't have to worry about TailwindCSS class conflicts.
 

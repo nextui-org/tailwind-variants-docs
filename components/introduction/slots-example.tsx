@@ -7,7 +7,7 @@ interface SlotsExampleProps {}
 const SlotsExample: React.FC<SlotsExampleProps> = () => {
   const card = tv({
     slots: {
-      base: "md:flex bg-slate-100 rounded-xl p-8 md:p-0 dark:bg-gray-900",
+      base: "md:flex bg-slate-100 rounded-xl p-8 md:p-0 dark:bg-stone-900",
       avatar:
         "w-24 h-24 md:w-52 md:h-auto md:rounded-none rounded-full mx-auto drop-shadow-lg",
       wrapper: "pt-6 md:p-8 text-center md:text-left space-y-4",
