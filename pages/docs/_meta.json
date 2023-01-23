@@ -2,12 +2,10 @@
   "index": {
     "title": "Introduction"
   },
+  "why-tailwind-variants": "Why Tailwind Variants?",
   "getting-started": "Getting Started",
   "variants": "Variants",
   "slots": "Slots",
-  "use-cases": {
-    "title": "Use cases"
-  },
   "examples": {
     "title": "Examples"
   },
