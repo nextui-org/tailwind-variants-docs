@@ -124,7 +124,7 @@ const config: DocsThemeConfig = {
           </a>
         </p>
         <p className="mt-6 text-xs">
-          MIT {new Date().getFullYear()} The tailwind-variants project.
+          MIT {new Date().getFullYear()} The Tailwind Variants Project.
         </p>
       </div>
     ),
