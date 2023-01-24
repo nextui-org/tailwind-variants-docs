@@ -1,24 +1,17 @@
 {
-  "index": {
+  "introduction": {
     "title": "Introduction"
   },
-  "why-tailwind-variants": "Why Tailwind Variants?",
+  "why-tailwind-variants": {
+    "title": "Why Tailwind Variants?",
+    "display": "hidden"
+  },
   "getting-started": "Getting Started",
   "variants": "Variants",
   "slots": "Slots",
-  "examples": {
-    "title": "Examples"
-  },
-  "typescript": {
-    "title": "Typescript"
-  },
-  "api-reference": {
-    "title": "API Reference"
-  },
-  "acknowledgements": {
-    "title": "Acknowledgements"
-  },
-  "faq": {
-    "title": "FAQ"
-  }
+  "examples": "Examples",
+  "typescript":  "Typescript",
+  "api-reference": "API Reference",
+  "acknowledgements": "Acknowledgements",
+  "faq": "FAQ"
 }

@@ -5,13 +5,12 @@ const withNextra = require("nextra")({
 
 module.exports = withNextra({
   async redirects() {
-    return [];
-    // return [
-    //   {
-    //     source: "/docs",
-    //     destination: "/docs/getting-started",
-    //     permanent: true,
-    //   },
-    // ];
+    return [
+      {
+        source: "/docs",
+        destination: "/docs/introduction",
+        permanent: false,
+      },
+    ];
   },
 });

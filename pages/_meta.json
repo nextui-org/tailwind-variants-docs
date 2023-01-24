@@ -1,11 +1,14 @@
 {
   "index": {
-    "title": "Introduction",
+    "title": "Home",
     "type": "page",
     "display": "hidden"
   },
   "docs": {
     "title": "Docs",
-    "type": "page"
+    "type": "page",
+    "theme": {
+      "footer": false
+    }
   }
 }

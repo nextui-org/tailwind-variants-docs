@@ -1,16 +1,15 @@
 import React from "react";
 import { motion, useMotionValue, useTransform } from "framer-motion";
 import { useIsomorphicLayoutEffect, useIsMobile } from "@hooks";
-import { usePress } from "@react-aria/interactions";
 import { tv } from "tailwind-variants";
 
 const resizer = tv({
-  base: "flex items-center justify-end absolute right-[5px] z-10 w-auto xs:hidden h-full",
+  base: "flex items-center justify-end absolute right-[5px] z-10 w-auto xs:hidden",
   slots: {
     main: "relative w-full",
     barWrapper:
-      "cursor-ew-resize select-none absolute d-flex justify-center flex items-center justify-center w-[10px] h-full",
-    barInner: "relative z-10 active:opacity-80",
+      "cursor-ew-resize select-none absolute d-flex justify-center flex items-center justify-center w-[10px] h-auto active:opacity-80",
+    barInner: "relative z-10",
     bar: "w-[6px] h-[40px] rounded-full bg-neutral/60",
     iframeWrapper: "border border-neutral/20 rounded-lg overflow-hidden",
     iframe:
@@ -25,6 +24,14 @@ const resizer = tv({
     isMobile: {
       true: {
         barInner: "hidden",
+      },
+    },
+    enablePointerEvents: {
+      true: {
+        iframe: "pointer-events-auto",
+      },
+      false: {
+        iframe: "pointer-events-none select-none",
       },
     },
   },
@@ -45,7 +52,7 @@ const WindowResizer: React.FC<WindowResizerProps> = (props) => {
   let constraintsResizerRef = React.useRef<HTMLDivElement>(null);
   let resizerRef = React.useRef<HTMLDivElement>(null);
   let iframeRef = React.useRef<HTMLIFrameElement>(null);
-  let iframePointerEvents = useMotionValue("auto");
+  const [enablePointerEvents, setEnablePointerEvents] = React.useState(true);
 
   const isMobile = useIsMobile();
 
@@ -60,22 +67,12 @@ const WindowResizer: React.FC<WindowResizerProps> = (props) => {
   const hasInitialWidth = iframeInitialWidth !== undefined;
 
   const { main, base, barInner, barWrapper, bar, iframe, iframeWrapper } =
-    resizer({ hasInitialWidth, isMobile });
+    resizer({ hasInitialWidth, isMobile, enablePointerEvents });
 
   const resizerX = useMotionValue(0);
   const browserWidth = useTransform(resizerX, (x) =>
-    hasInitialWidth
-      ? `calc(${iframeInitialWidth}px + ${x}px + 14px)`
-      : `calc(100% + ${x}px - 14px)`
+    hasInitialWidth ? iframeInitialWidth + x + 14 : `calc(100% + ${x}px - 14px)`
   );
-
-  const { pressProps } = usePress({
-    onPressChange: () => {
-      document.documentElement.classList.remove("dragging-ew");
-      iframeRef.current?.classList.remove("dragging-ew");
-      iframePointerEvents.set("none");
-    },
-  });
 
   useIsomorphicLayoutEffect(() => {
     let observer = new window.ResizeObserver(() => {
@@ -102,37 +99,37 @@ const WindowResizer: React.FC<WindowResizerProps> = (props) => {
     resizerRef.current.onselectstart = () => false;
   }, []);
 
-  const iframeStyles = `
+  // inject iframe styles
+  useIsomorphicLayoutEffect(() => {
+    const iframeStyles = `
   body {
     zoom: ${iframeZoom};
   }
-  footer {
-    display: none !important;
-  }
-  .nextra-sidebar-container {
-    display: none !important;
-  }
-  .nx-pb-[env(safe-area-inset-bottom)]  {
-    display: none !important;
-  }
-  #__next  footer {
-    display: none !important;
-    hidden: true;
-    opacity: 0;
-  }
   `;
 
-  // inject iframe styles
-  React.useEffect(() => {
     if (!iframeRef.current) {
       return;
     }
     const iframeDocument = iframeRef.current.contentDocument;
+    const iframeEl = iframeRef.current;
 
     if (!iframeDocument) {
       return;
     }
+    // add classname to the iframe html element
+    iframeDocument?.documentElement.classList.add("overflow-hidden");
+
     const style = iframeDocument.createElement("style");
+    const footer = iframeEl?.contentWindow.document.querySelector("footer");
+    const aside = iframeEl?.contentWindow.document.querySelector("aside");
+
+    // removes the nextra footer and aside elements
+    if (footer) {
+      footer.style.display = "none";
+    }
+    if (aside) {
+      aside.style.display = "none";
+    }
 
     style.innerHTML = iframeStyles;
     iframeDocument.head.appendChild(style);
@@ -151,7 +148,6 @@ const WindowResizer: React.FC<WindowResizerProps> = (props) => {
           ref={iframeRef}
           className={iframe()}
           src={iframeSrc}
-          style={{ pointerEvents: iframePointerEvents }}
           title={iframeTitle}
         />
       </motion.div>
@@ -174,19 +170,19 @@ const WindowResizer: React.FC<WindowResizerProps> = (props) => {
           dragConstraints={constraintsResizerRef}
           dragElastic={0}
           dragMomentum={false}
-          style={{ x: resizerX, height }}
+          style={{ x: resizerX }}
           onDragEnd={() => {
             document.documentElement.classList.remove("dragging-ew");
             iframeRef.current?.classList.remove("dragging-ew");
-            iframePointerEvents.set("none");
+            setEnablePointerEvents(true);
           }}
           onDragStart={() => {
             document.documentElement.classList.add("dragging-ew");
             iframeRef.current?.classList.add("dragging-ew");
-            iframePointerEvents.set("auto");
+            setEnablePointerEvents(false);
           }}
         >
-          <div className={barInner()} {...pressProps}>
+          <div className={barInner()}>
             <div className={bar()} />
           </div>
         </motion.div>

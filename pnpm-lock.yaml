@@ -11,6 +11,7 @@ specifiers:
   '@typescript-eslint/parser': ^5.42.0
   autoprefixer: ^10.4.13
   babel-eslint: ^8.0.3
+  clsx: ^1.2.1
   eslint: ^7.29.0
   eslint-config-airbnb: ^18.2.1
   eslint-config-airbnb-typescript: ^12.3.1
@@ -46,6 +47,7 @@ dependencies:
   '@react-aria/tooltip': 3.3.4_react@18.2.0
   '@react-aria/utils': 3.14.2_react@18.2.0
   '@react-stately/tooltip': 3.2.4_react@18.2.0
+  clsx: 1.2.1
   framer-motion: 8.5.0_biqbaboplfbrettd7655fr4n2y
   next: 13.1.3_biqbaboplfbrettd7655fr4n2y
   nextra: 2.2.9_xehvwk7kia3kss3yh76fk44sqm

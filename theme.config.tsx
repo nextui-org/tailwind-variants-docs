@@ -1,6 +1,6 @@
 import React from "react";
 import { DocsThemeConfig, useConfig } from "nextra-theme-docs";
-import { tvs, Logo, NextUILogo, WindowResizer } from "@components";
+import { tvs, Logo, NextUILogo } from "@components";
 
 // get the package version from package.json
 const pkg = require("./package.json");
@@ -15,7 +15,7 @@ const config: DocsThemeConfig = {
   logo: (
     <div className="flex items-center">
       <Logo height={30} />
-      <b className="ml-1.5 font-semibold">tailwind-variants</b>
+      <b className="ml-1.5 font-semibold">Tailwind Variants</b>
       <span className={tvs.badge({ class: "hidden sm:flex" })}>
         v{tvVersion}
       </span>
