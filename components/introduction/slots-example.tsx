@@ -2,9 +2,22 @@ import React from "react";
 import Image from "next/image";
 import { tv } from "tailwind-variants";
 
-interface SlotsExampleProps {}
+interface SlotsExampleProps {
+  styles: {
+    base?: string;
+    avatar?: string;
+    wrapper?: string;
+    description?: string;
+    infoWrapper?: string;
+    name?: string;
+    role?: string;
+  };
+  className?: string;
+}
 
-const SlotsExample: React.FC<SlotsExampleProps> = () => {
+const SlotsExample: React.FC<SlotsExampleProps> = (props) => {
+  const { styles } = props;
+
   const card = tv({
     slots: {
       base: "md:flex bg-slate-100 rounded-xl p-8 md:p-0 dark:bg-stone-900",
@@ -22,15 +35,15 @@ const SlotsExample: React.FC<SlotsExampleProps> = () => {
     card();
 
   return (
-    <figure className={base({})}>
+    <figure className={base({ class: styles?.base })}>
       <Image
         alt=""
-        className={avatar()}
+        className={avatar({ class: styles?.avatar })}
         height="512"
         src="/intro-avatar.png"
         width="384"
       />
-      <div className={wrapper()}>
+      <div className={wrapper({ class: styles?.wrapper })}>
         <blockquote>
           <p className={description()}>
             “Tailwind variants allows you to reduce repeated code in your
@@ -38,9 +51,11 @@ const SlotsExample: React.FC<SlotsExampleProps> = () => {
             building a design system with TailwindCSS.”
           </p>
         </blockquote>
-        <figcaption className={infoWrapper()}>
-          <div className={name()}>Zoey Lang</div>
-          <div className={role()}>Full-stack developer, NextUI</div>
+        <figcaption className={infoWrapper({ class: styles?.infoWrapper })}>
+          <div className={name({ class: styles?.name })}>Zoey Lang</div>
+          <div className={role({ class: styles?.role })}>
+            Full-stack developer, NextUI
+          </div>
         </figcaption>
       </div>
     </figure>

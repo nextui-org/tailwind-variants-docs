@@ -45,7 +45,6 @@ const button = tv({
 button({ color: "secondary" });
 /**
  * Result: 
- * 
  * font-semibold text-white text-sm py-1 px-4 rounded-full active:opacity-80 bg-purple-500
  * hover:bg-purple-700
  */
@@ -125,7 +124,6 @@ const button = tv({
 button({ color: "primary", size: "sm" });
 /**
  * Result: 
- * 
  * font-semibold text-white rounded-full active:opacity-80 bg-blue-500 hover:bg-blue-700
  * py-1 px-3 text-xs
  */
@@ -133,7 +131,6 @@ button({ color: "primary", size: "sm" });
 button({ color: "secondary", size: "md" });
 /**
  * Result: 
- * 
  * font-semibold text-white rounded-full active:opacity-80 bg-purple-500 hover:bg-purple-700
  * py-1.5 px-4 text-sm
  */
@@ -141,7 +138,6 @@ button({ color: "secondary", size: "md" });
 button({ color: "success", size: "lg" });
 /**
  * Result: 
- * 
  * font-semibold text-white rounded-full active:opacity-80 bg-green-500 hover:bg-green-700
  * py-2 px-6 text-md
  */
@@ -194,7 +190,6 @@ const button = tv({
 button({ color: "secondary", disabled: true });
 /**
  * Result: 
- * 
  * font-semibold text-white text-sm py-1 px-4 rounded-full active:opacity-80
  * hover:bg-purple-700 bg-gray-500 opacity-50 cursor-not-allowed pointer-events-none
  */
@@ -261,7 +256,6 @@ const button = tv({
 button({ color: "success", disabled: true });
 /**
  * Result: 
- * 
  * font-semibold text-sm py-1 px-4 rounded-full active:opacity-80 hover:bg-green-700
  * opacity-50 pointer-events-none bg-green-100 text-green-600
  */
@@ -272,6 +266,59 @@ button({ color: "success", disabled: true });
     Notes that the <code>compoundVariants</code> key is an array.
   </div>
 </Callout>
+
+You can also target **multiple** variants at once. For example, you might want to add a `color` variant that depends on the `disabled` and `loading` variants.
+
+<br/>
+
+<div className="flex gap-2">
+  <button className="font-semibold text-slate-400 text-md py-1.5 px-4 rounded-full active:opacity-80 hover:bg-blue-700 bg-slate-200 dark:bg-slate-800 pointer-events-none opacity-100">Primary</button>
+  <button className="font-semibold text-slate-400 text-md py-1.5 px-4 rounded-full active:opacity-80 hover:bg-purple-700 bg-slate-200 dark:bg-slate-800 pointer-events-none opacity-100">Secondary</button>
+</div>
+
+```js {22}
+import { tv } from "tailwind-variants";
+
+const button = tv({
+  base: "font-semibold text-white text-md py-1.5 px-4 rounded-full active:opacity-80",
+  variants: {
+    color: {
+      primary: "bg-blue-500 hover:bg-blue-700",
+      secondary: "bg-purple-500 hover:bg-purple-700",
+      success: "bg-green-500 hover:bg-green-700",
+    },
+    disabled: {
+      true: "opacity-50 bg-gray-500 pointer-events-none",
+    },
+  },
+  compoundVariants: [
+    {
+      color: "success",
+      disabled: true,
+      class: "bg-green-100 text-green-700 dark:text-green-800",
+    },
+    {
+      color: ["primary", "secondary"],
+      disabled: true,
+      class: "text-slate-400 bg-slate-200 dark:bg-slate-800 opacity-100",
+    },
+  ],
+});
+
+button({ color: "primary", disabled: true });
+/**
+ * Result:
+ * font-semibold text-md py-1.5 px-4 rounded-full active:opacity-80 hover:bg-blue-700 
+ * pointer-events-none text-slate-400 bg-slate-200 dark:bg-slate-800 opacity-100
+ */
+
+button({ color: "secondary", disabled: true });
+/**
+ * Result:
+ * font-semibold text-md py-1.5 px-4 rounded-full active:opacity-80 hover:bg-purple-700 
+ * pointer-events-none text-slate-400 bg-slate-200 dark:bg-slate-800 opacity-100
+ */
+```
 
 ### Default variants
 
@@ -348,8 +395,20 @@ In the example below, we apply `primary` and `small` initially, then the `succes
 <WindowResizer
   iframeSrc="/docs/examples/responsive-variants"
   iframeTitle="Responsive variants"
-  height="160px"
+  height="130px"
 />
+
+<Callout type="error">
+  <div className="text-sm">
+   In responsive variants, you must declare either the `initial` variant or `defaultVariants` before any breakpoints are applied. 
+  </div>
+</Callout> 
+
+<Callout type="info">
+  <div className="text-sm">
+    The `initial` breakpoint overrides the `defaultVariant`.
+  </div>
+</Callout> 
 
 ```js {20-29}
 import { tv } from "tailwind-variants";
@@ -392,8 +451,4 @@ button({
  */
 ```
 
-<Callout type="info">
-  <div className="text-sm">
-    The `initial` breakpoint overrides the `defaultVariant`.
-  </div>
-</Callout> 
+
