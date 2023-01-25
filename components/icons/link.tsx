@@ -1,12 +1,8 @@
+import type { IconProps } from "./icon";
+
 import React from "react";
 
-interface LinkIconProps {
-  width?: number;
-  height?: number;
-  className?: string;
-}
-
-const LinkIcon: React.FC<LinkIconProps> = (props) => {
+const LinkIcon: React.FC<IconProps> = (props) => {
   const { width = "1em", height = "1em", className } = props;
 
   return (

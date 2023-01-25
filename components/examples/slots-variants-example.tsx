@@ -1,5 +1,8 @@
+import type { VariantProps } from "tailwind-variants";
+
 import { tv } from "tailwind-variants";
 import { useState } from "react";
+import Image from "next/image";
 import { RadioGroup, Radio } from "@components";
 
 const item = tv({
@@ -41,11 +44,13 @@ const item = tv({
   },
 });
 
+type Variants = VariantProps<typeof item>;
+
 const itemSizes = ["xs", "s", "m", "l", "xl"];
 
 const SlotsVariantsExample = () => {
   const [size, setSize] = useState("xs");
-  const [color, setColor] = useState("primary");
+  const [color, setColor] = useState<Variants["color"]>("primary");
 
   const {
     base,
@@ -64,7 +69,14 @@ const SlotsVariantsExample = () => {
     <div>
       <div className={base()}>
         <div className={imageWrapper()}>
-          <img alt="" className={img()} loading="lazy" src="/shoes-1.png" />
+          <Image
+            fill
+            alt="Shoes for example"
+            className={img()}
+            loading="lazy"
+            sizes="100vw"
+            src="/shoes-1.png"
+          />
         </div>
         <div className="flex-auto pl-4 sm:pl-8">
           <div className="relative flex flex-wrap items-baseline">

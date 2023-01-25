@@ -1,12 +1,8 @@
-import * as React from "react";
+import type { IconProps } from "./icon";
 
-export interface Props {
-  width?: number;
-  height?: number;
-  size?: number;
-}
+import React from "react";
 
-const Flash: React.FC<Props> = ({
+const Flash: React.FC<IconProps> = ({
   size,
   width = 24,
   height = 24,

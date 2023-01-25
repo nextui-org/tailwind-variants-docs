@@ -1,25 +1,41 @@
-import React from "react";
+import type { DocumentContext } from "next/document";
+
+import React, { Children } from "react";
 import Document, { Html, Head, Main, NextScript } from "next/document";
 import { SkipNavLink } from "nextra-theme-docs";
 
-class MyDocument extends Document {
-  render() {
-    return (
-      <Html lang="en">
-        <Head />
-        <link href="https://fonts.gstatic.com" rel="preconnect" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
-          rel="stylesheet"
-        />
-        <body>
-          <SkipNavLink styled />
-          <Main />
-          <NextScript />
-        </body>
-      </Html>
-    );
-  }
-}
+import { fonts } from "./_app";
+
+const MyDocument = () => {
+  return (
+    <Html lang="en">
+      <Head />
+      <body>
+        <SkipNavLink styled />
+        <Main />
+        <NextScript />
+      </body>
+    </Html>
+  );
+};
+
+MyDocument.getInitialProps = async (ctx: DocumentContext) => {
+  const initialProps = await Document.getInitialProps(ctx);
+
+  const fontStyles = (
+    <style
+      dangerouslySetInnerHTML={{
+        __html: `:root { --font-sans: ${fonts.sans}; }`,
+      }}
+      key="next-font"
+      id="next-font"
+    />
+  );
+
+  return {
+    ...initialProps,
+    styles: Children.toArray([initialProps.styles, fontStyles]),
+  };
+};
 
 export default MyDocument;

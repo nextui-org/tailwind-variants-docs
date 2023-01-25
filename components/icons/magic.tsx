@@ -1,13 +1,8 @@
-import * as React from "react";
+import type { IconProps } from "./icon";
 
-export interface Props {
-  fill?: string;
-  width?: number;
-  height?: number;
-  size?: number;
-}
+import React from "react";
 
-const Magic: React.FC<Props> = ({
+const Magic: React.FC<IconProps> = ({
   fill,
   size = 24,
   width,

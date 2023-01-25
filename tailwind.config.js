@@ -1,6 +1,6 @@
-/** @type {import('tailwindcss').Config} */
 const colors = require("./colors");
 
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: "class",
   content: [
@@ -11,7 +11,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: [`"Inter"`, "sans-serif"],
+        sans: "var(--font-sans)",
         "space-grotesk": ["Space Grotesk", "monospace"],
         mono: [
           "Menlo",

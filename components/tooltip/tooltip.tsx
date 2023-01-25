@@ -47,14 +47,18 @@ const tooltip = tv({
   },
 });
 
-const TooltipContent: React.FC<TooltipContentProps> = ({ state, ...props }) => {
+const TooltipContent: React.FC<TooltipContentProps> = ({
+  state,
+  children,
+  ...props
+}) => {
   const { tooltipProps } = useTooltip(props, state);
 
   const { content } = tooltip();
 
   return (
     <span className={content()} {...mergeProps(props, tooltipProps)}>
-      {props.children}
+      {children}
     </span>
   );
 };

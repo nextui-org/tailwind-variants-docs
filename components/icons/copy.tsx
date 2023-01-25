@@ -1,13 +1,8 @@
+import type { IconProps } from "./icon";
+
 import React from "react";
 
-interface CopyIconProps {
-  width?: number;
-  height?: number;
-  size?: number;
-  className?: string;
-}
-
-const CopyIcon: React.FC<CopyIconProps> = (props) => {
+const CopyIcon: React.FC<IconProps> = (props) => {
   const { size = "1em", width, height, className } = props;
 
   return (

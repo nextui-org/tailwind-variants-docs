@@ -1,13 +1,8 @@
+import type { IconProps } from "./icon";
+
 import React from "react";
 
-interface CheckIconProps {
-  width?: number;
-  height?: number;
-  size?: number;
-  className?: string;
-}
-
-const CheckIcon: React.FC<CheckIconProps> = (props) => {
+const CheckIcon: React.FC<IconProps> = (props) => {
   const { size = "1em", width, height, className } = props;
 
   return (
