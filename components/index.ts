@@ -6,5 +6,6 @@ export * from "./home";
 export * from "./snippet";
 export * from "./tooltip";
 export * from "./tv-component";
-export * from "./mdx-components";
-export * from "./introduction";
+export * from "./window-resizer";
+export * from "./examples";
+export * from "./radio";

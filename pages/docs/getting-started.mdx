@@ -31,25 +31,34 @@ To use **Tailwind Variants** in your project, you can install it as a dependency
 
 <br/>
 
+
 <TVComponent
   as="button"
+  size="sm"
+  color="secondary"
   tv={{
     base: 'font-medium bg-blue-500 text-white rounded-full active:opacity-80',
     variants: {
-      size: {
-        sm: 'px-2 py-1 text-sm',
-        md: 'px-3 py-1 text-base',
-        lg: 'px-4 py-3 text-lg',
-      },
-      variant: {
+      color: {
         primary: 'bg-blue-500 text-white',
-        secondary: 'bg-gray-500 text-white',
+        secondary: 'bg-purple-500 text-white',
+      },
+      size: {
+        sm: 'text-sm',
+        md: 'text-base',
+        lg: 'px-4 py-3 text-lg',
       },
     },
     defaultVariants: {
       size: 'md',
-      variant: 'primary',
-    }
+      color: 'primary',
+    },
+    compoundVariants: [
+      {
+        size: ['sm', 'md'],
+        class: 'px-3 py-1',
+      }
+    ]
   }}
 >
   Click me
@@ -58,26 +67,34 @@ To use **Tailwind Variants** in your project, you can install it as a dependency
 ```js copy
 import { tv } from 'tailwind-variants';
 
-const button = tv('button', {
-  base: 'font-medium bg-blue-500 text-white rounded-full active:opacity-80',
+const button = tv("button", {
+  base: "font-medium bg-blue-500 text-white rounded-full active:opacity-80",
   variants: {
-    size: {
-      sm: 'px-2 py-1 text-sm',
-      md: 'px-3 py-1 text-base',
-      lg: 'px-4 py-3 text-lg',
+    color: {
+      primary: "bg-blue-500 text-white",
+      secondary: "bg-purple-500 text-white",
     },
-    variant: {
-      primary: 'bg-blue-500 text-white',
-      secondary: 'bg-gray-500 text-white',
+    size: {
+      sm: "text-sm",
+      md: "text-base",
+      lg: "px-4 py-3 text-lg",
     },
   },
+  compoundVariants: [
+    {
+      size: ["sm", "md"],
+      class: "px-3 py-1",
+    },
+  ],
   defaultVariants: {
-    size: 'md',
-    variant: 'primary',
+    size: "md",
+    color: "primary",
   }
 });
 
-<button className={button({ size: 'lg', variant: 'secondary' })}>Click me</button>
+return (
+  <button className={button({ size: 'sm', color: 'secondary' })}>Click me</button>
+)
 ```
 
 ## Contributing

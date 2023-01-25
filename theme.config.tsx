@@ -72,7 +72,7 @@ const config: DocsThemeConfig = {
   useNextSeoProps: function SEO() {
     const { frontMatter } = useConfig();
 
-    const defaultTitle = frontMatter.overrideTitle || "tailwind-variants";
+    const defaultTitle = frontMatter.overrideTitle || "Tailwind Variants";
 
     return {
       description: frontMatter.description,

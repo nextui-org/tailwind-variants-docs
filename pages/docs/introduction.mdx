@@ -1,4 +1,4 @@
-import { WindowResizer, SlotsExample, TVComponent } from '@components'
+import { WindowResizer, TVComponent } from '@components'
 import Image from 'next/image'
 
 # Introduction
@@ -28,52 +28,66 @@ Since [Stitches](https://stitches.dev) introduced variants, we became big fans o
 
 <TVComponent
   as="button"
+  size="sm"
+  color="secondary"
   tv={{
     base: 'font-medium bg-blue-500 text-white rounded-full active:opacity-80',
     variants: {
-      size: {
-        sm: 'px-2 py-1 text-sm',
-        md: 'px-3 py-1 text-base',
-        lg: 'px-4 py-3 text-lg',
-      },
-      variant: {
+      color: {
         primary: 'bg-blue-500 text-white',
-        secondary: 'bg-gray-500 text-white',
+        secondary: 'bg-purple-500 text-white',
+      },
+      size: {
+        sm: 'text-sm',
+        md: 'text-base',
+        lg: 'px-4 py-3 text-lg',
       },
     },
     defaultVariants: {
       size: 'md',
-      variant: 'primary',
-    }
+      color: 'primary',
+    },
+    compoundVariants: [
+      {
+        size: ['sm', 'md'],
+        class: 'px-3 py-1',
+      }
+    ]
   }}
 >
   Click me
 </TVComponent>
 
-```js
+```js copy
 import { tv } from 'tailwind-variants';
 
-const button = tv('button', {
-  base: 'font-medium bg-blue-500 text-white rounded-full active:opacity-80',
+const button = tv("button", {
+  base: "font-medium bg-blue-500 text-white rounded-full active:opacity-80",
   variants: {
-    size: {
-      sm: 'px-2 py-1 text-sm',
-      md: 'px-3 py-1 text-base',
-      lg: 'px-4 py-3 text-lg',
+    color: {
+      primary: "bg-blue-500 text-white",
+      secondary: "bg-purple-500 text-white",
     },
-    variant: {
-      primary: 'bg-blue-500 text-white',
-      secondary: 'bg-gray-500 text-white',
+    size: {
+      sm: "text-sm",
+      md: "text-base",
+      lg: "px-4 py-3 text-lg",
     },
   },
+  compoundVariants: [
+    {
+      size: ["sm", "md"],
+      class: "px-3 py-1",
+    },
+  ],
   defaultVariants: {
-    size: 'md',
-    variant: 'primary',
+    size: "md",
+    color: "primary",
   }
 });
 
 return (
-  <button className={button({ size: 'lg', variant: 'secondary' })}>Click me</button>
+  <button className={button({ size: 'sm', color: 'secondary' })}>Click me</button>
 )
 ```
 
@@ -91,7 +105,7 @@ return (
 /> 
 
 
-```js {17-20}
+```js copy {17-20}
 import { tv } from "tailwind-variants";
 
 const button = tv({
@@ -125,7 +139,7 @@ button({
 
 #### Split components into multiple slots
 
-You can style multiple elements at once using the `slots` property.
+You can style multiple components at once using the `slots` property.
 
 <br/>
 
@@ -137,7 +151,7 @@ You can style multiple elements at once using the `slots` property.
   minWidth={400}
 />
 
-```js {5-11} /base()/ /avatar()/ /wrapper()/ /description()/ /infoWrapper()/ /name()/ /role()/
+```js copy {5-11} /base()/ /avatar()/ /wrapper()/ /description()/ /infoWrapper()/ /name()/ /role()/
 import { tv } from "tailwind-variants";
 
 const card = tv({
@@ -160,17 +174,17 @@ return (
     <div className={wrapper()}>
       <blockquote>
         <p className={description()}>
-          “Tailwind CSS is the only framework that I've seen scale
-          on large teams. It’s easy to customize, adapts to any design,
-          and the build size is tiny.”
+          “Tailwind variants allows you to reduce repeated code in your
+          project and make it more readable. They fixed the headache of
+          building a design system with TailwindCSS.”
         </p>
       </blockquote>
       <figcaption className={infoWrapper()}>
         <div className={name()}>
-          Sarah Dayan
+          Zoey Lang
         </div>
         <div className={role()}>
-          Staff Engineer, Algolia
+          Full-stack developer, NextUI
         </div>
       </figcaption>
     </div>
@@ -181,7 +195,7 @@ return (
 
 #### Overrides
 
-**Tailwind Variants** provides a `class` / `className` prop for overriding classes on any element.
+**Tailwind Variants** provides a `class` / `className` prop for overriding classes on any component.
 
 <br/>
 
@@ -189,7 +203,7 @@ return (
   Button
 </button>
 
-```js {16-17}
+```js copy {16-17}
 import { tv } from "tailwind-variants";
 
 const button = tv({

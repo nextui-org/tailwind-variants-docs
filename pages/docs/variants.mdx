@@ -28,7 +28,7 @@ You can add variants by using the `variants` key. There's no limit to how many v
   Button
 </TVComponent>
 
-```js {5-11, 14}
+```js copy {5-11, 14}
 import { tv } from "tailwind-variants";
 
 const button = tv({
@@ -102,7 +102,7 @@ export const MVButton = ({ children, color, size }) => {
   </MVButton>
 </div>
 
-```js {5-16, 19, 25, 31}
+```js copy {5-16, 19, 26, 33}
 import { tv } from "tailwind-variants";
 
 const button = tv({
@@ -170,7 +170,7 @@ You can also add boolean variants to a component. This is useful when you want t
   Disabled
 </TVComponent>
 
-```js {11-13, 17}
+```js copy {11-13, 17}
 import { tv } from "tailwind-variants";
 
 const button = tv({
@@ -229,7 +229,7 @@ Sometimes you might want to add a variant that depends on another variant. For e
   Disabled
 </TVComponent>
 
-```js {15-21, 24}
+```js copy {15-21, 24}
 import { tv } from "tailwind-variants";
 
 const button = tv({
@@ -267,7 +267,7 @@ button({ color: "success", disabled: true });
   </div>
 </Callout>
 
-You can also target **multiple** variants at once. For example, you might want to add a `color` variant that depends on the `disabled` and `loading` variants.
+You can also target **multiple** variants at once. 
 
 <br/>
 
@@ -276,7 +276,7 @@ You can also target **multiple** variants at once. For example, you might want t
   <button className="font-semibold text-slate-400 text-md py-1.5 px-4 rounded-full active:opacity-80 hover:bg-purple-700 bg-slate-200 dark:bg-slate-800 pointer-events-none opacity-100">Secondary</button>
 </div>
 
-```js {22}
+```js copy {22}
 import { tv } from "tailwind-variants";
 
 const button = tv({
@@ -351,7 +351,7 @@ You can also add a default variant to a component. This is useful when you want 
   Default
 </TVComponent>
 
-```js {17-20, 23}
+```js copy {17-20, 23}
 import { tv } from "tailwind-variants";
 
 const button = tv({
@@ -410,7 +410,7 @@ In the example below, we apply `primary` and `small` initially, then the `succes
   </div>
 </Callout> 
 
-```js {20-29}
+```js copy {20-29}
 import { tv } from "tailwind-variants";
 
 const button = tv({
