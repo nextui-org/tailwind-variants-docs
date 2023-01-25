@@ -13,7 +13,7 @@ const TVComponent: React.FC<TVComponentProps> = ({
   children,
   ...otherProps
 }) => {
-  const Component = as as React.ReactNode;
+  const Component = as;
   const styles = t(tv);
 
   return (

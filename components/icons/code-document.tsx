@@ -1,13 +1,8 @@
-import * as React from "react";
+import type { IconProps } from "./icon";
 
-interface Props {
-  width?: number;
-  height?: number;
-  size?: number;
-  fill?: string;
-}
+import React from "react";
 
-const CodeDocument: React.FC<Props> = ({
+const CodeDocument: React.FC<IconProps> = ({
   size = 24,
   fill,
   width,
