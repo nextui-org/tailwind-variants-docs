@@ -17,39 +17,40 @@ const item = tv({
     previousPrice: "relative line-through font-bold text-neutral-500 ml-3",
     percentOff: "relative font-bold text-green-500 ml-3",
     sizeButton:
-      "cursor-pointer select-none relative font-semibold rounded-full w-10 h-10 flex items-center justify-center active:opacity-80 dark:text-white peer-checked:bg-blue peer-checked:text-white",
+      "cursor-pointer select-none relative font-semibold rounded-full w-10 h-10 flex items-center justify-center active:opacity-80 dark:text-white peer-checked:text-white",
     buyButton:
-      "text-xs sm:text-sm px-4 h-10 rounded-lg uppercase font-semibold tracking-wider text-white bg-blue-500 shadow-lg shadow-blue-500/50 active:opacity-80",
+      "text-xs sm:text-sm px-4 h-10 rounded-lg shadow-lg uppercase font-semibold tracking-wider text-white active:opacity-80",
     addToBagButton:
-      "text-xs sm:text-sm px-4 h-10 rounded-lg uppercase font-semibold tracking-wider border-2 text-blue-500 border-blue-500 active:opacity-80",
+      "text-xs sm:text-sm px-4 h-10 rounded-lg uppercase font-semibold tracking-wider border-2 active:opacity-80",
   },
   variants: {
     color: {
       primary: {
         buyButton: "bg-blue-500 shadow-blue-500/50",
-        sizeButton: "peer-checked:bg-blue peer-checked:text-white",
+        sizeButton: "peer-checked:bg-blue",
         addToBagButton: "text-blue-500 border-blue-500",
       },
       secondary: {
         buyButton: "bg-purple-500 shadow-purple-500/50",
-        sizeButton: "peer-checked:bg-purple peer-checked:text-white",
+        sizeButton: "peer-checked:bg-purple",
         addToBagButton: "text-purple-500 border-purple-500",
       },
       success: {
         buyButton: "bg-green-500 shadow-green-500/50",
-        sizeButton: "peer-checked:bg-green peer-checked:text-white",
+        sizeButton: "peer-checked:bg-green",
         addToBagButton: "text-green-500 border-green-500",
       },
     },
   },
 });
 
-type Variants = VariantProps<typeof item>;
-
 const itemSizes = ["xs", "s", "m", "l", "xl"];
 
+type Variants = VariantProps<typeof item>;
+type ItemSizes = (typeof itemSizes)[number];
+
 const SlotsVariantsExample = () => {
-  const [size, setSize] = useState("xs");
+  const [size, setSize] = useState<ItemSizes>("xs");
   const [color, setColor] = useState<Variants["color"]>("primary");
 
   const {

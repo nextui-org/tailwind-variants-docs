@@ -5,6 +5,7 @@ import Image from 'next/image'
 
 <Image
   alt="tailwind-variants banner"
+  priority
   quality={90}
   className="rounded-lg mt-1"
   height="730"
@@ -61,7 +62,7 @@ Since [Stitches](https://stitches.dev) introduced variants, we became big fans o
 ```js copy
 import { tv } from 'tailwind-variants';
 
-const button = tv("button", {
+const button = tv({
   base: "font-medium bg-blue-500 text-white rounded-full active:opacity-80",
   variants: {
     color: {
@@ -258,6 +259,6 @@ We're excited to see the community adopt NextUI, raise issues, and provide feedb
 
 Special thanks to [Joe Bell](https://twitter.com/joe_bell) for creating [CVA](https://github.com/joe-bell/cva).
 
-Special thanks to [Tianen Pang](https://github.dev/tianenpang) for giving us the idea of using `slots` to split components into multiple slots.
+Special thanks to [Tianen Pang](https://github.dev/tianenpang) for helping with the API design and library creation.
 
 Special thanks to [Junior Garcia](https://github.dev/jrgarciadev) for building the library and the documentation.

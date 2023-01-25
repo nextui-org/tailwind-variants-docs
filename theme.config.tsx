@@ -1,4 +1,5 @@
 import React from "react";
+import { useRouter } from "next/router";
 import { DocsThemeConfig, useConfig } from "nextra-theme-docs";
 import { tvs, Logo, NextUILogo } from "@components";
 
@@ -70,6 +71,7 @@ const config: DocsThemeConfig = {
     );
   },
   useNextSeoProps: function SEO() {
+    const router = useRouter();
     const { frontMatter } = useConfig();
 
     const defaultTitle = frontMatter.overrideTitle || "Tailwind Variants";
@@ -77,7 +79,7 @@ const config: DocsThemeConfig = {
     return {
       description: frontMatter.description,
       defaultTitle,
-      titleTemplate: `%s – ${defaultTitle}`,
+      titleTemplate: router.pathname !== "/" ? `%s – ${defaultTitle}` : "",
     };
   },
   project: {

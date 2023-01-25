@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { motion, useMotionValue, useTransform } from "framer-motion";
 import { useIsomorphicLayoutEffect, useIsMobile } from "@hooks";
 import { tv } from "tailwind-variants";
@@ -8,7 +8,7 @@ const resizer = tv({
   slots: {
     main: "relative w-full",
     barWrapper:
-      "cursor-ew-resize select-none absolute d-flex justify-center flex items-center justify-center w-[10px] h-auto active:opacity-80",
+      "cursor-ew-resize select-none absolute d-flex justify-center flex items-center w-[10px] h-auto active:opacity-80",
     barInner: "relative z-10",
     bar: "w-[6px] h-[40px] rounded-full bg-neutral/60",
     iframeWrapper: "border border-neutral/20 rounded-lg overflow-hidden",
@@ -100,7 +100,7 @@ const WindowResizer: React.FC<WindowResizerProps> = (props) => {
   }, []);
 
   // inject iframe styles
-  useIsomorphicLayoutEffect(() => {
+  useEffect(() => {
     const iframeStyles = `
   body {
     zoom: ${iframeZoom};
@@ -117,11 +117,11 @@ const WindowResizer: React.FC<WindowResizerProps> = (props) => {
       return;
     }
     // add classname to the iframe html element
-    iframeDocument?.documentElement.classList.add("overflow-hidden");
+    iframeDocument?.documentElement?.classList?.add("overflow-hidden");
 
     const style = iframeDocument.createElement("style");
-    const footer = iframeEl?.contentWindow.document.querySelector("footer");
-    const aside = iframeEl?.contentWindow.document.querySelector("aside");
+    const footer = iframeEl?.contentWindow?.document?.querySelector("footer");
+    const aside = iframeEl?.contentWindow?.document?.querySelector("aside");
 
     // removes the nextra footer and aside elements
     if (footer) {
@@ -130,9 +130,11 @@ const WindowResizer: React.FC<WindowResizerProps> = (props) => {
     if (aside) {
       aside.style.display = "none";
     }
+    if (style) {
+      style.innerHTML = iframeStyles;
+    }
 
-    style.innerHTML = iframeStyles;
-    iframeDocument.head.appendChild(style);
+    iframeDocument.head?.appendChild(style);
   });
 
   return (
