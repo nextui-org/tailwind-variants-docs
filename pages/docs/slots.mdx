@@ -19,7 +19,7 @@ You can add slots by using the `slots` key. There's no limit to how many slots y
   minWidth={400}
 />
 
-```js copy {5-11} /base()/ /avatar()/ /wrapper()/ /description()/ /infoWrapper()/ /name()/ /role()/
+```js copy /base/1 /avatar/1 /wrapper/1 /description/1 /infoWrapper/1 /name/1 /role/1 /base()/ /avatar()/ /wrapper()/ /description()/ /infoWrapper()/ /name()/ /role()/
 import { tv } from "tailwind-variants";
 
 const card = tv({
@@ -329,14 +329,7 @@ export default App;
   minWidth={400}
 />
 
-<Callout type="error">
-  <div className="text-sm">
-   In responsive variants, you must declare either the `initial` variant or `defaultVariants` before any breakpoints are applied. 
-  </div>
-</Callout> 
-
-
-```js copy /base/ /name/ /role/ /base()/ /name()/ /role()/
+```js copy {37-39} /base/ /name/ /role/ /base()/ /name()/ /role()/
 import { tv } from "tailwind-variants";
 
 const card = tv({
@@ -403,3 +396,15 @@ return (
 )
 
 ```
+
+<details>
+  <summary>Troubleshooting: The responsive variants are not working</summary>
+  <ul className="pl-3 py-2">
+    <li>
+      - Make sure you have followed this [step](/docs/getting-started#responsive-variants-usage )
+    </li>
+    <li>
+      - Make sure you declared either the `initial` variant or `defaultVariants`. 
+    </li>
+  </ul>
+</details>

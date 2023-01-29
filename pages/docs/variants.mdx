@@ -28,7 +28,7 @@ You can add variants by using the `variants` key. There's no limit to how many v
   Button
 </TVComponent>
 
-```js copy {5-11, 14}
+```js copy /variants/2 /color/
 import { tv } from "tailwind-variants";
 
 const button = tv({
@@ -102,7 +102,7 @@ export const MVButton = ({ children, color, size }) => {
   </MVButton>
 </div>
 
-```js copy {5-16, 19, 26, 33}
+```js copy /color/ /size/
 import { tv } from "tailwind-variants";
 
 const button = tv({
@@ -170,7 +170,7 @@ You can also add boolean variants to a component. This is useful when you want t
   Disabled
 </TVComponent>
 
-```js copy {11-13, 17}
+```js copy /disabled/
 import { tv } from "tailwind-variants";
 
 const button = tv({
@@ -229,7 +229,7 @@ Sometimes you might want to add a variant that depends on another variant. For e
   Disabled
 </TVComponent>
 
-```js copy {15-21, 24}
+```js copy /compoundVariants/1 /color/2-3 /disabled/2-3
 import { tv } from "tailwind-variants";
 
 const button = tv({
@@ -248,7 +248,7 @@ const button = tv({
     {
       color: "success",
       disabled: true,
-      class: "bg-green-100 text-green-700 dark:text-green-800", // You could also use "className" 
+      class: "bg-green-100 text-green-700 dark:text-green-800", // You can also use "className" 
     },
   ],
 });
@@ -398,12 +398,6 @@ In the example below, we apply `primary` and `small` initially, then the `succes
   height="120px"
 />
 
-<Callout type="error">
-  <div className="text-sm">
-   In responsive variants, you must declare either the `initial` variant or `defaultVariants` before any breakpoints are applied. 
-  </div>
-</Callout> 
-
 <Callout type="info">
   <div className="text-sm">
     The `initial` breakpoint overrides the `defaultVariant`.
@@ -450,5 +444,17 @@ button({
  * md:py-1.5 md:px-3 md:text-md
  */
 ```
+
+<details>
+  <summary>Troubleshooting: The responsive variants are not working</summary>
+  <ul className="pl-3 py-2">
+    <li>
+      - Make sure you have followed this [step](/docs/getting-started#responsive-variants-usage )
+    </li>
+    <li>
+      - Make sure you declared either the `initial` variant or `defaultVariants`. 
+    </li>
+  </ul>
+</details>
 
 

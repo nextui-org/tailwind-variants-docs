@@ -9,3 +9,4 @@ export * from "./tv-component";
 export * from "./window-resizer";
 export * from "./examples";
 export * from "./radio";
+export * from "./collapse";
