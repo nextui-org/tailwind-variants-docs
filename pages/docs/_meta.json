@@ -10,6 +10,7 @@
   "variants": "Variants",
   "slots": "Slots",
   "overriding-styles": "Overriding Styles",
+  "composing-components": "Composing Components",
   "examples": "Examples",
   "typescript":  "Typescript",
   "api-reference": "API Reference",

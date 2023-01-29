@@ -1,0 +1,152 @@
+import { Callout } from 'nextra-theme-docs'
+import {TVComponent} from '@components'
+
+# Componsing components
+
+All the **Tailwind Variants** components return a string with the class names. You can use this string to compose components.
+
+
+### Composing using the base key
+
+You can use the `base` key to compose components. The `base` key should be an array of strings.
+
+<br/>
+
+<button className="font-medium text-sm px-3 py-1 active:opacity-80 bg-green-500 text-green-900 rounded-xs"> 
+  Action Button
+</button>
+
+
+```js /baseButton()/
+import {tv} from 'tailwind-variants'
+
+const baseButton = tv({
+  base: "font-medium text-sm px-3 py-1 bg-blue-500 text-white rounded-full active:opacity-80",
+})
+
+const actionButton = tv({
+  base: [baseButton(), "bg-green-500", "text-green-900", "rounded-xs"]
+})
+
+actionButton()
+
+/**
+ * Result:
+ * font-medium text-sm px-3 py-1 rounded-full active:opacity-80 bg-green-500 text-green-900
+ */
+```
+
+<Callout type="info">
+  <div className="text-sm">
+    It's important to put the base styles first, so they can be overwritten by the other styles.
+  </div>
+</Callout>
+
+### Composing components with variants
+
+<br/>
+
+<button className="font-medium active:opacity-80 rounded-xs bg-red-500 text-white px-1 py-0 text-xs"> 
+  Action Button
+</button>
+
+```js
+import {tv} from 'tailwind-variants'
+
+const baseButton = tv({
+  base: "font-medium rounded-full active:opacity-80",
+  variants: {
+    color: {
+      primary: "bg-blue-500 text-white",
+      secondary: "bg-purple-500 text-white",
+      success: "bg-green-500 text-white"
+    },
+    size: {
+      small: "text-sm px-3 py-1",
+      large: "text-md px-3 py-2"
+    }
+  },
+  defaultVariants: {
+    color: "primary",
+    size: "small"
+  }
+})
+
+const actionButton = tv({
+  base: [
+    baseButton({ color: "primary", size: "large" }), 
+    "bg-green-500", 
+    "text-green-900", 
+    "rounded-xs"
+  ],
+  variants: {
+    color: {
+      error: "bg-red-500 text-white"
+    },
+    size: {
+      xs: "px-1 py-0 text-xs"
+    }
+  }
+})
+
+actionButton({ size:"xs", color: "error" })
+
+/**
+ * Result:
+ * font-medium active:opacity-80 rounded-xs bg-red-500 text-white px-1 py-1 text-xs
+ */
+```
+
+
+### Using typescript to join props
+
+You can use the `VariantProps` type to get the props of a component.
+
+```tsx
+import type { VariantProps } from 'tailwind-variants'
+import { tv } from 'tailwind-variants'
+
+const baseButton = tv({
+  base: "font-medium rounded-full active:opacity-80",
+  variants: {
+    color: {
+      primary: "bg-blue-500 text-white",
+      secondary: "bg-purple-500 text-white",
+      success: "bg-green-500 text-white"
+    },
+    size: {
+      small: "text-sm px-3 py-1",
+      large: "text-md px-3 py-2"
+    }
+  },
+  defaultVariants: {
+    color: "primary",
+    size: "small"
+  }
+})
+
+
+const actionButton = tv({
+  base: [
+    baseButton({ color: "primary", size: "large" }), 
+    "bg-green-500", 
+    "text-green-900", 
+    "rounded-xs"
+  ],
+  variants: {
+    color: {
+      error: "bg-red-500 text-white"
+    },
+    size: {
+      xs: "px-1 py-0 text-xs"
+    }
+  }
+})
+
+type BaseButtonProps = VariantProps<typeof baseButton>
+type ActionButtonProps = VariantProps<typeof actionButton>
+
+function Button(props: BaseButtonProps | ActionButtonProps) {
+  return <button className={props.className}>Action Button</button>
+}
+```

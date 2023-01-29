@@ -8,10 +8,10 @@ const Hero: React.FC<HeroProps> = () => {
     <section className={tvs.box({ class: "my-20 gap-6" })}>
       <div className={tvs.box()}>
         <Logo height={120} />
-        <h1 className="font-extrabold mt-4 text-4xl md:text-5xl text-black dark:text-white">
+        <h1 className="font-extrabold mt-4 text-center text-4xl md:text-5xl text-black dark:text-white">
           Tailwind Variants
         </h1>
-        <p className="mt-2 text-center font-medium text-xl sm:text-lg">
+        <p className="mt-2 text-center font-medium text-lg">
           The power of Tailwind combined with a first-class variant API.
         </p>
       </div>

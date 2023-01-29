@@ -16,7 +16,9 @@ const config: DocsThemeConfig = {
   logo: (
     <div className="flex items-center">
       <Logo height={30} />
-      <b className="ml-1.5 font-semibold">Tailwind Variants</b>
+      <b className="ml-1.5 font-semibold hidden sm:block text-sm sm:text-base">
+        Tailwind Variants
+      </b>
       <span className={tvs.badge({ class: "hidden sm:flex" })}>
         v{tvVersion}
       </span>

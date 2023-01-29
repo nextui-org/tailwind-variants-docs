@@ -1,9 +1,14 @@
 import React from "react";
 import { Inter } from "@next/font/google";
+import { SSRProvider } from "@react-aria/ssr";
 import "../styles.css";
 
 const MyApp = ({ Component, pageProps }) => {
-  return <Component {...pageProps} />;
+  return (
+    <SSRProvider>
+      <Component {...pageProps} />
+    </SSRProvider>
+  );
 };
 
 const sans = Inter({

@@ -120,13 +120,9 @@ const WindowResizer: React.FC<WindowResizerProps> = (props) => {
     iframeDocument?.documentElement?.classList?.add("overflow-hidden");
 
     const style = iframeDocument.createElement("style");
-    const footer = iframeEl?.contentWindow?.document?.querySelector("footer");
     const aside = iframeEl?.contentWindow?.document?.querySelector("aside");
 
     // removes the nextra footer and aside elements
-    if (footer) {
-      footer.style.display = "none";
-    }
     if (aside) {
       aside.style.display = "none";
     }
