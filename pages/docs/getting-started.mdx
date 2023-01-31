@@ -5,6 +5,11 @@ import { TVComponent, WindowResizer } from '@components'
 
 **Tailwind Variants** combines the power of TailwindCSS with a first-class variant API.
 
+## Setup TailwindCSS
+
+**Tailwind Variants** requires you to have TailwindCSS installed in your project. If you haven't installed 
+TailwindCSS yet, you can follow the [TailwindCSS installation guide](https://tailwindcss.com/docs/installation).
+
 ## Installation
 
 To use **Tailwind Variants** in your project, you can install it as a dependency:
@@ -100,28 +105,23 @@ return (
 
 ## Responsive variants (optional)
 
-If you want to use responsive variants, you need to add the **Tailwind Variants** `transformer` to your TailwindCSS config file `tailwind.config.js`.
+If you want to use responsive variants, you need to add the **Tailwind Variants** `wrapper` to your TailwindCSS config file `tailwind.config.js`.
 
-```js copy /transformer/
+```js copy /withTV/
 // tailwind.config.js
-
-const { transformer } = require('tailwind-variants/transformer')
+const { withTV } = require('tailwind-variants/transformer')
 
 /** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: {
-    files: [
-      "./index.html",
-      "./src/**/*.{js,ts,jsx,tsx}",
-    ],
-    transform: transformer,
-  },
+module.exports = withTV({
+  content:  ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {},
   },
   plugins: [],
-}
+})
 ```
+
+
 
 <details>
   <summary>Why do I need to add the transformer?</summary>
