@@ -1,13 +1,18 @@
 import React from "react";
 import { Inter } from "@next/font/google";
 import { SSRProvider } from "@react-aria/ssr";
+import { Analytics } from "@vercel/analytics/react";
+import { isProd } from "@utils";
 import "../styles.css";
 
 const MyApp = ({ Component, pageProps }) => {
   return (
-    <SSRProvider>
-      <Component {...pageProps} />
-    </SSRProvider>
+    <>
+      <SSRProvider>
+        <Component {...pageProps} />
+      </SSRProvider>
+      {isProd && <Analytics />}
+    </>
   );
 };
 
