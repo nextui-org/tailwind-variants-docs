@@ -236,11 +236,10 @@ button({
 <br/>
 
 <div className="flex gap-3">
-  <button className="font-semibold text-white py-1 px-3 rounded-full active:opacity-80 bg-zinc-800 hover:bg-zinc-800">
+  <button className="font-semibold dark:text-white py-1 px-3 rounded-full active:opacity-80 bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800 dark:hover:bg-zinc-800">
     Button
   </button>
-
-  <button className="font-semibold text-white py-1 px-3 active:opacity-80 text-sm rounded-lg shadow-lg uppercase tracking-wider bg-blue-500 hover:bg-blue-600 shadow-blue-500/50">
+  <button className="font-semibold dark:text-white py-1 px-3 active:opacity-80 text-sm text-white rounded-lg shadow-lg uppercase tracking-wider bg-blue-500 hover:bg-blue-600 shadow-blue-500/50 dark:bg-blue-500 dark:hover:bg-blue-600">
     Buy button
   </button>
 </div>
@@ -250,21 +249,37 @@ button({
 import { tv } from "tailwind-variants";
 
 const baseButton = tv({
-  base: "font-semibold text-white py-1 px-3 rounded-full active:opacity-80 bg-zinc-800 hover:bg-zinc-800",
+  base: [
+    "font-semibold",
+    "dark:text-white",
+    "py-1",
+    "px-3",
+    "rounded-full",
+    "active:opacity-80",
+    "bg-zinc-100",
+    "hover:bg-zinc-200",
+    "dark:bg-zinc-800",
+    "dark:hover:bg-zinc-800",
+  ],
 });
 
 const buyButton = tv({
   extend: baseButton,
-  base: "text-sm rounded-lg shadow-lg uppercase tracking-wider bg-blue-500 hover:bg-blue-600 shadow-blue-500/50",
+  base: [
+    "text-sm",
+    "text-white",
+    "rounded-lg",
+    "shadow-lg",
+    "uppercase",
+    "tracking-wider",
+    "bg-blue-500",
+    "hover:bg-blue-600",
+    "shadow-blue-500/50",
+    "dark:bg-blue-500",
+    "dark:hover:bg-blue-600",
+  ],
 });
- 
-buyButton();
 
-/**
- * Result: 
- * font-semibold text-white py-1 px-3 active:opacity-80 hover:bg-zinc-800 text-sm rounded-lg
- * shadow-lg uppercase tracking-wider bg-blue-500 hover:bg-blue-600 shadow-blue-500/50
- */
 
 return (
   <div className="flex gap-3">
@@ -276,6 +291,15 @@ return (
     </button>
   </div>
 )
+
+/**
+ * buyButton();
+ * 
+ * Result: 
+ * font-semibold dark:text-white py-1 px-3 active:opacity-80 text-sm text-white rounded-lg
+ * shadow-lg shadow-blue-500/50 uppercase tracking-wider bg-blue-500 hover:bg-blue-600 
+ * dark:bg-blue-500 dark:hover:bg-blue-600
+ */
 ```
 
 #### Developer experience 

@@ -45,7 +45,7 @@ specifiers:
   react: ^18.2.0
   react-dom: ^18.2.0
   sharp: ^0.31.3
-  tailwind-variants: ^0.0.27
+  tailwind-variants: ^0.0.28
   tailwindcss: ^3.2.4
   typescript: ^4.9.3
 
@@ -67,7 +67,7 @@ dependencies:
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   sharp: 0.31.3
-  tailwind-variants: 0.0.27_tailwindcss@3.2.4
+  tailwind-variants: 0.0.28_tailwindcss@3.2.4
 
 devDependencies:
   '@next/eslint-plugin-next': 13.1.6
@@ -5240,8 +5240,8 @@ packages:
     resolution: {integrity: sha512-+fflfPxvHFr81hTJpQ3MIwtqgvefHZFUHFiIHpVIRXvG/nX9+gu2P7JNlFu2bfDMJ+uHhi/pUgzaYacMoXv+Ww==}
     dev: false
 
-  /tailwind-variants/0.0.27_tailwindcss@3.2.4:
-    resolution: {integrity: sha512-VPkr3ASx1UHwFQuO5cPRqw4J6WAkOdeCNouV0XpTa2BudO9v3fNEz2JVM2gGVev7nlgWxc/OE9fbdVYIumDRtA==}
+  /tailwind-variants/0.0.28_tailwindcss@3.2.4:
+    resolution: {integrity: sha512-/PSE/oU1xrNs8p6eK+uCjSDGNcyqF/h1ScGB9GueXXHe7mqhQfDvGYyEf5+kZTzzuR6HcRMXTHbGflJPkf581w==}
     engines: {node: '>=16.x', pnpm: '>=7.x'}
     peerDependencies:
       tailwindcss: '*'
