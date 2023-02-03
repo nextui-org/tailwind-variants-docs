@@ -108,26 +108,6 @@ const config: DocsThemeConfig = {
           </a>
         </div>
         <p className="mt-6 text-xs">
-          Created by&nbsp;
-          <a
-            className="text-blue-500 font-semibold"
-            href="https://jrgarciadev.com"
-            rel="noreferrer"
-            target="_blank"
-          >
-            Junior Garcia&nbsp;
-          </a>
-          - Based on&nbsp;
-          <a
-            className="text-blue-500 font-semibold"
-            href="https://github.com/joe-bell/cva"
-            rel="noreferrer"
-            target="_blank"
-          >
-            CVA
-          </a>
-        </p>
-        <p className="mt-6 text-xs">
           MIT {new Date().getFullYear()} The Tailwind Variants Project.
         </p>
       </div>

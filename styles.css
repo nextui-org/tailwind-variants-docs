@@ -6,6 +6,24 @@
   html {
     font-family: var(--font-sans) !important;
   }
+
+  .dark {
+    --shiki-color-text: #E4F0FB !important;
+    --shiki-token-constant: #79b8ff;
+    --shiki-token-string: #ffab70;
+    --shiki-token-comment: #767C9DB0 !important;
+    --shiki-token-keyword: #f97583;
+    --shiki-token-parameter: #ff9800;
+    --shiki-token-function: #79b8ff !important;
+    --shiki-token-string-expression: #5DE4C7 !important;
+    --shiki-token-punctuation: #bbbbbb;
+    --shiki-token-link: #ffab70;
+  }
+
+  pre {
+    border : 1px solid rgb(136 144 150 / 0.2) !important;
+    background-color: transparent !important;
+  }
 }
 
 .dragging-ew {
@@ -19,6 +37,3 @@
 }
 
 
-.dark pre {
-  background-color: #1a1817 !important;
-}
