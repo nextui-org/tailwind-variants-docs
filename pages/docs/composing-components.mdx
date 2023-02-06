@@ -92,7 +92,7 @@ Components with `variants` will inherit their variants when composed.
   Button
 </button>
 
-```js copy /variants/ /success/
+```js copy /variants/ /success/ /extend: baseButton/
 import { tv } from "tailwind-variants";
  
 const baseButton = tv({
@@ -137,7 +137,7 @@ You can also extend components with `defaultVariants` and `compoundVariants`.
   Button
 </button>
 
-```js copy /variants/ /success/ /defaultVariants/ /compoundVariants/
+```js copy /variants/ /success/ /defaultVariants/ /compoundVariants/ /extend: baseButton/
 import { tv } from "tailwind-variants";
  
 const baseButton = tv({
@@ -195,7 +195,7 @@ Components with `slots` will inherit their slots when composed.
 
 <SlotsExample/>
 
-```js copy /slots/ /myCard/
+```js copy /slots/ /myCard/ /extend: cardBase/
 import { tv } from "tailwind-variants";
  
 const cardBase = tv({
