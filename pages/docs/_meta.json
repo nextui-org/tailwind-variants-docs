@@ -7,6 +7,7 @@
     "display": "hidden"
   },
   "getting-started": "Getting Started",
+  "comparison": "Comparison",
   "variants": "Variants",
   "slots": "Slots",
   "overriding-styles": "Overriding Styles",
@@ -15,6 +16,5 @@
   "typescript":  "Typescript",
   "api-reference": "API Reference",
   "acknowledgements": "Acknowledgements",
-  "comparison": "Comparison",
   "faq": "FAQ"
 }

@@ -92,6 +92,9 @@ const config: DocsThemeConfig = {
   },
   docsRepositoryBase: "https://github.com/nextui-org/tailwind-variants",
   gitTimestamp: "",
+  sidebar: {
+    defaultMenuCollapseLevel: 1,
+  },
   footer: {
     text: (
       <div className="flex w-full flex-col items-center sm:items-start">
