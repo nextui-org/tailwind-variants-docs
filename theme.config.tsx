@@ -29,7 +29,8 @@ const config: DocsThemeConfig = {
     const description =
       config.frontMatter.description ||
       "The power of Tailwind combined with a first-class variant API.";
-    const image = config.frontMatter.image;
+    const image =
+      config.frontMatter.image || "https://tailwind-variants.org/banner.png";
 
     // || "https://assets.vercel.com/image/upload/v1572282926/swr/twitter-card.jpg";
 

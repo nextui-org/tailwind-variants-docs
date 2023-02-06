@@ -40,6 +40,13 @@
   .dark footer {
     background-color: #000 !important;
   }
+  .dark .dark\:nx-text-slate-100 {
+    color: rgba(241,245,249, 1) !important;
+  }
+
+  .dark .nextra-content {
+    color: rgba(241,245,249, 0.85) !important;
+  }
 
   pre {
     border : 1px solid rgb(136 144 150 / 0.2) !important;
