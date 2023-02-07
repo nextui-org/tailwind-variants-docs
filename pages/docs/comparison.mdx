@@ -15,20 +15,20 @@ Here's a comparison of Tailwind Variants with other libraries that provide simil
 
 | Feature                         | Tailwind Variants | CVA | Windstitch | Classnames |
 | ------------------------------- | ----------------- | --- | ---------- | ---------- |
-| Zero runtime                    | ✓                 | ✓   | ✓          | ✓          |
-| Variants API                    | ✓                 | ✓   | ✓          | ✗          |
-| Framework agnostic              | ✓                 | ✓   | ✗          | ✓          |
-| Responsive Variants             | ✓                 | ✗   | ✗          | ✗          |
-| Split components (slots)        | ✓                 | ✗   | ✗          | ✗          |
-| Slots with responsive variants  | ✓                 | ✗   | ✗          | ✗          |
-| Overrides components            | ✓                 | ✓   | ✓          | ✗          |
-| Components composition (extend) | ✓                 | ✗   | ✓          | ✓          |
-| Great DX (autocomplete types)   | ✓                 | ✓   | ✓          | ✗          |
-| Needs TailwindCSS to work       | ✓                 | ✗   | ✓          | ✗          |
-| Conflict resolution             | ✓                 | ✗   | ✗          | ✗          |
+| Zero runtime                    | ✅                | ✅  | ✅         | ✅         |
+| Variants API                    | ✅                | ✅  | ✅         | ❌         |
+| Framework agnostic              | ✅                | ✅  | ❌         | ✅         |
+| Responsive Variants             | ✅                | ❌  | ❌         | ❌         |
+| Split components (slots)        | ✅                | ❌  | ❌         | ❌         |
+| Slots with responsive variants  | ✅                | ❌  | ❌         | ❌         |
+| Overrides components            | ✅                | ✅  | ✅         | ❌         |
+| Components composition (extend) | ✅                | ❌  | ✅         | ✅         |
+| Great DX (autocomplete types)   | ✅                | ✅  | ✅         | ❌         |
+| Needs TailwindCSS to work       | ✅                | ❌  | ✅         | ❌         |
+| Conflict resolution             | ✅                | ❌  | ❌         | ❌         |
 
 Note:
-✓ = supported, ✗ = not supported
+✅ = supported, ❌ = not supported
 
 ### Why Tailwind Variants?
 
@@ -36,8 +36,7 @@ A common question that we get is "Why you created **Tailwind Variants**? Why not
 fact is that we tried to use [CVA](https://github.com/joe-bell/cva) in [NextUI](https://nextui.org) to migrate from Stitches to TailwindCSS, but we found it challenging
 to create a design system solely using CVA. Then we realized that some of the features we needed were not planned
 to be implemented in CVA as the creator has stated [here](https://github.com/joe-bell/cva#how-can-i-create-responsive-variants-like-stitchesjs),
-so we decided to create Tailwind Variants to fill the gap. Our goal is not to compete with CVA, but to provide an alternative that meets our needs 
-to migrate [NextUI](https://nextui.org) to TailwindCSS as smoothly as possible. That beign said, big shoutout to [Joe Bell](https://github.com/joe-bell) 
-and [contributors](https://github.com/joe-bell/cva/graphs/contributors) you guys rock! 🤘 - we **recommend** to use CVA if don't need to generate variants 
+so we decided to create Tailwind Variants to fill the gap. Our goal is not to compete with CVA, but to provide an alternative that meets our needs
+to migrate [NextUI](https://nextui.org) to TailwindCSS as smoothly as possible. That beign said, big shoutout to [Joe Bell](https://github.com/joe-bell)
+and [contributors](https://github.com/joe-bell/cva/graphs/contributors) you guys rock! 🤘 - we **recommend** to use CVA if don't need to generate variants
 any of the features listed above.
-
