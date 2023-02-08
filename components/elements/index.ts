@@ -68,9 +68,8 @@ export const card = tv({
     "rounded-lg",
     "shadow-lg",
     "bg-white",
-    "dark:bg-neutral/900",
     "overflow-hidden",
-    "dark:bg-neutral/10",
+    "dark:bg-zinc-500/20",
   ],
 });
 
