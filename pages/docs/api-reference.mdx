@@ -1,9 +1,170 @@
 # API Reference
 
-import { Callout } from 'nextra-theme-docs'
+Here's the API reference for the `tailwind-variants` exported types and functions.
 
-<Callout type="warning" emoji="🚧">
-  <div className="text-sm">
-    This page is a work in progress. If you have any questions, please ask in the <a href="https://discord.gg/9b6yyZKmH4" target="_blank" className="underline">Discord</a>.
-  </div>
-</Callout>
+```js
+import {tv} from 'tailwind-variants'
+
+const element = tv(options, config)
+
+// call the element function to get the class names
+
+element({}'...'}) // => string
+
+// call the element function with slots to get the class names
+
+const {slot1, slot2} = element({...}) // => Record<Function, Function>
+
+slot1({}) // => string
+
+// access to the returned object
+
+element.base // => string
+element.slots // => Record<string, string>
+element.variants // => Record<string, string>
+element.variantKeys // => string[]
+element.defaultVariants // => Record<string, string>
+element.compoundVariants // => Array<Record<string, string>>
+
+```
+
+### Options
+
+The `options` argument is an object with the following properties:
+
+```ts
+type TVOptions = {
+  extend?: TVReturnType | undefined,
+  base?:  ClassValue,
+  slots?: Record<string, ClassValue>,
+  variants?: Record<string, Record<string, ClassValue>>,
+  defaultVariants?: Record<string, ClassValue>,
+  compoundVariants?: Array<Record<string, string> & ClassProp>,
+}
+```
+
+
+#### `extend`
+
+**description:** This property allows you to extend the `base` styles, `slots`, `variants`, 
+`defaultVariants` and `compoundVariants` from another component.
+
+**type:** [TVReturnType](/docs/api-reference#tvreturntype) | `undefined`  
+
+**default**: `undefined` 
+
+To learn more about Components composition, check out this [page](/docs/composing-components).
+
+
+#### `base`
+
+**description:** This property allows you to define the base styles for the component.
+
+**type:**  [ClassValue](/docs/api-reference#classvalue)
+
+**default**: `undefined`
+
+#### `slots`
+
+**description:** This property allows you to define the slots for the component.
+
+**type:**  `Record<string, ClassValue>` | `undefined`
+
+**default**: `{}`
+
+To learn more about slots and how to use them, check out the [Slots](/docs/slots) page.
+
+#### `variants`
+
+**description:** This property allows you to define the variants for the component.
+
+**type:**  `Record<string, Record<string, ClassValue>>` | `undefined`
+
+**default**: `{}`
+
+To learn more about variants and how to use them, check out the [Variants](/docs/variants) page.
+
+#### `defaultVariants`
+
+**description:** This property allows you to define the default variants for the component.
+
+**type:**  `Record<string, ClassValue>` | `undefined`
+
+**default**: `{}`
+
+To learn more about default variants and how to use them, check out the [Default Variants](/docs/variants#default-variants) page.
+
+#### `compoundVariants`
+
+**description:** This property allows you to define the compound variants for the component.
+
+**type:**  `Array<Record<string, string> & ClassProp>` | `undefined`
+
+**default**: `[]`
+
+
+To learn more about compound variants and how to use them, check out the [Compound Variants](/docs/variants#compound-variants) page.
+
+### Config
+
+The `config` argument is an object with the following properties:
+
+```ts
+type TvConfig = {
+  twMerge?: boolean,
+  twMergeConfig?:TwMergeConfig,
+}
+```
+
+#### `twMerge`
+
+**description:** Whether to merge the class names with `tailwind-merge` library. 
+It's avoid to have duplicate tailwind classes. (Recommended) see more [here](https://github.com/dcastil/tailwind-merge/blob/v1.8.1/README.md)
+
+**type:** `boolean`
+
+**default**: `true`
+
+#### `twMergeConfig`
+
+**description:** The config object for `tailwind-merge` library. see more [here](https://github.com/dcastil/tailwind-merge/blob/v1.8.1/docs/configuration.md)
+
+**type:** `TwMergeConfig`
+
+**default**: `{}`
+
+<br/>
+
+### Types
+
+#### ClassValue
+
+```ts
+type ClassValue = string | string[] | null | undefined | ClassValue[];
+```
+
+#### ClassProp
+
+```ts
+type ClassProp<V extends unknown = ClassValue> =
+  | {
+      class: V;
+      className?: never;
+    }
+  | {class?: never; className: V}
+  | {class?: never; className?: never};
+```
+
+#### TVReturnType
+
+```ts
+type TVReturnType = {
+  base?: string
+  extend?: TVReturnType
+  slots?: Record<string, string>
+  variants?: Record<string, string>
+  variantKeys?: string[]
+  defaultVariants?: Record<string, string>
+  compoundVariants?: Array<Record<string, string>>
+}
+```
