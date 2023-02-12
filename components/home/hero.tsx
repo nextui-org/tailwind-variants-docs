@@ -5,8 +5,10 @@ interface HeroProps {}
 
 const Hero: React.FC<HeroProps> = () => {
   return (
-    <section className={tvs.box({ class: "my-20 gap-6" })}>
-      <div className={tvs.box()}>
+    <section
+      className={tvs.box({ class: "relative mt-40 gap-6 overflow-visible" })}
+    >
+      <div className={tvs.box({ class: "relative w-full" })}>
         <Logo height={120} />
         <h1 className="font-extrabold mt-4 text-center text-4xl md:text-5xl text-black dark:text-white">
           Tailwind Variants
@@ -15,7 +17,6 @@ const Hero: React.FC<HeroProps> = () => {
           The power of Tailwind combined with a first-class variant API.
         </p>
       </div>
-
       <div className={tvs.box({ row: true, class: "gap-2" })}>
         <a className={tvs.button()} href="/docs/introduction">
           Documentation

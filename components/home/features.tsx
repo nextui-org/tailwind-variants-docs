@@ -36,7 +36,7 @@ export const features = [
 
 const Features: React.FC<FeaturesProps> = () => {
   return (
-    <section className="my-10 gap-6">
+    <section className="my-10 gap-6 z-10">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {features.map((feature, index) => (
           <div key={index} className={card({ class: "gap-2 p-4" })}>
