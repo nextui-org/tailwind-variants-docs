@@ -2,8 +2,8 @@
 
 ## Getting Started
 
-🚧 Under construction - please check back later
-<!-- Visit [https://tailwind-variants.org](https://nextui.org) to get started with **tailwind-variants**. -->
+Visit [https://tailwind-variants.org](https://tailwind-variants.org) to get started with **Tailwind Variants**.
+
 ## License
 
 This project is licensed under the MIT License.
