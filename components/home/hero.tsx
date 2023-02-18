@@ -12,7 +12,7 @@ const Hero: React.FC<HeroProps> = () => {
         class: "relative mt-32 lg:mt-36 xl:mt-40 gap-6 overflow-visible",
       })}
     >
-      <AnimatedWave className="absolute -z-10 -translate-y-44" />
+      <AnimatedWave className="absolute -z-10 -translate-y-32 md:-translate-y-44 w-[100%] h-[100%] md:w-[500px] md:h-[500px]" />
       <img
         className="absolute w-full h-full -z-10 -translate-y-32 animate-[appear_2.5s_ease-in-out]"
         src="/gradient-bg.svg"
