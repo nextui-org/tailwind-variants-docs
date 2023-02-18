@@ -27,6 +27,7 @@
     "@react-stately/radio": "^3.6.2",
     "@react-stately/tooltip": "^3.2.4",
     "@vercel/analytics": "^0.1.8",
+    "classnames": "^2.3.2",
     "clsx": "^1.2.1",
     "framer-motion": "^8.5.0",
     "next": "^13.1.6",

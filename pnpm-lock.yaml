@@ -18,6 +18,7 @@ specifiers:
   '@vercel/analytics': ^0.1.8
   autoprefixer: ^10.4.13
   babel-eslint: ^8.0.3
+  classnames: ^2.3.2
   clsx: ^1.2.1
   eslint: ^7.29.0
   eslint-config-airbnb: ^18.2.1
@@ -59,6 +60,7 @@ dependencies:
   '@react-stately/radio': 3.6.2_react@18.2.0
   '@react-stately/tooltip': 3.2.4_react@18.2.0
   '@vercel/analytics': 0.1.8_react@18.2.0
+  classnames: 2.3.2
   clsx: 1.2.1
   framer-motion: 8.5.5_biqbaboplfbrettd7655fr4n2y
   next: 13.1.6_biqbaboplfbrettd7655fr4n2y
@@ -1655,6 +1657,10 @@ packages:
 
   /chownr/1.1.4:
     resolution: {integrity: sha512-jJ0bqzaylmJtVnNgzTeSOs8DPavpbYgEr/b0YL8/2GO3xJEhInFmhKMUnEJQjZumK7KXGFhUy89PrsJWlakBVg==}
+    dev: false
+
+  /classnames/2.3.2:
+    resolution: {integrity: sha512-CSbhY4cFEJRe6/GQzIk5qXZ4Jeg5pcsP7b5peFSDpffpe1cqjASH/n9UTjBwOp6XpMSTwQ8Za2K5V02ueA7Tmw==}
     dev: false
 
   /client-only/0.0.1:

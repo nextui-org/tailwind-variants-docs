@@ -39,7 +39,10 @@ const Features: React.FC<FeaturesProps> = () => {
     <section className="my-10 gap-6 z-10">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {features.map((feature, index) => (
-          <div key={index} className={card({ class: "gap-2 p-4" })}>
+          <div
+            key={index}
+            className={card({ class: "gap-2 p-4 backdrop-blur" })}
+          >
             <div className="flex items-center">
               <div className="flex items-center justify-center w-12 h-12 rounded-full bg-neutral/10 dark:bg-white/10">
                 {feature.icon}

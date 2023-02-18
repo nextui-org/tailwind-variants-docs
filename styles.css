@@ -11,6 +11,10 @@
     font-family: var(--font-sans) !important;
   }
 
+  article, main {
+    overflow-x: visible !important;
+  }
+
   .dark {
     --shiki-color-text: #c6ced6 !important;
     --shiki-token-constant: #79b8ff;

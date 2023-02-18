@@ -111,6 +111,15 @@ module.exports = {
           DEFAULT: colors.pink[500],
         },
       },
+      animation: {
+        appear: "appear 0.5s ease-in-out",
+      },
+      keyframes: {
+        appear: {
+          "0%": { opacity: 0 },
+          "100%": { opacity: 1 },
+        },
+      },
     },
   },
   plugins: [],
