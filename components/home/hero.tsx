@@ -14,7 +14,7 @@ const Hero: React.FC<HeroProps> = () => {
     >
       <AnimatedWave className="absolute -z-10 -translate-y-32 md:-translate-y-44 w-[100%] h-[100%] md:w-[500px] md:h-[500px]" />
       <img
-        className="absolute w-full h-full -z-10 -translate-y-32 animate-[appear_2.5s_ease-in-out]"
+        className="absolute w-full h-full -z-10 -translate-y-32 animate-[appear_1s_ease]"
         src="/gradient-bg.svg"
       />
       <div className={tvs.box({ class: "relative w-full z-10" })}>

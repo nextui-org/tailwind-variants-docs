@@ -19,7 +19,7 @@ const AnimatedWave = (props: SVGProps<SVGSVGElement>) => (
       strokeWidth={1.5}
     />
     <circle
-      className="animate-[appear_1.5s_ease-in-out]"
+      className="animate-[appear_0.6s_ease-in-out]"
       cx={506.5}
       cy={506.5}
       r={231.75}
@@ -27,7 +27,7 @@ const AnimatedWave = (props: SVGProps<SVGSVGElement>) => (
       strokeWidth={1.5}
     />
     <circle
-      className="animate-[appear_2s_ease-in-out]"
+      className="animate-[appear_0.8s_ease-in-out]"
       cx={506.5}
       cy={506.5}
       r={377.75}
@@ -35,7 +35,7 @@ const AnimatedWave = (props: SVGProps<SVGSVGElement>) => (
       strokeWidth={1.5}
     />
     <circle
-      className="animate-[appear_2.5s_ease-in-out]"
+      className="animate-[appear_1s_ease-in-out]"
       cx={507}
       cy={507}
       r={506.25}
@@ -43,14 +43,14 @@ const AnimatedWave = (props: SVGProps<SVGSVGElement>) => (
       strokeWidth={1.5}
     />
     <circle
-      className="animate-[appear_2.5s_ease]"
+      className="animate-[appear_1s_ease]"
       cx={659.5}
       cy={332.5}
       fill="black"
       r={11.5}
     />
     <circle
-      className="animate-[appear_2.5s_ease]"
+      className="animate-[appear_1s_ease]"
       cx={659.5}
       cy={332.5}
       r={10.75}
@@ -59,14 +59,14 @@ const AnimatedWave = (props: SVGProps<SVGSVGElement>) => (
       strokeWidth={1.5}
     />
     <circle
-      className="animate-[appear_2.5s_ease]"
+      className="animate-[appear_1s_ease]"
       cx={285.5}
       cy={200.5}
       fill="black"
       r={11.5}
     />
     <circle
-      className="animate-[appear_2.5s_ease]"
+      className="animate-[appear_1s_ease]"
       cx={285.5}
       cy={200.5}
       r={10.75}
@@ -75,14 +75,14 @@ const AnimatedWave = (props: SVGProps<SVGSVGElement>) => (
       strokeWidth={1.5}
     />
     <circle
-      className="animate-[appear_2.5s_ease]"
+      className="animate-[appear_1s_ease]"
       cx={129.5}
       cy={526.5}
       fill="black"
       r={11.5}
     />
     <circle
-      className="animate-[appear_2.5s_ease]"
+      className="animate-[appear_1s_ease]"
       cx={129.5}
       cy={526.5}
       r={10.75}
@@ -91,14 +91,14 @@ const AnimatedWave = (props: SVGProps<SVGSVGElement>) => (
       strokeWidth={1.5}
     />
     <circle
-      className="animate-[appear_2.5s_ease]"
+      className="animate-[appear_1s_ease]"
       cx={882.5}
       cy={549.5}
       fill="black"
       r={11.5}
     />
     <circle
-      className="animate-[appear_2.5s_ease]"
+      className="animate-[appear_1s_ease]"
       cx={882.5}
       cy={549.5}
       r={10.75}
@@ -107,14 +107,14 @@ const AnimatedWave = (props: SVGProps<SVGSVGElement>) => (
       strokeWidth={1.5}
     />
     <circle
-      className="animate-[appear_2.5s_ease]"
+      className="animate-[appear_1s_ease]"
       cx={408.5}
       cy={407.5}
       fill="black"
       r={11.5}
     />
     <circle
-      className="animate-[appear_2.5s_ease]"
+      className="animate-[appear_1s_ease]"
       cx={408.5}
       cy={407.5}
       r={10.75}
@@ -123,14 +123,14 @@ const AnimatedWave = (props: SVGProps<SVGSVGElement>) => (
       strokeWidth={1.5}
     />
     <circle
-      className="animate-[appear_2.5s_ease]"
+      className="animate-[appear_1s_ease]"
       cx={670.5}
       cy={165.5}
       fill="black"
       r={11.5}
     />
     <circle
-      className="animate-[appear_2.5s_ease]"
+      className="animate-[appear_1s_ease]"
       cx={670.5}
       cy={165.5}
       r={10.75}
