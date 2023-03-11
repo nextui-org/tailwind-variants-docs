@@ -2,6 +2,7 @@ import React from "react";
 import { tvs, LinkIcon, Snippet, Logo } from "@components";
 
 import AnimatedWave from "./animated-wave";
+import GradientBG from "./gradient-bg";
 
 interface HeroProps {}
 
@@ -13,10 +14,7 @@ const Hero: React.FC<HeroProps> = () => {
       })}
     >
       <AnimatedWave className="absolute -z-10 -translate-y-32 md:-translate-y-44 w-[100%] h-[100%] md:w-[500px] md:h-[500px]" />
-      <img
-        className="absolute w-full h-full -z-10 -translate-y-32 animate-[appear_1s_ease]"
-        src="/gradient-bg.svg"
-      />
+      <GradientBG className="absolute -z-10 -translate-y-[40%] animate-[appear_1s_ease]" />
       <div className={tvs.box({ class: "relative w-full z-10" })}>
         <Logo height={120} />
         <h1 className="font-extrabold mt-4 text-center text-4xl md:text-5xl text-black dark:text-white">

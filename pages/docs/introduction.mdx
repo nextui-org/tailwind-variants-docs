@@ -108,7 +108,7 @@ To learn more about variants, check the [variants](/docs/variants) page.
 /> 
 
 
-```js copy {17-20}
+```js copy {15, 20-23}
 import { tv } from "tailwind-variants";
 
 const button = tv({
@@ -121,6 +121,9 @@ const button = tv({
       error: "bg-red-500 hover:bg-red-700",
     },
   }
+},
+{
+  responsiveVariants: ['xs', 'sm', 'md'] // `true` to apply to all screen sizes
 });
  
 button({

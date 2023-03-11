@@ -329,7 +329,7 @@ export default App;
   minWidth={400}
 />
 
-```js copy {37-39} /base/ /name/ /role/ /base()/ /name()/ /role()/
+```js copy {34, 39-41} /base/ /name/ /role/ /base()/ /name()/ /role()/
 import { tv } from "tailwind-variants";
 
 const card = tv({
@@ -362,6 +362,8 @@ const card = tv({
       },
     },
   },
+}, {
+  responsiveVariants: ['sm', 'md'] // `true` to apply to all screen sizes
 });
 
 const { base, avatar, wrapper, description, infoWrapper, name, role } = card({

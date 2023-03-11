@@ -1,4 +1,4 @@
-import { Tab, Tabs, Callout } from 'nextra-theme-docs'
+import { Tab, Tabs } from 'nextra-theme-docs'
 import { TVComponent, WindowResizer } from '@components'
  
 # Getting started
@@ -133,12 +133,6 @@ module.exports = withTV({
 </details>
 
 
-<Callout type="warning">
-  <div className="text-sm">
-    **Responsive variants** can increase your CSS bundle size, so use them wisely.
-  </div>
-</Callout>
-
 ### Responsive variants usage
 
 **Tailwind Variants** allows you to apply variants to different screen sizes.
@@ -153,7 +147,7 @@ module.exports = withTV({
 /> 
 
 
-```js copy {17-20}
+```js copy {15, 20-23}
 import { tv } from "tailwind-variants";
 
 const button = tv({
@@ -166,6 +160,9 @@ const button = tv({
       error: "bg-red-500 hover:bg-red-700",
     },
   }
+},
+{
+  responsiveVariants: ['xs', 'sm', 'md'] // `true` to apply to all screen sizes
 });
  
 button({

@@ -25,7 +25,7 @@ element.variants // => Record<string, string>
 element.variantKeys // => string[]
 element.defaultVariants // => Record<string, string>
 element.compoundVariants // => Array<Record<string, string>>
-
+element.compoundSlots // => Array<Record<string, string>>
 ```
 
 ### Options
@@ -40,6 +40,7 @@ type TVOptions = {
   variants?: Record<string, Record<string, ClassValue>>,
   defaultVariants?: Record<string, ClassValue>,
   compoundVariants?: Array<Record<string, string> & ClassProp>,
+  compoundSlots?: Array<Record<string, string> & ClassProp>,
 }
 ```
 
@@ -102,6 +103,14 @@ To learn more about default variants and how to use them, check out the [Default
 
 **default**: `[]`
 
+#### `compoundSlots`
+
+**description:** This property allows you to define the compound slots for the component.
+
+**type:**  `Array<Record<string, string> & ClassProp>` | `undefined`
+
+**default**: `[]`
+
 
 To learn more about compound variants and how to use them, check out the [Compound Variants](/docs/variants#compound-variants) page.
 
@@ -113,6 +122,7 @@ The `config` argument is an object with the following properties:
 type TvConfig = {
   twMerge?: boolean,
   twMergeConfig?:TwMergeConfig,
+  responsiveVariants?: string[] | boolean
 }
 ```
 
@@ -132,6 +142,14 @@ It's avoid to have duplicate tailwind classes. (Recommended) see more [here](htt
 **type:** `TwMergeConfig`
 
 **default**: `{}`
+
+#### `responsiveVariants`
+
+**description:** Whether to add the responsive variants to the component.
+
+**type:** `string[]` | `boolean`
+
+**default**: `false`
 
 <br/>
 

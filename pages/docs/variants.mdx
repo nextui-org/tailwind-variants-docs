@@ -404,7 +404,7 @@ In the example below, we apply `primary` and `small` initially, then the `succes
   </div>
 </Callout> 
 
-```js copy {20-29}
+```js copy {19, 24-26, 29-31}
 import { tv } from "tailwind-variants";
 
 const button = tv({
@@ -421,6 +421,9 @@ const button = tv({
       large: "py-1.5 px-3 text-md",
     },
   }
+},
+{
+  responsiveVariants: ['sm', 'md'] // `true` to apply to all screen sizes
 });
 
 button({
