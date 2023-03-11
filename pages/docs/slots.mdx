@@ -1,5 +1,9 @@
-import { Callout, Tabs, Tab } from 'nextra-theme-docs'
-import { WindowResizer, SlotsVariantsExample } from '@components'
+import { Callout, Tabs, Tab } from "nextra-theme-docs";
+import {
+  WindowResizer,
+  SlotsVariantsExample,
+  CompoundSlotsExample,
+} from "@components";
 
 # Slots
 
@@ -9,7 +13,7 @@ Slots allows you to separate an component into multiple parts.
 
 You can add slots by using the `slots` key. There's no limit to how many slots you can add.
 
-<br/>
+<br />
 
 <WindowResizer
   iframeSrc="/docs/examples/intro-slots"
@@ -25,7 +29,8 @@ import { tv } from "tailwind-variants";
 const card = tv({
   slots: {
     base: "md:flex bg-slate-100 rounded-xl p-8 md:p-0 dark:bg-gray-900",
-    avatar: "w-24 h-24 md:w-48 md:h-auto md:rounded-none rounded-full mx-auto drop-shadow-lg",
+    avatar:
+      "w-24 h-24 md:w-48 md:h-auto md:rounded-none rounded-full mx-auto drop-shadow-lg",
     wrapper: "flex-1 pt-6 md:p-8 text-center md:text-left space-y-4",
     description: "text-md font-medium",
     infoWrapper: "font-medium",
@@ -34,44 +39,46 @@ const card = tv({
   },
 });
 
-const {base, avatar, wrapper, description, infoWrapper, name, role} = card();
+const { base, avatar, wrapper, description, infoWrapper, name, role } = card();
 
 return (
   <figure className={base()}>
-    <img className={avatar()} src="/intro-avatar.png" alt="" width="384" height="512"/>
+    <img
+      className={avatar()}
+      src="/intro-avatar.png"
+      alt=""
+      width="384"
+      height="512"
+    />
     <div className={wrapper()}>
       <blockquote>
         <p className={description()}>
-          “Tailwind variants allows you to reduce repeated code in your
-          project and make it more readable. They fixed the headache of
-          building a design system with TailwindCSS.”
+          “Tailwind variants allows you to reduce repeated code in your project
+          and make it more readable. They fixed the headache of building a
+          design system with TailwindCSS.”
         </p>
       </blockquote>
       <figcaption className={infoWrapper()}>
-        <div className={name()}>
-          Zoey Lang
-        </div>
-        <div className={role()}>
-          Full-stack developer, NextUI
-        </div>
+        <div className={name()}>Zoey Lang</div>
+        <div className={role()}>Full-stack developer, NextUI</div>
       </figcaption>
     </div>
   </figure>
-)
-
+);
 ```
 
 ### Slots with variants
 
-You can also change the entire component and its slots by using the `variants`. See more about variants [here](/docs/variants). 
+You can also change the entire component and its slots by using the `variants`. See more about variants [here](/docs/variants).
 
-<br/>
+<br />
 
 <SlotsVariantsExample />
 
 <Callout type="info">
   <div className="text-sm">
-    **Tailwind Variants** will automatically select the correct variant for each slot.
+    **Tailwind Variants** will automatically select the correct variant for each
+    slot.
   </div>
 </Callout>
 
@@ -191,6 +198,7 @@ const App = () => {
 
 export default App;
 ```
+
   </Tab>
   <Tab>
 
@@ -247,8 +255,8 @@ type Variants = VariantProps<typeof item>;
 type ItemSizes = (typeof itemSizes)[number];
 
 const App = () => {
-  const [size, setSize] = useState<ItemSizes>("xs");
-  const [color, setColor] = useState<Variants["color"]>("primary");
+  const [size, setSize] = useState < ItemSizes > "xs";
+  const [color, setColor] = useState < Variants["color"] > "primary";
 
   const {
     base,
@@ -310,16 +318,195 @@ const App = () => {
 
 export default App;
 ```
+
   </Tab>
 </Tabs>
 
+### Compound slots
 
+Compound slots allow apply classes to multiple slots at once. This avoids having to repeat the same classes in multiple slots.
+
+<br />
+
+<CompoundSlotsExample />
+
+```js copy {23} /compoundSlots/ /"base"/ /"item"/ /"prev"/ /"next"/ /base()/ /item()/ /prev()/ /next()/
+import { tv } from "tailwind-variants";
+
+const pagination = tv({
+  slots: {
+    base: "flex flex-wrap relative gap-1 max-w-fit",
+    item: 'data-[active="true"]:bg-blue-500 data-[active="true"]:text-white',
+    prev: "",
+    next: "",
+  },
+  variants: {
+    size: {
+      xs: {},
+      sm: {},
+      md: {},
+    },
+  },
+  defaultVariants: {
+    size: "md",
+  },
+  compoundSlots: [
+    // if you dont specify any variant, it will always be applied
+    {
+      slots: ["item", "prev", "next"],
+      class: [
+        "flex",
+        "flex-wrap",
+        "truncate",
+        "box-border",
+        "outline-none",
+        "items-center",
+        "justify-center",
+        "bg-neutral-100",
+        "hover:bg-neutral-200",
+        "active:bg-neutral-300",
+        "text-neutral-500",
+      ], // --> these classes will be applied to all slots
+    },
+    // if you specify a variant, it will only be applied if the variant is active
+    {
+      slots: ["item", "prev", "next"],
+      size: "xs",
+      class: "w-7 h-7 text-xs", // --> these classes will be applied to all slots if size is xs
+    },
+    {
+      slots: ["item", "prev", "next"],
+      size: "sm",
+      class: "w-8 h-8 text-sm", // --> these classes will be applied to all slots if size is sm
+    },
+    {
+      slots: ["item", "prev", "next"],
+      size: "md",
+      class: "w-9 h-9 text-base", // --> these classes will be applied to all slots if size is md
+    },
+  ],
+});
+
+// React implementation
+
+const App = () => {
+  const { base, item, prev, next } = pagination();
+
+  return (
+    <ul aria-label="pagination navigation" className={base()}>
+      <li
+        aria-label="Go to previous page"
+        className={prev()}
+        data-disabled="true"
+        role="button"
+      >
+        {"<"}
+      </li>
+      <li aria-label="page 1" className={item()} role="button">
+        1
+      </li>
+      <li aria-label="page 2" className={item()} role="button">
+        2
+      </li>
+      <li
+        aria-label="page 3"
+        className={item()}
+        data-active="true"
+        role="button"
+      >
+        3
+      </li>
+      <li aria-label="page 4" className={item()} role="button">
+        4
+      </li>
+      <li aria-label="page 5" className={item()} role="button">
+        5
+      </li>
+      <li aria-hidden="true" className={item()} role="button">
+        ...
+      </li>
+      <li aria-label="page 10" className={item()} role="button">
+        10
+      </li>
+      <li aria-label="Go to next page" className={next()} role="button">
+        {">"}
+      </li>
+    </ul>
+  );
+};
+
+export default App;
+```
+
+<details>
+  <summary>Can I do the same with variants?</summary>
+  <p className="pl-3 py-2">
+    Yes, you can do the same with variants. However, compound slots allows you
+    to write the classes only once and apply them to multiple slots. This is
+    useful if you have a lot of slots and you want to apply the same classes to
+    all of them.
+  </p>
+
+  <p className="pl-3 py-2">
+    For example, let's write the same component using variants:
+
+```js copy
+import { tv, cxBase } from "tailwind-variants";
+
+cosnt baseItem = [
+  "flex",
+  "flex-wrap",
+  "truncate",
+  "box-border",
+  "outline-none",
+  "items-center",
+  "justify-center",
+  "bg-neutral-100",
+  "hover:bg-neutral-200",
+  "active:bg-neutral-300",
+  "text-neutral-500",
+]
+
+const pagination = tv({
+  slots: {
+    base: "flex flex-wrap relative gap-1 max-w-fit",
+    item: cxBase(baseItem, 'data-[active="true"]:bg-blue-500 data-[active="true"]:text-white'),
+    prev: baseItem,
+    next: baseItem,
+  },
+  variants: {
+    size: {
+      xs: {
+        item: "w-7 h-7 text-xs",
+        prev: "w-7 h-7 text-xs",
+        next: "w-7 h-7 text-xs",
+      },
+      sm: {
+        item: "w-8 h-8 text-sm",
+        prev: "w-8 h-8 text-sm",
+        next: "w-8 h-8 text-sm",
+      },
+      md: {
+        item: "w-9 h-9 text-base",
+        prev: "w-9 h-9 text-base",
+        next: "w-9 h-9 text-base",
+      },
+    },
+  },
+  defaultVariants: {
+    size: "md",
+  },
+});
+```
+
+  </p>
+</details>
 
 ### Slots with responsive variants
 
 **Tailwind Variants** also allows you to apply responsive variants to your slots. See more about responsive variants [here](/docs/responsive-variants).
 
-<br/>
+<br />
 
 <WindowResizer
   iframeSrc="/docs/examples/slots-responsive-variants"
@@ -332,39 +519,42 @@ export default App;
 ```js copy {34, 39-41} /base/ /name/ /role/ /base()/ /name()/ /role()/
 import { tv } from "tailwind-variants";
 
-const card = tv({
-  slots: {
-    base: "md:flex rounded-xl p-8 md:p-0 ",
-    avatar:
-      "w-24 h-24 md:w-48 md:h-auto md:rounded-none rounded-full mx-auto drop-shadow-lg",
-    wrapper: "flex-1 pt-6 md:p-8 text-center md:text-left space-y-4",
-    description: "text-md font-medium",
-    infoWrapper: "font-medium",
-    name: "text-sm",
-    role: "text-sm",
-  },
-  variants: {
-    color: {
-      primary: {
-        base: "bg-blue-100 dark:bg-blue-900",
-        name: "text-blue-500 dark:text-blue-400",
-        role: "text-blue-700 dark:text-blue-500",
-      },
-      secondary: {
-        base: "bg-purple-100 dark:bg-purple-900",
-        name: "text-purple-500 dark:text-purple-400",
-        role: "text-purple-700 dark:text-purple-500",
-      },
-      warning: {
-        base: "bg-yellow-100 dark:bg-yellow-900",
-        name: "text-yellow-500 dark:text-yellow-400",
-        role: "text-yellow-700 dark:text-yellow-500",
+const card = tv(
+  {
+    slots: {
+      base: "md:flex rounded-xl p-8 md:p-0 ",
+      avatar:
+        "w-24 h-24 md:w-48 md:h-auto md:rounded-none rounded-full mx-auto drop-shadow-lg",
+      wrapper: "flex-1 pt-6 md:p-8 text-center md:text-left space-y-4",
+      description: "text-md font-medium",
+      infoWrapper: "font-medium",
+      name: "text-sm",
+      role: "text-sm",
+    },
+    variants: {
+      color: {
+        primary: {
+          base: "bg-blue-100 dark:bg-blue-900",
+          name: "text-blue-500 dark:text-blue-400",
+          role: "text-blue-700 dark:text-blue-500",
+        },
+        secondary: {
+          base: "bg-purple-100 dark:bg-purple-900",
+          name: "text-purple-500 dark:text-purple-400",
+          role: "text-purple-700 dark:text-purple-500",
+        },
+        warning: {
+          base: "bg-yellow-100 dark:bg-yellow-900",
+          name: "text-yellow-500 dark:text-yellow-400",
+          role: "text-yellow-700 dark:text-yellow-500",
+        },
       },
     },
   },
-}, {
-  responsiveVariants: ['sm', 'md'] // `true` to apply to all screen sizes
-});
+  {
+    responsiveVariants: ["sm", "md"], // `true` to apply to all screen sizes
+  }
+);
 
 const { base, avatar, wrapper, description, infoWrapper, name, role } = card({
   color: {
@@ -376,37 +566,40 @@ const { base, avatar, wrapper, description, infoWrapper, name, role } = card({
 
 return (
   <figure className={base()}>
-    <img className={avatar()} src="/intro-avatar.png" alt="" width="384" height="512"/>
+    <img
+      className={avatar()}
+      src="/intro-avatar.png"
+      alt=""
+      width="384"
+      height="512"
+    />
     <div className={wrapper()}>
       <blockquote>
         <p className={description()}>
-          “Tailwind variants allows you to reduce repeated code in your
-          project and make it more readable. They fixed the headache of
-          building a design system with TailwindCSS.”
+          “Tailwind variants allows you to reduce repeated code in your project
+          and make it more readable. They fixed the headache of building a
+          design system with TailwindCSS.”
         </p>
       </blockquote>
       <figcaption className={infoWrapper()}>
-        <div className={name()}>
-          Zoey Lang
-        </div>
-        <div className={role()}>
-          Full-stack developer, NextUI
-        </div>
+        <div className={name()}>Zoey Lang</div>
+        <div className={role()}>Full-stack developer, NextUI</div>
       </figcaption>
     </div>
   </figure>
-)
-
+);
 ```
 
 <details>
   <summary>Troubleshooting: The responsive variants are not working</summary>
   <ul className="pl-3 py-2">
     <li>
-      - Make sure you have followed this [step](/docs/getting-started#responsive-variants-optional)
+      - Make sure you have followed this
+      [step](/docs/getting-started#responsive-variants-optional)
     </li>
     <li>
-      - Make sure you declared either the `initial` variant or `defaultVariants`. 
+      - Make sure you declared either the `initial` variant or
+      `defaultVariants`.
     </li>
   </ul>
 </details>
