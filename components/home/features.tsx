@@ -9,9 +9,9 @@ interface FeaturesProps {}
 
 export const features = [
   {
-    name: "Fast",
+    name: "Feature-rich",
     description:
-      "Tailwind Variants is zero-runtime and tree-shakeable. It only takes care of the classNames generation.",
+      "Packed with powerful features like, slots, responsive variants, components composition, and more.",
     icon: <FlashIcon className="stroke-black dark:stroke-white" />,
   },
   {
