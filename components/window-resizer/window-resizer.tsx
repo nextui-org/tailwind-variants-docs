@@ -4,7 +4,8 @@ import { useIsomorphicLayoutEffect, useIsMobile } from "@hooks";
 import { tv } from "tailwind-variants";
 
 const resizer = tv({
-  base: "flex items-center justify-end absolute right-[5px] z-10 w-auto xs:hidden",
+  base:
+    "flex items-center justify-end absolute right-[5px] z-10 w-auto xs:hidden",
   slots: {
     main: "relative w-full",
     barWrapper:
@@ -66,8 +67,15 @@ const WindowResizer: React.FC<WindowResizerProps> = (props) => {
   } = props;
   const hasInitialWidth = iframeInitialWidth !== undefined;
 
-  const { main, base, barInner, barWrapper, bar, iframe, iframeWrapper } =
-    resizer({ hasInitialWidth, isMobile, enablePointerEvents });
+  const {
+    main,
+    base,
+    barInner,
+    barWrapper,
+    bar,
+    iframe,
+    iframeWrapper,
+  } = resizer({ hasInitialWidth, isMobile, enablePointerEvents });
 
   const resizerX = useMotionValue(0);
   const browserWidth = useTransform(resizerX, (x) =>
