@@ -91,7 +91,8 @@ const config: DocsThemeConfig = {
   chat: {
     link: "https://discord.gg/9b6yyZKmH4",
   },
-  docsRepositoryBase: "https://github.com/nextui-org/tailwind-variants",
+  docsRepositoryBase:
+    "https://github.com/nextui-org/tailwind-variants-docs/blob/main",
   gitTimestamp: "",
   sidebar: {
     defaultMenuCollapseLevel: 1,
