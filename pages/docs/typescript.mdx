@@ -90,7 +90,7 @@ type ButtonVariants = VariantProps<typeof buttonStyles>
 
 export interface ButtonProps
   extends Omit<ButtonVariants, "requiredFlat">,
-    Required<Pick<ButtonVariantProps, "requiredFlat">> {}
+    Required<Pick<ButtonVariants, "requiredFlat">> {}
 
 export const button = (props: ButtonProps) => buttonStyles(props);
 
