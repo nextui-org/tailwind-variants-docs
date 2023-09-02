@@ -1,7 +1,8 @@
-const colors = require("./colors");
+import type { Config } from "tailwindcss";
 
-/** @type {import('tailwindcss').Config} */
-module.exports = {
+import { colors } from "./styles/colors";
+
+const tailwindConfig = {
   darkMode: "class",
   content: [
     "./components/**/*.{js,jsx,ts,tsx}",
@@ -116,13 +117,13 @@ module.exports = {
       },
       keyframes: {
         appear: {
-          "0%": {
-            opacity: 0,
-          },
-          "100%": { opacity: 1 },
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
         },
       },
     },
   },
   plugins: [],
-};
+} satisfies Config;
+
+export default tailwindConfig;
