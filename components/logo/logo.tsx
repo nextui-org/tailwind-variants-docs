@@ -1,4 +1,4 @@
-import React from "react";
+import type { FC } from 'react';
 
 interface LogoProps {
   width?: number;
@@ -6,7 +6,7 @@ interface LogoProps {
   className?: string;
 }
 
-const Logo: React.FC<LogoProps> = (props) => {
+const Logo: FC<LogoProps> = (props) => {
   const { width, height } = props;
 
   return (

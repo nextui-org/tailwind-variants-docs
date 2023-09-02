@@ -1,81 +1,81 @@
-import { tv } from "tailwind-variants";
+import { tv } from 'tailwind-variants';
 
 export const button = tv({
-  base: "px-4 py-1.5 rounded-full hover:opacity-80",
+  base: 'rounded-full px-4 py-1.5 hover:opacity-80',
   variants: {
     color: {
-      primary: "bg-primary text-white",
-      neutral: "bg-neutral text-black dark:text-white",
+      primary: 'bg-primary text-white',
+      neutral: 'bg-neutral text-black dark:text-white'
     },
     flat: {
-      true: "bg-transparent",
-    },
+      true: 'bg-transparent'
+    }
   },
   defaultVariants: {
-    color: "primary",
+    color: 'primary'
   },
   compoundVariants: [
     {
-      color: "primary",
+      color: 'primary',
       flat: true,
-      class: "bg-primary/40",
+      class: 'bg-primary/40'
     },
     {
-      color: "neutral",
+      color: 'neutral',
       flat: true,
-      class: "bg-neutral/20",
-    },
-  ],
+      class: 'bg-neutral/20'
+    }
+  ]
 });
 
 export const box = tv({
-  base: "flex flex-col",
+  base: 'flex flex-col',
   variants: {
     center: {
-      true: "items-center",
+      true: 'items-center'
     },
     row: {
-      true: "flex-row justify-center",
-    },
+      true: 'flex-row justify-center'
+    }
   },
   defaultVariants: {
-    center: true,
-  },
+    center: true
+  }
 });
 
 export const badge = tv({
   base: [
     box({ center: true, row: true }),
     ...[
-      "text-slate-700",
-      "dark:text-slate-400",
-      "font-sans",
-      "font-medium",
-      "text-xs",
-      "mx-2",
-      "px-2",
-      "py-1",
-      "rounded-full",
-      "bg-neutral/20",
-    ],
-  ],
+      'text-slate-700',
+      'dark:text-slate-400',
+      'font-sans',
+      'font-medium',
+      'text-xs',
+      'mx-2',
+      'px-2',
+      'py-1',
+      'rounded-full',
+      'bg-neutral/20'
+    ]
+  ]
 });
 
 export const card = tv({
   base: [
-    "flex",
-    "flex-col",
-    "rounded-lg",
-    "shadow-lg",
-    "bg-white",
-    "overflow-hidden",
-    "dark:bg-zinc-500/20",
-  ],
+    'flex',
+    'flex-col',
+    'rounded-lg',
+    'shadow-lg',
+    'bg-white',
+    'overflow-hidden',
+    'dark:bg-zinc-500/20'
+  ]
 });
 
 export const tvs = {
   button,
   badge,
   box,
-  card,
+  card
 };

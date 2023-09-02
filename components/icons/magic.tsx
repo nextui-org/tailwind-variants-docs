@@ -1,14 +1,7 @@
-import type { IconProps } from "./icon";
+import type { IconProps } from './icon';
+import type { FC } from 'react';
 
-import React from "react";
-
-const Magic: React.FC<IconProps> = ({
-  fill,
-  size = 24,
-  width,
-  height,
-  ...props
-}) => {
+const Magic: FC<IconProps> = ({ fill, size = 24, width, height, ...props }) => {
   return (
     <svg
       fill="none"

@@ -1,13 +1,7 @@
-import type { IconProps } from "./icon";
+import type { IconProps } from './icon';
+import type { FC } from 'react';
 
-import React from "react";
-
-const Flash: React.FC<IconProps> = ({
-  size,
-  width = 24,
-  height = 24,
-  ...props
-}) => {
+const Flash: FC<IconProps> = ({ size, width = 24, height = 24, ...props }) => {
   return (
     <svg
       fill="none"

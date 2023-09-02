@@ -1,9 +1,8 @@
-import type { IconProps } from "./icon";
+import type { IconProps } from './icon';
+import type { FC } from 'react';
 
-import React from "react";
-
-const LinkIcon: React.FC<IconProps> = (props) => {
-  const { width = "1em", height = "1em", className } = props;
+const LinkIcon: FC<IconProps> = (props) => {
+  const { width = '1em', height = '1em', className } = props;
 
   return (
     <svg

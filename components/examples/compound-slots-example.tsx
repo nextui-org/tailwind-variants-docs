@@ -1,5 +1,6 @@
-import React from "react";
-import { tv } from "tailwind-variants";
+import type { FC } from 'react';
+
+import { tv } from 'tailwind-variants';
 
 interface CompoundSlotsExampleProps {
   className?: string;
@@ -7,60 +8,60 @@ interface CompoundSlotsExampleProps {
 
 const pagination = tv({
   slots: {
-    base: "flex flex-wrap relative gap-1 max-w-fit",
+    base: 'relative flex max-w-fit flex-wrap gap-1',
     item: 'data-[active="true"]:bg-blue-500 data-[active="true"]:text-white',
-    prev: "",
-    next: "",
+    prev: '',
+    next: ''
   },
   variants: {
     size: {
       xs: {},
       sm: {},
-      md: {},
-    },
+      md: {}
+    }
   },
   defaultVariants: {
-    size: "md",
+    size: 'md'
   },
   compoundSlots: [
     // if you dont specify any variant, it will always be applied
     {
-      slots: ["item", "prev", "next"],
+      slots: ['item', 'prev', 'next'],
       class: [
-        "flex",
-        "flex-wrap",
-        "truncate",
-        "box-border",
-        "outline-none",
-        "items-center",
-        "justify-center",
-        "bg-neutral-200",
-        "rounded-lg",
-        "hover:bg-neutral-300",
-        "active:bg-neutral-400",
-        "text-neutral-800",
-      ], // --> these classes will be applied to all slots
+        'flex',
+        'flex-wrap',
+        'truncate',
+        'box-border',
+        'outline-none',
+        'items-center',
+        'justify-center',
+        'bg-neutral-200',
+        'rounded-lg',
+        'hover:bg-neutral-300',
+        'active:bg-neutral-400',
+        'text-neutral-800'
+      ] // --> these classes will be applied to all slots
     },
     // if you specify a variant, it will only be applied if the variant is active
     {
-      slots: ["item", "prev", "next"],
-      size: "xs",
-      class: "w-7 h-7 text-xs", // --> these classes will be applied to all slots if size is xs
+      slots: ['item', 'prev', 'next'],
+      size: 'xs',
+      class: 'h-7 w-7 text-xs' // --> these classes will be applied to all slots if size is xs
     },
     {
-      slots: ["item", "prev", "next"],
-      size: "sm",
-      class: "w-8 h-8 text-sm", // --> these classes will be applied to all slots if size is sm
+      slots: ['item', 'prev', 'next'],
+      size: 'sm',
+      class: 'h-8 w-8 text-sm' // --> these classes will be applied to all slots if size is sm
     },
     {
-      slots: ["item", "prev", "next"],
-      size: "md",
-      class: "w-9 h-9 text-base", // --> these classes will be applied to all slots if size is md
-    },
-  ],
+      slots: ['item', 'prev', 'next'],
+      size: 'md',
+      class: 'h-9 w-9 text-base' // --> these classes will be applied to all slots if size is md
+    }
+  ]
 });
 
-const CompoundSlotsExample: React.FC<CompoundSlotsExampleProps> = () => {
+const CompoundSlotsExample: FC<CompoundSlotsExampleProps> = () => {
   const { base, item, prev, next } = pagination();
 
   return (

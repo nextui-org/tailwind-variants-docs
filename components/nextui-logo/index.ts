@@ -1,1 +1,1 @@
-export { default as NextUILogo } from "./nextui-logo";
+export { default as NextUILogo } from './nextui-logo';

@@ -1,14 +1,15 @@
-import React from "react";
-import { tv as t } from "tailwind-variants";
+import type { ElementType, FC, ReactNode } from 'react';
+
+import { tv as t } from 'tailwind-variants';
 
 interface TVComponentProps {
-  as: React.ElementType;
+  as: ElementType;
   tv: object;
-  children?: React.ReactNode;
+  children?: ReactNode;
 }
 
-const TVComponent: React.FC<TVComponentProps> = ({
-  as = "div",
+const TVComponent: FC<TVComponentProps> = ({
+  as = 'div',
   tv = {},
   children,
   ...otherProps
