@@ -95,10 +95,12 @@ import { RadioGroup, Radio } from "@components";
 
 const item = tv({
   slots: {
-    base: "flex flex-col mb-4 sm:flex-row p-6 bg-white dark:bg-stone-900 drop-shadow-xl rounded-xl",
+    base:
+      "flex flex-col mb-4 sm:flex-row p-6 bg-white dark:bg-stone-900 drop-shadow-xl rounded-xl",
     imageWrapper:
       "flex-none w-full sm:w-48 h-48 mb-6 sm:mb-0 sm:h-auto relative z-10 before:absolute before:top-0 before:left-0 before:w-full before:h-full before:rounded-xl before:bg-[#18000E] before:bg-gradient-to-r before:from-[#010187]",
-    img: "sm:scale-125 absolute z-10 top-2 sm:left-2 inset-0 w-full h-full object-cover rounded-lg",
+    img:
+      "sm:scale-125 absolute z-10 top-2 sm:left-2 inset-0 w-full h-full object-cover rounded-lg",
     title:
       "relative w-full flex-none mb-2 text-2xl font-semibold text-stone-900 dark:text-white",
     price: "relative font-semibold text-xl dark:text-white",
@@ -504,7 +506,7 @@ const pagination = tv({
 
 ### Slots with responsive variants
 
-**Tailwind Variants** also allows you to apply responsive variants to your slots. See more about responsive variants [here](/docs/responsive-variants).
+**Tailwind Variants** also allows you to apply responsive variants to your slots. See more about responsive variants [here](/docs/variants#responsive-variants).
 
 <br />
 
@@ -603,3 +605,48 @@ return (
     </li>
   </ul>
 </details>
+
+### Slot variant overrides
+
+Some component libraries use class render props to allow customizing the class
+name of a component based on internal state. Tailwind Variants supports slot
+level variant overrides to make it simple to override the selected variant(s)
+per slot as necessary.
+
+```js copy {30} /isSelected/
+import { tv } from "tailwind-variants";
+
+const card = tv({
+  slots: {
+    base: "flex gap-2",
+    tab: "rounded",
+  },
+  variants: {
+    color: {
+      primary: {
+        tab: "text-blue-500 dark:text-blue-400",
+      },
+      secondary: {
+        tab: "text-purple-500 dark:text-purple-400",
+      },
+    },
+    isSelected: {
+      true: {
+        tab: "font-bold",
+      },
+    },
+  },
+});
+
+const { base, tab } = tab({ color: "primary" });
+
+return (
+  <Tabs className={base()}>
+    {items.map((item) => (
+      <Tab className={({ isSelected }) => tab({ isSelected })} id={item.id}>
+        {item.label}
+      </Tab>
+    ))}
+  </Tabs>
+);
+```

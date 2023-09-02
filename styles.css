@@ -8,6 +8,11 @@
     font-family: var(--font-sans) !important;
   }
 
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
   article, main {
     overflow: visible !important;
   }
@@ -53,7 +58,7 @@
 
   .dark code .line.highlighted {
     background-color: hsl(var(--nextra-primary-hue)100% 45%/.2) !important;
-  } 
+  }
 
   .dark code .line .highlighted {
     --tw-shadow-color: hsl(var(--nextra-primary-hue)100% 45%/.3) !important;
