@@ -10,3 +10,4 @@ export * from './window-resizer';
 export * from './examples';
 export * from './radio';
 export * from './collapse';
+export * from './nx-link';
