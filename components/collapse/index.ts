@@ -1,1 +1,1 @@
-export { default as Collapse } from "./collapse";
+export { default as Collapse } from './collapse';

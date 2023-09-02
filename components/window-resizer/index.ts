@@ -1,1 +1,1 @@
-export { default as WindowResizer } from "./window-resizer";
+export { default as WindowResizer } from './window-resizer';

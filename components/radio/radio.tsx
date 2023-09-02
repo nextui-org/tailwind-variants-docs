@@ -1,8 +1,8 @@
-import React from "react";
-import { useRadioGroupState } from "@react-stately/radio";
-import { useRadio, useRadioGroup } from "@react-aria/radio";
+import { useRadioGroupState } from '@react-stately/radio';
+import { useRadio, useRadioGroup } from '@react-aria/radio';
+import { createContext, useContext, useRef } from 'react';
 
-let RadioContext = React.createContext(null);
+let RadioContext = createContext(null);
 
 export function RadioGroup(props) {
   let { children, label, description, errorMessage, validationState } = props;
@@ -14,7 +14,7 @@ export function RadioGroup(props) {
     <div {...radioGroupProps} className="my-2">
       <span
         {...labelProps}
-        className="text-slate-800 dark:text-slate-200 font-semibold"
+        className="font-semibold text-slate-800 dark:text-slate-200"
       >
         {label}
       </span>
@@ -24,8 +24,8 @@ export function RadioGroup(props) {
           {description}
         </div>
       )}
-      {errorMessage && validationState === "invalid" && (
-        <div {...errorMessageProps} style={{ color: "red", fontSize: 12 }}>
+      {errorMessage && validationState === 'invalid' && (
+        <div {...errorMessageProps} style={{ color: 'red', fontSize: 12 }}>
           {errorMessage}
         </div>
       )}
@@ -35,13 +35,13 @@ export function RadioGroup(props) {
 
 export function Radio(props) {
   let { children } = props;
-  let state = React.useContext(RadioContext);
-  let ref = React.useRef(null);
+  let state = useContext(RadioContext);
+  let ref = useRef(null);
   let { inputProps } = useRadio(props, state, ref);
 
   return (
-    <label className="flex items-center mt-2">
-      <input {...inputProps} ref={ref} className="w-4 h-4" />
+    <label className="mt-2 flex items-center">
+      <input {...inputProps} ref={ref} className="h-4 w-4" />
       <p className="pl-2">{children}</p>
     </label>
   );
