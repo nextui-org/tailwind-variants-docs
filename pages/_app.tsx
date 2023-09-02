@@ -1,16 +1,13 @@
-import React from "react";
-import { Inter } from "next/font/google";
-import { SSRProvider } from "@react-aria/ssr";
-import { Analytics } from "@vercel/analytics/react";
-import { isProd } from "@utils";
-import "../styles.css";
+import { Inter } from 'next/font/google';
+import { Analytics } from '@vercel/analytics/react';
 
-const MyApp = ({ Component, pageProps }) => {
+import { isProd } from '@utils';
+import '../styles/global.css';
+
+const App = ({ Component, pageProps }) => {
   return (
     <>
-      <SSRProvider>
-        <Component {...pageProps} />
-      </SSRProvider>
+      <Component {...pageProps} />
       {isProd && <Analytics />}
     </>
   );
@@ -18,31 +15,30 @@ const MyApp = ({ Component, pageProps }) => {
 
 const sans = Inter({
   adjustFontFallback: true,
-  display: "optional",
+  display: 'optional',
   fallback: [
-    "ui-sans-serif",
-    "system-ui",
-    "-apple-system",
-    "BlinkMacSystemFont",
+    'ui-sans-serif',
+    'system-ui',
+    '-apple-system',
+    'BlinkMacSystemFont',
     '"Segoe UI"',
-    "Roboto",
+    'Roboto',
     '"Helvetica Neue"',
-    "Arial",
+    'Arial',
     '"Noto Sans"',
-    "sans-serif",
+    'sans-serif',
     '"Apple Color Emoji"',
     '"Segoe UI Emoji"',
     '"Segoe UI Symbol"',
-    '"Noto Color Emoji"',
+    '"Noto Color Emoji"'
   ],
   preload: true,
-  style: "normal",
-  subsets: ["latin"],
-  weight: "variable",
+  style: 'normal',
+  subsets: ['latin'],
+  weight: 'variable',
+  variable: '--font-sans'
 });
 
-export const fonts = {
-  sans: sans.style.fontFamily,
-};
+export const fonts = { sans };
 
-export default MyApp;
+export default App;
