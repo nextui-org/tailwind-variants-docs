@@ -66,63 +66,73 @@ const CompoundSlotsExample: FC<CompoundSlotsExampleProps> = () => {
 
   return (
     <ul aria-label="pagination navigation" className={base()}>
-      <li
-        aria-label="Go to previous page"
-        className={prev()}
-        data-disabled="true"
-        role="button"
-      >
-        <svg
-          fill="none"
-          height={24}
-          stroke="currentColor"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={2}
-          width={24}
+      <li>
+        <button
+          aria-label="Go to previous page"
+          className={prev()}
+          data-disabled="true"
         >
-          <path d="m15 18-6-6 6-6" />
-        </svg>
+          <svg
+            fill="none"
+            height={24}
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            width={24}
+          >
+            <path d="m15 18-6-6 6-6" />
+          </svg>
+        </button>
       </li>
-      <li aria-label="page 1" className={item()} role="button">
-        1
+      <li>
+        <button aria-label="page 1" className={item()}>
+          1
+        </button>
       </li>
-      <li aria-label="page 2" className={item()} role="button">
-        2
+      <li>
+        <button aria-label="page 2" className={item()}>
+          2
+        </button>
       </li>
-      <li
-        aria-label="page 3"
-        className={item()}
-        data-active="true"
-        role="button"
-      >
-        3
+      <li>
+        <button aria-label="page 3" className={item()} data-active="true">
+          3
+        </button>
       </li>
-      <li aria-label="page 4" className={item()} role="button">
-        4
+      <li>
+        <button aria-label="page 4" className={item()}>
+          4
+        </button>
       </li>
-      <li aria-label="page 5" className={item()} role="button">
-        5
+      <li>
+        <button aria-label="page 5" className={item()}>
+          5
+        </button>
       </li>
-      <li aria-hidden="true" className={item()} role="button">
+      <li aria-hidden="true" className={item()}>
         ...
       </li>
-      <li aria-label="page 10" className={item()} role="button">
-        10
+      <li>
+        <button aria-label="page 10" className={item()}>
+          10
+        </button>
       </li>
-      <li aria-label="Go to next page" className={next()} role="button">
-        <svg
-          fill="none"
-          height={24}
-          stroke="currentColor"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={2}
-          width={24}
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path d="m9 18 6-6-6-6" />
-        </svg>
+      <li>
+        <button aria-label="Go to next page" className={next()}>
+          <svg
+            fill="none"
+            height={24}
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            width={24}
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="m9 18 6-6-6-6" />
+          </svg>
+        </button>
       </li>
     </ul>
   );

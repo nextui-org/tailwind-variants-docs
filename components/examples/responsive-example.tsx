@@ -32,6 +32,7 @@ const ResponsiveExample: FC<ResponsiveExampleProps> = () => {
           <div className="text-sm font-semibold uppercase tracking-wide text-white/80 sm:text-blue-500 sm:dark:text-blue-300">
             ACME Camera
           </div>
+          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
           <a
             className="mt-1 block text-lg font-medium leading-tight text-slate-900 sm:text-black sm:dark:text-gray-300"
             href="#"
