@@ -2,6 +2,7 @@
   "name": "tailwind-variants-docs",
   "version": "0.0.1",
   "description": "Tailwind variants documentation site",
+  "packageManager": "pnpm@8.6.8",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
