@@ -1,6 +1,6 @@
-import * as React from "react";
-import { SVGProps } from "react";
-import clsx from "clsx";
+import type { SVGProps } from 'react';
+
+import clsx from 'clsx';
 
 const DarkWave = (props: SVGProps<SVGSVGElement>) => (
   <svg
@@ -329,8 +329,8 @@ const LightWave = (props: SVGProps<SVGSVGElement>) => (
 );
 
 const AnimatedWave = (props: SVGProps<SVGSVGElement>) => {
-  const darkWaveClassNames = clsx("hidden dark:block", props.className);
-  const lightWaveClassNames = clsx("block dark:hidden", props.className);
+  const darkWaveClassNames = clsx('hidden dark:block', props.className);
+  const lightWaveClassNames = clsx('block dark:hidden', props.className);
 
   return (
     <>

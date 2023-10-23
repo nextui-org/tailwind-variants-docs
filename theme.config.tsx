@@ -1,12 +1,19 @@
 import React from "react";
 import { useRouter } from "next/router";
 import { DocsThemeConfig, useConfig } from "nextra-theme-docs";
+
 import { tvs, Logo, NextUILogo } from "@components";
 
-// get the package version from package.json
-const pkg = require("./package.json");
-const tvVersion =
-  pkg?.dependencies?.["tailwind-variants"]?.replace("^", "") ?? "0.0.12";
+import pkg from "./package.json";
+
+const DEFAULT_VERSION = "0.1.14";
+
+const getVersion = () => {
+  return (
+    pkg?.dependencies?.["tailwind-variants"]?.replace("^", "") ??
+    DEFAULT_VERSION
+  );
+};
 
 const config: DocsThemeConfig = {
   darkMode: true,
@@ -16,11 +23,11 @@ const config: DocsThemeConfig = {
   logo: (
     <div className="flex items-center">
       <Logo height={30} />
-      <b className="ml-1.5 font-semibold hidden sm:block text-sm sm:text-base">
+      <b className="ml-1.5 hidden text-sm font-semibold sm:block sm:text-base">
         Tailwind Variants
       </b>
       <span className={tvs.badge({ class: "hidden sm:flex" })}>
-        v{tvVersion}
+        v{getVersion()}
       </span>
     </div>
   ),

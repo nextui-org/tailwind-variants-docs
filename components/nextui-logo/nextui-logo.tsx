@@ -1,4 +1,4 @@
-import React from "react";
+import type { FC } from 'react';
 
 interface NextUILogoProps {
   width?: number;
@@ -6,7 +6,7 @@ interface NextUILogoProps {
   className?: string;
 }
 
-const NextUILogo: React.FC<NextUILogoProps> = (props) => {
+const NextUILogo: FC<NextUILogoProps> = (props) => {
   const { width, height = 40 } = props;
 
   return (

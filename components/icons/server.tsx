@@ -1,8 +1,7 @@
-import type { IconProps } from "./icon";
+import type { IconProps } from './icon';
+import type { FC } from 'react';
 
-import React from "react";
-
-const Server: React.FC<IconProps> = ({
+const Server: FC<IconProps> = ({
   fill,
   size = 24,
   width,

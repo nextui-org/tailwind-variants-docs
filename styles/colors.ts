@@ -1,4 +1,4 @@
-module.exports = {
+export const colors = {
   neutral: {
     50: "#f8f9fa",
     100: "#f1f3f5",
@@ -83,4 +83,4 @@ module.exports = {
     800: "#62420e",
     900: "#312107",
   },
-};
+} as const;

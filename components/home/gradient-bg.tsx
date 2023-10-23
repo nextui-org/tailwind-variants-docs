@@ -1,11 +1,9 @@
-import * as React from "react";
+import type { SVGProps } from 'react';
 
-const SvgComponent = (props) => (
+const SvgComponent = (props: SVGProps<SVGSVGElement>) => (
   <svg
     fill="none"
-    height={1018}
     viewBox="0 0 1210 1018"
-    width={1210}
     xmlns="http://www.w3.org/2000/svg"
     {...props}
   >

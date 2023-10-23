@@ -1,8 +1,7 @@
-import type { IconProps } from "./icon";
+import type { IconProps } from './icon';
+import type { FC } from 'react';
 
-import React from "react";
-
-const CodeDocument: React.FC<IconProps> = ({
+const CodeDocument: FC<IconProps> = ({
   size = 24,
   fill,
   width,

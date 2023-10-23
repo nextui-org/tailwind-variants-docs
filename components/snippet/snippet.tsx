@@ -1,18 +1,21 @@
-import React, { useState } from "react";
-import { CopyIcon, CheckIcon, Tooltip } from "@components";
-import cn from "classnames";
+import type { FC, HTMLAttributes } from 'react';
+
+import { useState } from 'react';
+import cn from 'classnames';
+
+import { CopyIcon, CheckIcon, Tooltip } from '@components';
 
 interface Props {}
 
-type NativeAttrs = Omit<React.HTMLAttributes<any>, keyof Props>;
+type NativeAttrs = Omit<HTMLAttributes<any>, keyof Props>;
 
 export type SnippetProps = Props & NativeAttrs;
 
-const Snippet: React.FC<SnippetProps> = ({ className }) => {
+const Snippet: FC<SnippetProps> = ({ className }) => {
   const [copied, setCopied] = useState(false);
 
   const handleCopyCode = () => {
-    navigator.clipboard.writeText("npm install tailwind-variants");
+    navigator.clipboard.writeText('npm install tailwind-variants');
     setCopied(true);
     setTimeout(() => {
       setCopied(false);
@@ -22,7 +25,7 @@ const Snippet: React.FC<SnippetProps> = ({ className }) => {
   return (
     <div
       className={cn(
-        "flex items-center justify-between bg-neutral/20 backdrop-blur md:w-[420px] w-[320px] h-10 font-mono md:text-sm text-xs px-6 py-2 rounded-full text-black",
+        'flex h-10 w-[320px] items-center justify-between rounded-full bg-neutral/20 px-6 py-2 font-mono text-xs text-black backdrop-blur md:w-[420px] md:text-sm',
         className
       )}
     >

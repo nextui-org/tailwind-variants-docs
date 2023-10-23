@@ -1,15 +1,15 @@
-import React from "react";
+import type { FC, ReactNode } from 'react';
 
 export interface CollapseProps {
   title: string;
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
-const Collaspe: React.FC<CollapseProps> = ({ title, children }) => {
+const Collaspe: FC<CollapseProps> = ({ title, children }) => {
   return (
     <details>
       <summary>{title}</summary>
-      <p className="pl-3 py-2">{children}</p>
+      <p className="py-2 pl-3">{children}</p>
     </details>
   );
 };

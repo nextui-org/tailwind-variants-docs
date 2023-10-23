@@ -1,9 +1,8 @@
-import type { IconProps } from "./icon";
+import type { IconProps } from './icon';
+import type { FC } from 'react';
 
-import React from "react";
-
-const CopyIcon: React.FC<IconProps> = (props) => {
-  const { size = "1em", width, height, className } = props;
+const CopyIcon: FC<IconProps> = (props) => {
+  const { size = '1em', width, height, className } = props;
 
   return (
     <svg
