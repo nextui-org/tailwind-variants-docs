@@ -1,0 +1,84 @@
+# Config
+
+Tailwind Variants has several ways to specify config options:
+
+1. Passing config to the `tv` function
+1. Creating a custom `tv` instance using `createTV`
+1. Modifying the `defaultConfig` variable
+
+### Local Config
+
+The easiest way to configure Tailwind Variants is using the second argument of
+the `tv` function. This will set the configuration for this specific `tv` call
+and is useful for one-off config changes.
+
+```ts
+tv({ base: "" }, {
+  twMerge: false
+  // ...
+})
+```
+
+### Global config
+
+If you want your config to apply to all usages of `tv`, you can modify the
+`defaultConfig` variable to set global configuration for all calls of `tv`.
+
+```ts
+import {defaultConfig} from 'tailwind-variants'
+
+defaultConfig.twMerge = false
+```
+
+### Custom `tv` instance
+
+If you have different configs for different use cases, the default config might
+not work for you. Instead, you can use the `createTV` function to create an
+instance of `tv` with the specified config.
+
+```ts
+import {createTV} from 'tailwind-variants'
+
+const tv = createTV({
+  twMerge: false
+  // ...
+})
+
+tv({ base: "" })
+```
+
+## Config Options
+
+```ts
+type TvConfig = {
+  twMerge?: boolean,
+  twMergeConfig?: TwMergeConfig,
+  responsiveVariants?: string[] | boolean
+}
+```
+
+### `twMerge`
+
+**description:** Whether to merge the class names with `tailwind-merge` library.
+It's avoid to have duplicate tailwind classes. (Recommended) see more [here](https://github.com/dcastil/tailwind-merge/blob/v1.8.1/README.md)
+
+**type:** `boolean`
+
+**default**: `true`
+
+### `twMergeConfig`
+
+**description:** The config object for `tailwind-merge` library. see more [here](https://github.com/dcastil/tailwind-merge/blob/v1.8.1/docs/configuration.md)
+
+**type:** `TwMergeConfig`
+
+**default**: `{}`
+
+### `responsiveVariants`
+
+**description:** Whether to add the responsive variants to the component.
+
+**type:** `string[]` | `boolean`
+
+**default**: `false`
+
