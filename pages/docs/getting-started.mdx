@@ -194,6 +194,20 @@ If you are using **VSCode** and the [**TailwindCSS IntelliSense Extension**](htt
 }
 ```
 
+## Prettier plugin setup (optional)
+
+If you are using [prettier-plugin-tailwindcss](https://github.com/tailwindlabs/prettier-plugin-tailwindcss)
+to sort your class names, you can add `tv` to the list of functions that
+should be sorted.
+
+```js
+module.exports = {
+  plugins: [
+    require('prettier-plugin-tailwindcss')
+  ],
+  tailwindFunctions: ["tv"],
+};
+```
 
 ## Contributing
 
