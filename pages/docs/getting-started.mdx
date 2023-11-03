@@ -184,15 +184,38 @@ button({
 
 ## IntelliSense setup (optional)
 
-If you are using **VSCode** and the [**TailwindCSS IntelliSense Extension**](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) you can enable autocompletion for **Tailwind Variants** by adding the following to your `settings.json` file.
+To enable autocompletion for **Tailwind Variants** you can follow the instructions below.
 
-```json copy
-{
-  "tailwindCSS.experimental.classRegex": [
-    ["tv\\((([^()]*|\\([^()]*\\))*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
-  ]
-}
-```
+<Tabs items={['VSCode', 'Neovim']}>
+  <Tab>
+    If you are using **VSCode** and the [**TailwindCSS IntelliSense Extension**](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss), you have to add the following to your `settings.json` file.
+
+    ```json copy
+      {
+        "tailwindCSS.experimental.classRegex": [
+          ["tv\\((([^()]*|\\([^()]*\\))*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
+        ]
+      }
+    ```
+  </Tab>
+  <Tab>
+    If you are using **Neovim**, install [**Tailwind CSS Language Server**](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#tailwindcss) and add the following to your configuration.
+
+    ```lua copy
+    require('lspconfig').tailwindcss.setup({
+      settings = {
+        tailwindCSS = {
+          experimental = {
+            classRegex = {
+              { "tv\\((([^()]*|\\([^()]*\\))*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]" }
+            },
+          },
+        },
+      },
+    })
+    ```
+  </Tab>
+</Tabs>
 
 ## Prettier plugin setup (optional)
 
