@@ -4,6 +4,7 @@ import {
   SlotsVariantsExample,
   CompoundSlotsExample,
 } from "@components";
+import SlotsCompoundVariantsExample from '../../components/examples/slots-compound-variants-example';
 
 # Slots
 
@@ -321,6 +322,188 @@ const App = () => {
 export default App;
 ```
 
+  </Tab>
+</Tabs>
+
+### Slots with compound variants
+
+Like variants, you can also define the styles for each slot when using compound variants. The slots can be passed to the `class` as an object.
+
+<SlotsCompoundVariantsExample />
+
+**React Example:**
+
+<Tabs items={['JS', 'TS']}>
+  <Tab>
+```js filename="Alert.jsx" copy
+import { tv } from 'tailwind-variants';
+
+const alert = tv({
+  slots: {
+    root: 'rounded py-3 px-5',
+    title: 'font-bold mb-1',
+    message: ''
+  },
+  variants: {
+    variant: {
+      outlined: {
+        root: 'border'
+      },
+      filled: {
+        root: ''
+      }
+    },
+    severity: {
+      error: '',
+      success: ''
+    }
+  },
+  compoundVariants: [
+    {
+      variant: 'outlined',
+      severity: 'error',
+      class: {
+        root: 'border-red-500',
+        title: 'text-red-700 dark:text-red-500',
+        message: 'text-red-600'
+      }
+    },
+    {
+      variant: 'outlined',
+      severity: 'success',
+      class: {
+        root: 'border-green-500',
+        title: 'text-green-700 dark:text-green-500',
+        message: 'text-green-500'
+      }
+    },
+    {
+      variant: 'filled',
+      severity: 'error',
+      class: {
+        root: 'bg-red-500',
+        title: 'text-red-100',
+        message: 'text-red-200'
+      }
+    },
+    {
+      variant: 'filled',
+      severity: 'success',
+      class: {
+        root: 'bg-green-500',
+        title: 'text-green-100',
+        message: 'text-green-200'
+      }
+    }
+  ],
+  defaultVariants: {
+    variant: 'filled',
+    severity: 'success'
+  }
+});
+
+const Alert = ({ severity, variant }) => {
+  const { root, message, title } = alert({ severity, variant });
+
+  return (
+    <div className={root()}>
+      <div className={title()}>Oops, something went wrong</div>
+      <div className={message()}>
+        Something went wrong saving your changes. Try again later.
+      </div>
+    </div>
+  );
+};
+
+export default Alert;
+```
+  </Tab>
+  <Tab>
+```js filename="Alert.tsx" copy
+import type { VariantProps } from 'tailwind-variants';
+import { tv } from 'tailwind-variants';
+
+const alert = tv({
+  slots: {
+    root: 'rounded py-3 px-5',
+    title: 'font-bold mb-1',
+    message: ''
+  },
+  variants: {
+    variant: {
+      outlined: {
+        root: 'border'
+      },
+      filled: {
+        root: ''
+      }
+    },
+    severity: {
+      error: '',
+      success: ''
+    }
+  },
+  compoundVariants: [
+    {
+      variant: 'outlined',
+      severity: 'error',
+      class: {
+        root: 'border-red-500',
+        title: 'text-red-700 dark:text-red-500',
+        message: 'text-red-600'
+      }
+    },
+    {
+      variant: 'outlined',
+      severity: 'success',
+      class: {
+        root: 'border-green-500',
+        title: 'text-green-700 dark:text-green-500',
+        message: 'text-green-500'
+      }
+    },
+    {
+      variant: 'filled',
+      severity: 'error',
+      class: {
+        root: 'bg-red-500',
+        title: 'text-red-100',
+        message: 'text-red-200'
+      }
+    },
+    {
+      variant: 'filled',
+      severity: 'success',
+      class: {
+        root: 'bg-green-500',
+        title: 'text-green-100',
+        message: 'text-green-200'
+      }
+    }
+  ],
+  defaultVariants: {
+    variant: 'filled',
+    severity: 'success'
+  }
+});
+
+type Variants = VariantProps<typeof alert>;
+
+const Alert = ({ severity, variant }: Variants) => {
+  const { root, message, title } = alert({ severity, variant });
+
+  return (
+    <div className={root()}>
+      <div className={title()}>Oops, something went wrong</div>
+      <div className={message()}>
+        Something went wrong saving your changes. Try again later.
+      </div>
+    </div>
+  );
+};
+
+export default Alert;
+```
   </Tab>
 </Tabs>
 
