@@ -30,18 +30,18 @@ const alert = tv({
       variant: 'outlined',
       severity: 'error',
       class: {
-        root: 'border-red-500',
+        root: 'border-red-700 dark:border-red-500',
         title: 'text-red-700 dark:text-red-500',
-        message: 'text-red-600'
+        message: 'text-red-600 dark:text-red-500'
       }
     },
     {
       variant: 'outlined',
       severity: 'success',
       class: {
-        root: 'border-green-500',
+        root: 'border-green-700 dark:border-green-500',
         title: 'text-green-700 dark:text-green-500',
-        message: 'text-green-500'
+        message: 'text-green-600 dark:text-green-500'
       }
     },
     {
@@ -49,8 +49,8 @@ const alert = tv({
       severity: 'error',
       class: {
         root: 'bg-red-500',
-        title: 'text-red-100',
-        message: 'text-red-200'
+        title: 'text-red-900',
+        message: 'text-red-800'
       }
     },
     {
@@ -58,8 +58,8 @@ const alert = tv({
       severity: 'success',
       class: {
         root: 'bg-green-500',
-        title: 'text-green-100',
-        message: 'text-green-200'
+        title: 'text-green-900',
+        message: 'text-green-800'
       }
     }
   ],
