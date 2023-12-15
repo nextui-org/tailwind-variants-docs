@@ -531,14 +531,14 @@ export default App;
 
 <details>
   <summary>Can I do the same with variants?</summary>
-  <p className="pl-3 py-2">
+  <div className="pl-3 py-2">
     Yes, you can do the same with variants. However, compound slots allows you
     to write the classes only once and apply them to multiple slots. This is
     useful if you have a lot of slots and you want to apply the same classes to
     all of them.
-  </p>
+  </div>
 
-  <p className="pl-3 py-2">
+  <div className="pl-3 py-2">
     For example, let's write the same component using variants:
 
 ```js copy
@@ -590,7 +590,7 @@ const pagination = tv({
 });
 ```
 
-  </p>
+  </div>
 </details>
 
 ### Slots with responsive variants
