@@ -48,18 +48,18 @@ const alert = tv({
       variant: 'filled',
       severity: 'error',
       class: {
-        root: 'bg-red-500',
-        title: 'text-red-900',
-        message: 'text-red-800'
+        root: 'bg-red-100 dark:bg-red-800',
+        title: 'text-red-900 dark:text-red-50',
+        message: 'text-red-700 dark:text-red-200'
       }
     },
     {
       variant: 'filled',
       severity: 'success',
       class: {
-        root: 'bg-green-500',
-        title: 'text-green-900',
-        message: 'text-green-800'
+        root: 'bg-green-100 dark:bg-green-800',
+        title: 'text-green-900 dark:text-green-50',
+        message: 'text-green-700 dark:text-green-200'
       }
     }
   ],
