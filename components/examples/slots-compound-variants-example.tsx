@@ -7,7 +7,7 @@ import { RadioGroup, Radio } from '@components';
 
 const alert = tv({
   slots: {
-    root: 'rounded py-3 px-5',
+    root: 'rounded py-3 px-5 mb-4',
     title: 'font-bold mb-1',
     message: ''
   },
@@ -78,7 +78,7 @@ const SlotsCompoundVariantsExample = () => {
   const { root, message, title } = alert({ severity, variant });
 
   return (
-    <div className="my-6">
+    <>
       <div className={root()}>
         <div className={title()}>Oops, something went wrong</div>
         <div className={message()}>
@@ -97,7 +97,7 @@ const SlotsCompoundVariantsExample = () => {
         <Radio value="filled">Filled</Radio>
         <Radio value="outlined">Outlined</Radio>
       </RadioGroup>
-    </div>
+    </>
   );
 };
 
