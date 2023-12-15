@@ -1,16 +1,16 @@
-import React from "react";
-import { useRouter } from "next/router";
-import { DocsThemeConfig, useConfig } from "nextra-theme-docs";
+import React from 'react';
+import { useRouter } from 'next/router';
+import { DocsThemeConfig, useConfig } from 'nextra-theme-docs';
 
-import { tvs, Logo, NextUILogo } from "@components";
+import { tvs, Logo, NextUILogo } from '@components';
 
-import pkg from "./package.json";
+import pkg from './package.json';
 
-const DEFAULT_VERSION = "0.1.14";
+const DEFAULT_VERSION = '0.1.14';
 
 const getVersion = () => {
   return (
-    pkg?.dependencies?.["tailwind-variants"]?.replace("^", "") ??
+    pkg?.dependencies?.['tailwind-variants']?.replace('^', '') ??
     DEFAULT_VERSION
   );
 };
@@ -18,7 +18,7 @@ const getVersion = () => {
 const config: DocsThemeConfig = {
   darkMode: true,
   nextThemes: {
-    defaultTheme: "dark",
+    defaultTheme: 'dark'
   },
   logo: (
     <div className="flex items-center">
@@ -26,7 +26,7 @@ const config: DocsThemeConfig = {
       <b className="ml-1.5 hidden text-sm font-semibold sm:block sm:text-base">
         Tailwind Variants
       </b>
-      <span className={tvs.badge({ class: "hidden sm:flex" })}>
+      <span className={tvs.badge({ class: 'hidden sm:flex' })}>
         v{getVersion()}
       </span>
     </div>
@@ -35,9 +35,9 @@ const config: DocsThemeConfig = {
     const config = useConfig();
     const description =
       config.frontMatter.description ||
-      "The power of Tailwind combined with a first-class variant API.";
+      'The power of Tailwind combined with a first-class variant API.';
     const image =
-      config.frontMatter.image || "https://tailwind-variants.org/banner.png";
+      config.frontMatter.image || 'https://tailwind-variants.org/banner.png';
 
     // || "https://assets.vercel.com/image/upload/v1572282926/swr/twitter-card.jpg";
 
@@ -84,25 +84,25 @@ const config: DocsThemeConfig = {
     const router = useRouter();
     const { frontMatter } = useConfig();
 
-    const defaultTitle = frontMatter.overrideTitle || "Tailwind Variants";
+    const defaultTitle = frontMatter.overrideTitle || 'Tailwind Variants';
 
     return {
       description: frontMatter.description,
       defaultTitle,
-      titleTemplate: router.pathname !== "/" ? `%s – ${defaultTitle}` : "",
+      titleTemplate: router.pathname !== '/' ? `%s – ${defaultTitle}` : ''
     };
   },
   project: {
-    link: "https://github.com/nextui-org/tailwind-variants",
+    link: 'https://github.com/nextui-org/tailwind-variants'
   },
   chat: {
-    link: "https://discord.gg/9b6yyZKmH4",
+    link: 'https://discord.gg/9b6yyZKmH4'
   },
   docsRepositoryBase:
-    "https://github.com/nextui-org/tailwind-variants-docs/blob/main",
-  gitTimestamp: "",
+    'https://github.com/nextui-org/tailwind-variants-docs/blob/main',
+  gitTimestamp: '',
   sidebar: {
-    defaultMenuCollapseLevel: 1,
+    defaultMenuCollapseLevel: 1
   },
   footer: {
     text: (
@@ -123,8 +123,8 @@ const config: DocsThemeConfig = {
           MIT {new Date().getFullYear()} The Tailwind Variants Project.
         </p>
       </div>
-    ),
-  },
+    )
+  }
 };
 
 export default config;

@@ -1,5 +1,5 @@
-import { Tab, Tabs } from 'nextra-theme-docs'
-import { TVComponent, WindowResizer, NXLink } from '@components'
+import { Tab, Tabs } from 'nextra-theme-docs';
+import { TVComponent, WindowResizer, NXLink } from '@components';
 
 # Getting started
 
@@ -15,26 +15,14 @@ TailwindCSS yet, you can follow the [TailwindCSS installation guide](https://tai
 To use **Tailwind Variants** in your project, you can install it as a dependency:
 
 <Tabs items={['npm', 'yarn', 'pnpm']}>
-  <Tab>
-    ```bash copy
-    npm install tailwind-variants
-    ```
-  </Tab>
-  <Tab>
-    ```bash copy
-    yarn add tailwind-variants
-    ```
-  </Tab>
-  <Tab>
-    ```bash copy
-    pnpm add tailwind-variants
-    ```
-  </Tab>
+  <Tab>```bash copy npm install tailwind-variants ```</Tab>
+  <Tab>```bash copy yarn add tailwind-variants ```</Tab>
+  <Tab>```bash copy pnpm add tailwind-variants ```</Tab>
 </Tabs>
 
 ## Usage
 
-<br/>
+<br />
 
 <TVComponent
   as="button"
@@ -45,22 +33,22 @@ To use **Tailwind Variants** in your project, you can install it as a dependency
     variants: {
       color: {
         primary: 'bg-blue-500 text-white',
-        secondary: 'bg-purple-500 text-white',
+        secondary: 'bg-purple-500 text-white'
       },
       size: {
         sm: 'text-sm',
         md: 'text-base',
-        lg: 'px-4 py-3 text-lg',
-      },
+        lg: 'px-4 py-3 text-lg'
+      }
     },
     defaultVariants: {
       size: 'md',
-      color: 'primary',
+      color: 'primary'
     },
     compoundVariants: [
       {
         size: ['sm', 'md'],
-        class: 'px-3 py-1',
+        class: 'px-3 py-1'
       }
     ]
   }}
@@ -72,33 +60,35 @@ To use **Tailwind Variants** in your project, you can install it as a dependency
 import { tv } from 'tailwind-variants';
 
 const button = tv({
-  base: "font-medium bg-blue-500 text-white rounded-full active:opacity-80",
+  base: 'font-medium bg-blue-500 text-white rounded-full active:opacity-80',
   variants: {
     color: {
-      primary: "bg-blue-500 text-white",
-      secondary: "bg-purple-500 text-white",
+      primary: 'bg-blue-500 text-white',
+      secondary: 'bg-purple-500 text-white'
     },
     size: {
-      sm: "text-sm",
-      md: "text-base",
-      lg: "px-4 py-3 text-lg",
-    },
+      sm: 'text-sm',
+      md: 'text-base',
+      lg: 'px-4 py-3 text-lg'
+    }
   },
   compoundVariants: [
     {
-      size: ["sm", "md"],
-      class: "px-3 py-1",
-    },
+      size: ['sm', 'md'],
+      class: 'px-3 py-1'
+    }
   ],
   defaultVariants: {
-    size: "md",
-    color: "primary",
+    size: 'md',
+    color: 'primary'
   }
 });
 
 return (
-  <button className={button({ size: 'sm', color: 'secondary' })}>Click me</button>
-)
+  <button className={button({ size: 'sm', color: 'secondary' })}>
+    Click me
+  </button>
+);
 ```
 
 ## Responsive variants (optional)
@@ -107,38 +97,36 @@ If you want to use responsive variants, you need to add the **Tailwind Variants*
 
 ```js copy /withTV/
 // tailwind.config.js
-const { withTV } = require('tailwind-variants/transformer')
+const { withTV } = require('tailwind-variants/transformer');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = withTV({
-  content:  ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
-    extend: {},
+    extend: {}
   },
-  plugins: [],
-})
+  plugins: []
+});
 ```
-
-
 
 <details>
   <summary>Why do I need to add the transformer?</summary>
-  <p className="pl-3 py-2">
-    If you are wondering why you need to add the transformer, it's because **TailwindCSS** uses
-    something called [JIT](https://tailwindcss.com/blog/tailwindcss-v3#just-in-time-all-the-time)
-    which compiles your CSS on demand based on the classes you use in your HTML / JSX files / etc.
-    As the responsive variants need to be dynamic the JIT compiler doesn't know what classes to compile,
-    so we need to add the transformer to tell the compiler what classes to compile.
+  <p className="py-2 pl-3">
+    If you are wondering why you need to add the transformer, it's because
+    **TailwindCSS** uses something called
+    [JIT](https://tailwindcss.com/blog/tailwindcss-v3#just-in-time-all-the-time)
+    which compiles your CSS on demand based on the classes you use in your HTML
+    / JSX files / etc. As the responsive variants need to be dynamic the JIT
+    compiler doesn't know what classes to compile, so we need to add the
+    transformer to tell the compiler what classes to compile.
   </p>
 </details>
-
 
 ### Responsive variants usage
 
 **Tailwind Variants** allows you to apply variants to different screen sizes.
 
-<br/>
-
+<br />
 
 <WindowResizer
   iframeSrc="/docs/examples/intro-responsive-variants"
@@ -146,31 +134,32 @@ module.exports = withTV({
   height="120px"
 />
 
-
 ```js copy {15, 20-23}
-import { tv } from "tailwind-variants";
+import { tv } from 'tailwind-variants';
 
-const button = tv({
-  base: "font-semibold text-white py-1 px-3 rounded-full active:opacity-80",
-  variants: {
-    color: {
-      primary: "bg-blue-500 hover:bg-blue-700",
-      secondary: "bg-purple-500 hover:bg-purple-700",
-      success: "bg-green-500 hover:bg-green-700",
-      error: "bg-red-500 hover:bg-red-700",
-    },
+const button = tv(
+  {
+    base: 'font-semibold text-white py-1 px-3 rounded-full active:opacity-80',
+    variants: {
+      color: {
+        primary: 'bg-blue-500 hover:bg-blue-700',
+        secondary: 'bg-purple-500 hover:bg-purple-700',
+        success: 'bg-green-500 hover:bg-green-700',
+        error: 'bg-red-500 hover:bg-red-700'
+      }
+    }
+  },
+  {
+    responsiveVariants: ['xs', 'sm', 'md'] // `true` to apply to all screen sizes
   }
-},
-{
-  responsiveVariants: ['xs', 'sm', 'md'] // `true` to apply to all screen sizes
-});
+);
 
 button({
   color: {
-    initial: "primary",
-    xs: "secondary",
-    sm: "success",
-    md: "error"
+    initial: 'primary',
+    xs: 'secondary',
+    sm: 'success',
+    md: 'error'
   }
 });
 
@@ -197,6 +186,7 @@ To enable autocompletion for **Tailwind Variants** you can follow the instructio
         ]
       }
     ```
+
   </Tab>
   <Tab>
     If you are using **Neovim**, install [**Tailwind CSS Language Server**](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#tailwindcss) and add the following to your configuration.
@@ -214,6 +204,7 @@ To enable autocompletion for **Tailwind Variants** you can follow the instructio
       },
     })
     ```
+
   </Tab>
 </Tabs>
 
@@ -225,10 +216,8 @@ should be sorted.
 
 ```js
 module.exports = {
-  plugins: [
-    require('prettier-plugin-tailwindcss')
-  ],
-  tailwindFunctions: ["tv"],
+  plugins: [require('prettier-plugin-tailwindcss')],
+  tailwindFunctions: ['tv']
 };
 ```
 

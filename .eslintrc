@@ -6,7 +6,12 @@
     "es2022": true,
     "browser": true
   },
-  "extends": ["next", "next/core-web-vitals", "plugin:jsx-a11y/recommended", "prettier"],
+  "extends": [
+    "next",
+    "next/core-web-vitals",
+    "plugin:jsx-a11y/recommended",
+    "prettier"
+  ],
   "plugins": [
     "@typescript-eslint",
     "import",
