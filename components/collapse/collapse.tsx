@@ -9,7 +9,7 @@ const Collaspe: FC<CollapseProps> = ({ title, children }) => {
   return (
     <details>
       <summary>{title}</summary>
-      <p className="py-2 pl-3">{children}</p>
+      <div className="py-2 pl-3">{children}</div>
     </details>
   );
 };

@@ -111,7 +111,7 @@ module.exports = withTV({
 
 <details>
   <summary>Why do I need to add the transformer?</summary>
-  <p className="py-2 pl-3">
+  <div className="py-2 pl-3">
     If you are wondering why you need to add the transformer, it's because
     **TailwindCSS** uses something called
     [JIT](https://tailwindcss.com/blog/tailwindcss-v3#just-in-time-all-the-time)
@@ -119,7 +119,7 @@ module.exports = withTV({
     / JSX files / etc. As the responsive variants need to be dynamic the JIT
     compiler doesn't know what classes to compile, so we need to add the
     transformer to tell the compiler what classes to compile.
-  </p>
+  </div>
 </details>
 
 ### Responsive variants usage
