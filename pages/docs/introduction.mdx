@@ -1,5 +1,5 @@
-import { WindowResizer, TVComponent } from '@components'
-import Image from 'next/image'
+import { WindowResizer, TVComponent } from '@components';
+import Image from 'next/image';
 
 # Introduction
 
@@ -7,7 +7,7 @@ import Image from 'next/image'
   alt="tailwind-variants banner"
   priority
   quality={90}
-  className="rounded-lg mt-1"
+  className="mt-1 rounded-lg"
   height="730"
   src="/banner.png"
   width="1460"
@@ -21,7 +21,7 @@ import Image from 'next/image'
 
 Since [Stitches](https://stitches.dev) introduced variants, we became big fans of them, they are a great way to create a consistent design system, so we created **Tailwind Variants** to bring them to TailwindCSS.
 
-<br/>
+<br />
 
 <TVComponent
   as="button"
@@ -32,22 +32,22 @@ Since [Stitches](https://stitches.dev) introduced variants, we became big fans o
     variants: {
       color: {
         primary: 'bg-blue-500 text-white',
-        secondary: 'bg-purple-500 text-white',
+        secondary: 'bg-purple-500 text-white'
       },
       size: {
         sm: 'text-sm',
         md: 'text-base',
-        lg: 'px-4 py-3 text-lg',
-      },
+        lg: 'px-4 py-3 text-lg'
+      }
     },
     defaultVariants: {
       size: 'md',
-      color: 'primary',
+      color: 'primary'
     },
     compoundVariants: [
       {
         size: ['sm', 'md'],
-        class: 'px-3 py-1',
+        class: 'px-3 py-1'
       }
     ]
   }}
@@ -59,33 +59,35 @@ Since [Stitches](https://stitches.dev) introduced variants, we became big fans o
 import { tv } from 'tailwind-variants';
 
 const button = tv({
-  base: "font-medium bg-blue-500 text-white rounded-full active:opacity-80",
+  base: 'font-medium bg-blue-500 text-white rounded-full active:opacity-80',
   variants: {
     color: {
-      primary: "bg-blue-500 text-white",
-      secondary: "bg-purple-500 text-white",
+      primary: 'bg-blue-500 text-white',
+      secondary: 'bg-purple-500 text-white'
     },
     size: {
-      sm: "text-sm",
-      md: "text-base",
-      lg: "px-4 py-3 text-lg",
-    },
+      sm: 'text-sm',
+      md: 'text-base',
+      lg: 'px-4 py-3 text-lg'
+    }
   },
   compoundVariants: [
     {
-      size: ["sm", "md"],
-      class: "px-3 py-1",
-    },
+      size: ['sm', 'md'],
+      class: 'px-3 py-1'
+    }
   ],
   defaultVariants: {
-    size: "md",
-    color: "primary",
+    size: 'md',
+    color: 'primary'
   }
 });
 
 return (
-  <button className={button({ size: 'sm', color: 'secondary' })}>Click me</button>
-)
+  <button className={button({ size: 'sm', color: 'secondary' })}>
+    Click me
+  </button>
+);
 ```
 
 To learn more about variants, check the [variants](/docs/variants) page.
@@ -94,47 +96,47 @@ To learn more about variants, check the [variants](/docs/variants) page.
 
 **Tailwind Variants** allows you to apply variants to different screen sizes.
 
-<br/>
-
+<br />
 
 <WindowResizer
   iframeSrc="/docs/examples/intro-responsive-variants"
   iframeTitle="Responsive variants"
   height="120px"
-/> 
-
+/>
 
 ```js copy {15, 20-23}
-import { tv } from "tailwind-variants";
+import { tv } from 'tailwind-variants';
 
-const button = tv({
-  base: "font-semibold text-white py-1 px-3 rounded-full active:opacity-80",
-  variants: {
-    color: {
-      primary: "bg-blue-500 hover:bg-blue-700",
-      secondary: "bg-purple-500 hover:bg-purple-700",
-      success: "bg-green-500 hover:bg-green-700",
-      error: "bg-red-500 hover:bg-red-700",
-    },
+const button = tv(
+  {
+    base: 'font-semibold text-white py-1 px-3 rounded-full active:opacity-80',
+    variants: {
+      color: {
+        primary: 'bg-blue-500 hover:bg-blue-700',
+        secondary: 'bg-purple-500 hover:bg-purple-700',
+        success: 'bg-green-500 hover:bg-green-700',
+        error: 'bg-red-500 hover:bg-red-700'
+      }
+    }
+  },
+  {
+    responsiveVariants: ['xs', 'sm', 'md'] // `true` to apply to all screen sizes
   }
-},
-{
-  responsiveVariants: ['xs', 'sm', 'md'] // `true` to apply to all screen sizes
-});
- 
+);
+
 button({
   color: {
-    initial: "primary",
-    xs: "secondary",
-    sm: "success",
-    md: "error"
+    initial: 'primary',
+    xs: 'secondary',
+    sm: 'success',
+    md: 'error'
   }
 });
 
 /**
- * Result: 
- * font-semibold text-white py-1 px-3 rounded-full active:opacity-80 bg-blue-500 hover:bg-blue-700 
- * xs:bg-purple-500 xs:hover:bg-purple-700 sm:bg-green-500 sm:hover:bg-green-700 md:bg-red-500 
+ * Result:
+ * font-semibold text-white py-1 px-3 rounded-full active:opacity-80 bg-blue-500 hover:bg-blue-700
+ * xs:bg-purple-500 xs:hover:bg-purple-700 sm:bg-green-500 sm:hover:bg-green-700 md:bg-red-500
  * md:hover:bg-red-700
  */
 ```
@@ -145,7 +147,7 @@ To learn more about responsive variants, check the [variants](/docs/variants#res
 
 You can style multiple components at once using the `slots` property.
 
-<br/>
+<br />
 
 <WindowResizer
   iframeSrc="/docs/examples/intro-slots"
@@ -156,45 +158,47 @@ You can style multiple components at once using the `slots` property.
 />
 
 ```js copy {5-11} /base()/ /avatar()/ /wrapper()/ /description()/ /infoWrapper()/ /name()/ /role()/
-import { tv } from "tailwind-variants";
+import { tv } from 'tailwind-variants';
 
 const card = tv({
   slots: {
-    base: "md:flex bg-slate-100 rounded-xl p-8 md:p-0 dark:bg-gray-900",
-    avatar: "w-24 h-24 md:w-48 md:h-auto md:rounded-none rounded-full mx-auto drop-shadow-lg",
-    wrapper: "flex-1 pt-6 md:p-8 text-center md:text-left space-y-4",
-    description: "text-md font-medium",
-    infoWrapper: "font-medium",
-    name: "text-sm text-sky-500 dark:text-sky-400",
-    role: "text-sm text-slate-700 dark:text-slate-500",
-  },
+    base: 'md:flex bg-slate-100 rounded-xl p-8 md:p-0 dark:bg-gray-900',
+    avatar:
+      'w-24 h-24 md:w-48 md:h-auto md:rounded-none rounded-full mx-auto drop-shadow-lg',
+    wrapper: 'flex-1 pt-6 md:p-8 text-center md:text-left space-y-4',
+    description: 'text-md font-medium',
+    infoWrapper: 'font-medium',
+    name: 'text-sm text-sky-500 dark:text-sky-400',
+    role: 'text-sm text-slate-700 dark:text-slate-500'
+  }
 });
 
-const {base, avatar, wrapper, description, infoWrapper, name, role} = card();
+const { base, avatar, wrapper, description, infoWrapper, name, role } = card();
 
 return (
   <figure className={base()}>
-    <img className={avatar()} src="/intro-avatar.png" alt="" width="384" height="512"/>
+    <img
+      className={avatar()}
+      src="/intro-avatar.png"
+      alt=""
+      width="384"
+      height="512"
+    />
     <div className={wrapper()}>
       <blockquote>
         <p className={description()}>
-          “Tailwind variants allows you to reduce repeated code in your
-          project and make it more readable. They fixed the headache of
-          building a design system with TailwindCSS.”
+          “Tailwind variants allows you to reduce repeated code in your project
+          and make it more readable. They fixed the headache of building a
+          design system with TailwindCSS.”
         </p>
       </blockquote>
       <figcaption className={infoWrapper()}>
-        <div className={name()}>
-          Zoey Lang
-        </div>
-        <div className={role()}>
-          Full-stack developer, NextUI
-        </div>
+        <div className={name()}>Zoey Lang</div>
+        <div className={role()}>Full-stack developer, NextUI</div>
       </figcaption>
     </div>
   </figure>
-)
-
+);
 ```
 
 To learn more about slots and how to use them, check out the [Slots](/docs/slots) page.
@@ -203,34 +207,34 @@ To learn more about slots and how to use them, check out the [Slots](/docs/slots
 
 **Tailwind Variants** provides a `class` / `className` prop for overriding classes on any component.
 
-<br/>
+<br />
 
-<button className="font-semibold text-white py-1 px-3 rounded-full active:opacity-80 bg-pink-500 hover:bg-pink-500">
+<button className="rounded-full bg-pink-500 px-3 py-1 font-semibold text-white hover:bg-pink-500 active:opacity-80">
   Button
 </button>
 
 ```js copy {17}
-import { tv } from "tailwind-variants";
+import { tv } from 'tailwind-variants';
 
 const button = tv({
-  base: "font-semibold text-white py-1 px-3 rounded-full active:opacity-80",
+  base: 'font-semibold text-white py-1 px-3 rounded-full active:opacity-80',
   variants: {
     color: {
-      primary: "bg-blue-500 hover:bg-blue-700",
-      secondary: "bg-purple-500 hover:bg-purple-700",
-      success: "bg-green-500 hover:bg-green-700",
-      error: "bg-red-500 hover:bg-red-700",
-    },
+      primary: 'bg-blue-500 hover:bg-blue-700',
+      secondary: 'bg-purple-500 hover:bg-purple-700',
+      success: 'bg-green-500 hover:bg-green-700',
+      error: 'bg-red-500 hover:bg-red-700'
+    }
   }
 });
- 
+
 button({
-  color: "secondary",
-  class: "bg-pink-500 hover:bg-pink-500" // overrides the color variant
+  color: 'secondary',
+  class: 'bg-pink-500 hover:bg-pink-500' // overrides the color variant
 });
 
 /**
- * Result: 
+ * Result:
  * font-semibold text-white py-1 px-3 rounded-full active:opacity-80 bg-pink-500 hover:bg-pink-500
  */
 ```
@@ -241,80 +245,74 @@ To learn more the overrides, check out this [page](/docs/overriding-styles).
 
 **Tailwind Variants** allows you to compose components using the `extend` parameter. It automatically merges the `classes`, `slots`, `variants`, `defaultVariants` and `compoundVariants` of the extended component.
 
-<br/>
+<br />
 
 <div className="flex gap-3">
-  <button className="font-semibold dark:text-white py-1 px-3 rounded-full active:opacity-80 bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800 dark:hover:bg-zinc-800">
+  <button className="rounded-full bg-zinc-100 px-3 py-1 font-semibold hover:bg-zinc-200 active:opacity-80 dark:bg-zinc-800 dark:text-white dark:hover:bg-zinc-800">
     Button
   </button>
-  <button className="font-semibold dark:text-white py-1 px-3 active:opacity-80 text-sm text-white rounded-lg shadow-lg uppercase tracking-wider bg-blue-500 hover:bg-blue-600 shadow-blue-500/50 dark:bg-blue-500 dark:hover:bg-blue-600">
+  <button className="rounded-lg bg-blue-500 px-3 py-1 text-sm font-semibold uppercase tracking-wider text-white shadow-lg shadow-blue-500/50 hover:bg-blue-600 active:opacity-80 dark:bg-blue-500 dark:text-white dark:hover:bg-blue-600">
     Buy button
   </button>
 </div>
 
-
 ```js copy /extend: baseButton/
-import { tv } from "tailwind-variants";
+import { tv } from 'tailwind-variants';
 
 const baseButton = tv({
   base: [
-    "font-semibold",
-    "dark:text-white",
-    "py-1",
-    "px-3",
-    "rounded-full",
-    "active:opacity-80",
-    "bg-zinc-100",
-    "hover:bg-zinc-200",
-    "dark:bg-zinc-800",
-    "dark:hover:bg-zinc-800",
-  ],
+    'font-semibold',
+    'dark:text-white',
+    'py-1',
+    'px-3',
+    'rounded-full',
+    'active:opacity-80',
+    'bg-zinc-100',
+    'hover:bg-zinc-200',
+    'dark:bg-zinc-800',
+    'dark:hover:bg-zinc-800'
+  ]
 });
 
 const buyButton = tv({
   extend: baseButton,
   base: [
-    "text-sm",
-    "text-white",
-    "rounded-lg",
-    "shadow-lg",
-    "uppercase",
-    "tracking-wider",
-    "bg-blue-500",
-    "hover:bg-blue-600",
-    "shadow-blue-500/50",
-    "dark:bg-blue-500",
-    "dark:hover:bg-blue-600",
-  ],
+    'text-sm',
+    'text-white',
+    'rounded-lg',
+    'shadow-lg',
+    'uppercase',
+    'tracking-wider',
+    'bg-blue-500',
+    'hover:bg-blue-600',
+    'shadow-blue-500/50',
+    'dark:bg-blue-500',
+    'dark:hover:bg-blue-600'
+  ]
 });
-
 
 return (
   <div className="flex gap-3">
-    <button className={baseButton()}>
-      Button
-    </button>
-    <button className={buyButton()}>
-      Buy button
-    </button>
+    <button className={baseButton()}>Button</button>
+    <button className={buyButton()}>Buy button</button>
   </div>
-)
+);
 
 /**
  * buyButton();
- * 
- * Result: 
+ *
+ * Result:
  * font-semibold dark:text-white py-1 px-3 active:opacity-80 text-sm text-white rounded-lg
- * shadow-lg shadow-blue-500/50 uppercase tracking-wider bg-blue-500 hover:bg-blue-600 
+ * shadow-lg shadow-blue-500/50 uppercase tracking-wider bg-blue-500 hover:bg-blue-600
  * dark:bg-blue-500 dark:hover:bg-blue-600
  */
 ```
+
 To learn more about **Components composition**, check out this [page](/docs/composing-components).
 
-#### Developer experience 
+#### Developer experience
 
 **Tailwind Variants** is built with developer experience in mind, it provides a great autocomplete experience thanks to the fully-typed API, so when using TypeScript, `slots`, `values`, and `breakpoints` will be auto-completed for you.
-
 
 #### Automatic conflict resolution
 
@@ -332,7 +330,6 @@ We're excited to see the community adopt NextUI, raise issues, and provide feedb
 - [Twitter](https://twitter.com/getnextui)
 - [GitHub Discussions](https://github.com/nextui-org/tailwind-variants/discussions)
 - [GitHub](https://github.com/nextui-org/tailwind-variants)
-
 
 ## Credits
 

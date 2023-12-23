@@ -34,34 +34,32 @@ The `options` argument is an object with the following properties:
 
 ```ts
 type TVOptions = {
-  extend?: TVReturnType | undefined,
-  base?:  ClassValue,
-  slots?: Record<string, ClassValue>,
-  variants?: Record<string, Record<string, ClassValue>>,
-  defaultVariants?: Record<string, ClassValue>,
-  compoundVariants?: Array<Record<string, string> & ClassProp>,
-  compoundSlots?: Array<Record<string, string> & ClassProp>,
-}
+  extend?: TVReturnType | undefined;
+  base?: ClassValue;
+  slots?: Record<string, ClassValue>;
+  variants?: Record<string, Record<string, ClassValue>>;
+  defaultVariants?: Record<string, ClassValue>;
+  compoundVariants?: Array<Record<string, string> & ClassProp>;
+  compoundSlots?: Array<Record<string, string> & ClassProp>;
+};
 ```
-
 
 #### `extend`
 
-**description:** This property allows you to extend the `base` styles, `slots`, `variants`, 
+**description:** This property allows you to extend the `base` styles, `slots`, `variants`,
 `defaultVariants` and `compoundVariants` from another component.
 
-**type:** [TVReturnType](/docs/api-reference#tvreturntype) | `undefined`  
+**type:** [TVReturnType](/docs/api-reference#tvreturntype) | `undefined`
 
-**default**: `undefined` 
+**default**: `undefined`
 
 To learn more about Components composition, check out this [page](/docs/composing-components).
-
 
 #### `base`
 
 **description:** This property allows you to define the base styles for the component.
 
-**type:**  [ClassValue](/docs/api-reference#classvalue)
+**type:** [ClassValue](/docs/api-reference#classvalue)
 
 **default**: `undefined`
 
@@ -69,7 +67,7 @@ To learn more about Components composition, check out this [page](/docs/composin
 
 **description:** This property allows you to define the slots for the component.
 
-**type:**  `Record<string, ClassValue>` | `undefined`
+**type:** `Record<string, ClassValue>` | `undefined`
 
 **default**: `{}`
 
@@ -79,7 +77,7 @@ To learn more about slots and how to use them, check out the [Slots](/docs/slots
 
 **description:** This property allows you to define the variants for the component.
 
-**type:**  `Record<string, Record<string, ClassValue>>` | `undefined`
+**type:** `Record<string, Record<string, ClassValue>>` | `undefined`
 
 **default**: `{}`
 
@@ -89,7 +87,7 @@ To learn more about variants and how to use them, check out the [Variants](/docs
 
 **description:** This property allows you to define the default variants for the component.
 
-**type:**  `Record<string, ClassValue>` | `undefined`
+**type:** `Record<string, ClassValue>` | `undefined`
 
 **default**: `{}`
 
@@ -99,7 +97,7 @@ To learn more about default variants and how to use them, check out the [Default
 
 **description:** This property allows you to define the compound variants for the component.
 
-**type:**  `Array<Record<string, string> & ClassProp>` | `undefined`
+**type:** `Array<Record<string, string> & ClassProp>` | `undefined`
 
 **default**: `[]`
 
@@ -107,10 +105,9 @@ To learn more about default variants and how to use them, check out the [Default
 
 **description:** This property allows you to define the compound slots for the component.
 
-**type:**  `Array<Record<string, string> & ClassProp>` | `undefined`
+**type:** `Array<Record<string, string> & ClassProp>` | `undefined`
 
 **default**: `[]`
-
 
 To learn more about compound variants and how to use them, check out the [Compound Variants](/docs/variants#compound-variants) page.
 
@@ -120,15 +117,15 @@ The `config` argument is an object with the following properties:
 
 ```ts
 type TvConfig = {
-  twMerge?: boolean,
-  twMergeConfig?:TwMergeConfig,
-  responsiveVariants?: string[] | boolean
-}
+  twMerge?: boolean;
+  twMergeConfig?: TwMergeConfig;
+  responsiveVariants?: string[] | boolean;
+};
 ```
 
 #### `twMerge`
 
-**description:** Whether to merge the class names with `tailwind-merge` library. 
+**description:** Whether to merge the class names with `tailwind-merge` library.
 It's avoid to have duplicate tailwind classes. (Recommended) see more [here](https://github.com/dcastil/tailwind-merge/blob/v1.8.1/README.md)
 
 **type:** `boolean`
@@ -151,7 +148,7 @@ It's avoid to have duplicate tailwind classes. (Recommended) see more [here](htt
 
 **default**: `false`
 
-<br/>
+<br />
 
 ### Types
 
@@ -169,20 +166,20 @@ type ClassProp<V extends unknown = ClassValue> =
       class: V;
       className?: never;
     }
-  | {class?: never; className: V}
-  | {class?: never; className?: never};
+  | { class?: never; className: V }
+  | { class?: never; className?: never };
 ```
 
 #### TVReturnType
 
 ```ts
 type TVReturnType = {
-  base?: string
-  extend?: TVReturnType
-  slots?: Record<string, string>
-  variants?: Record<string, string>
-  variantKeys?: string[]
-  defaultVariants?: Record<string, string>
-  compoundVariants?: Array<Record<string, string>>
-}
+  base?: string;
+  extend?: TVReturnType;
+  slots?: Record<string, string>;
+  variants?: Record<string, string>;
+  variantKeys?: string[];
+  defaultVariants?: Record<string, string>;
+  compoundVariants?: Array<Record<string, string>>;
+};
 ```

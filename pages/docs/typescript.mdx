@@ -1,4 +1,4 @@
-import { Callout } from 'nextra-theme-docs'
+import { Callout } from 'nextra-theme-docs';
 
 # Typescript
 
@@ -6,46 +6,46 @@ import { Callout } from 'nextra-theme-docs'
 
 ### Extract variants from a component
 
-You can use the `VariantProps` utility to extract variants from a component. 
+You can use the `VariantProps` utility to extract variants from a component.
 
 ```tsx copy /VariantProps/
-import { tv, type VariantProps } from 'tailwind-variants'
+import { tv, type VariantProps } from 'tailwind-variants';
 
 export const button = tv({
-  base: "px-4 py-1.5 rounded-full hover:opacity-80",
+  base: 'px-4 py-1.5 rounded-full hover:opacity-80',
   variants: {
     color: {
-      primary: "bg-blue-500 text-white",
-      neutral: "bg-zinc-500 text-black dark:text-white",
+      primary: 'bg-blue-500 text-white',
+      neutral: 'bg-zinc-500 text-black dark:text-white'
     },
     flat: {
-      true: "bg-transparent",
-    },
+      true: 'bg-transparent'
+    }
   },
   defaultVariants: {
-    color: "primary",
+    color: 'primary'
   },
   compoundVariants: [
     {
-      color: "primary",
+      color: 'primary',
       flat: true,
-      class: "bg-blue-500/40",
+      class: 'bg-blue-500/40'
     },
     {
-      color: "neutral",
+      color: 'neutral',
       flat: true,
-      class: "bg-zinc-500/20",
-    },
-  ],
+      class: 'bg-zinc-500/20'
+    }
+  ]
 });
 
 /**
  * Result:
  * color?: "primary" | "neutral"
- * flat?: boolean 
+ * flat?: boolean
  */
 
-type ButtonVariants = VariantProps<typeof button>
+type ButtonVariants = VariantProps<typeof button>;
 
 interface ButtonProps extends ButtonVariants {
   children: React.ReactNode;
@@ -56,7 +56,7 @@ export const Button = (props: ButtonProps) => {
 };
 ```
 
-### Required variants 
+### Required variants
 
 **Tailwind Variants** doesn't offer a way to make variants required yet, but you can use TypeScript's [Utility Types](https://www.typescriptlang.org/docs/handbook/utility-types.html) to achieve this.
 
@@ -84,7 +84,7 @@ const buttonStyles = tv({
 /**
  * Result:
  * color?: "primary" | "neutral"
- * flat?: boolean 
+ * flat?: boolean
  */
 type ButtonVariants = VariantProps<typeof buttonStyles>
 
@@ -105,6 +105,8 @@ button({ requiredFlat: true });
 
 <Callout type="info">
   <div className="text-sm">
-    This sample is taken from the "Required Variants" section of the [CVA](https://github.com/joe-bell/cva) project on Github, which was developed by [Joe Bell](https://github.com/joe-bell).
+    This sample is taken from the "Required Variants" section of the
+    [CVA](https://github.com/joe-bell/cva) project on Github, which was
+    developed by [Joe Bell](https://github.com/joe-bell).
   </div>
 </Callout>
