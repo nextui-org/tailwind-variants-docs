@@ -175,16 +175,16 @@ button({
 
 To enable autocompletion for **Tailwind Variants** you can follow the instructions below.
 
-<Tabs items={['VSCode', 'Neovim']}>
+<Tabs items={['VSCode', 'Neovim', 'IntelliJ']}>
   <Tab>
     If you are using **VSCode** and the [**TailwindCSS IntelliSense Extension**](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss), you have to add the following to your `settings.json` file.
 
     ```json copy
-      {
-        "tailwindCSS.experimental.classRegex": [
-          ["tv\\((([^()]*|\\([^()]*\\))*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
-        ]
-      }
+    {
+      "tailwindCSS.experimental.classRegex": [
+        ["tv\\((([^()]*|\\([^()]*\\))*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
+      ]
+    }
     ```
 
   </Tab>
@@ -203,6 +203,19 @@ To enable autocompletion for **Tailwind Variants** you can follow the instructio
         },
       },
     })
+    ```
+
+  </Tab>
+  <Tab>
+    If you are using **IntelliJ** and the [**Tailwind CSS Plugin**](https://plugins.jetbrains.com/plugin/15321-tailwind-css), go to **settings** -> **Languages & Frameworks** -> **Style Sheets** -> **Tailwind CSS** and add the following to the configuration.
+
+     ```json copy
+     "experimental": {
+       "configFile": null,
+       "classRegex": [
+         ["tv\\((([^()]*|\\([^()]*\\))*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
+       ]
+     }
     ```
 
   </Tab>
