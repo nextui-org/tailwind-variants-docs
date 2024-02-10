@@ -20,7 +20,7 @@
     "lint": "next lint",
     "lint:fix": "next lint --fix",
     "fmt": "prettier --write .",
-    "fmt:check": "prettier --write ."
+    "fmt:check": "prettier --check ."
   },
   "dependencies": {
     "@react-aria/interactions": "3.17.0",
