@@ -542,7 +542,7 @@ export default App;
     For example, let's write the same component using variants:
 
 ```js copy
-import { tv, cxBase } from "tailwind-variants";
+import { tv } from "tailwind-variants";
 
 cosnt baseItem = [
   "flex",
@@ -561,7 +561,7 @@ cosnt baseItem = [
 const pagination = tv({
   slots: {
     base: "flex flex-wrap relative gap-1 max-w-fit",
-    item: cxBase(baseItem, 'data-[active="true"]:bg-blue-500 data-[active="true"]:text-white'),
+    item: [...baseItem, 'data-[active="true"]:bg-blue-500 data-[active="true"]:text-white'],
     prev: baseItem,
     next: baseItem,
   },
