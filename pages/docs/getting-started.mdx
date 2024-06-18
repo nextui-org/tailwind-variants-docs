@@ -200,7 +200,7 @@ To enable autocompletion for **Tailwind Variants** you can follow the instructio
     ```json copy
     {
       "tailwindCSS.experimental.classRegex": [
-        ["tv\\((([^()]*|\\([^()]*\\))*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
+        ["([\"'`][^\"'`]*.*?[\"'`])", "[\"'`]([^\"'`]*).*?[\"'`]"]
       ]
     }
     ```
@@ -215,7 +215,7 @@ To enable autocompletion for **Tailwind Variants** you can follow the instructio
         tailwindCSS = {
           experimental = {
             classRegex = {
-              { "tv\\((([^()]*|\\([^()]*\\))*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]" }
+              { "([\"'`][^\"'`]*.*?[\"'`])", "[\"'`]([^\"'`]*).*?[\"'`]" }
             },
           },
         },
@@ -231,7 +231,7 @@ To enable autocompletion for **Tailwind Variants** you can follow the instructio
      "experimental": {
        "configFile": null,
        "classRegex": [
-         ["tv\\((([^()]*|\\([^()]*\\))*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
+          ["([\"'`][^\"'`]*.*?[\"'`])", "[\"'`]([^\"'`]*).*?[\"'`]"]
        ]
      }
     ```
